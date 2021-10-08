@@ -1,0 +1,10 @@
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\bin\Debug\ListasYMenus.exe.config
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\bin\Debug\ListasYMenus.exe
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\bin\Debug\ListasYMenus.pdb
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\obj\Debug\ListasYMenus.csprojAssemblyReference.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\obj\Debug\ListasYMenus.Properties.Resources.resources
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\obj\Debug\ListasYMenus.csproj.GenerateResource.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\obj\Debug\ListasYMenus.csproj.CoreCompileInputs.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\obj\Debug\ListasYMenus.exe
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\obj\Debug\ListasYMenus.pdb
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\03ListasYMenus\ListasYMenus\ListasYMenus\obj\Debug\ListasYMenus.fmListasYMenus.resources

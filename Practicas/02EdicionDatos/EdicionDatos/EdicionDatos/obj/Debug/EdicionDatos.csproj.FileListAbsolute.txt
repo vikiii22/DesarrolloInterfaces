@@ -1,0 +1,11 @@
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\bin\Debug\EdicionDatos.exe.config
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\bin\Debug\EdicionDatos.exe
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\bin\Debug\EdicionDatos.pdb
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.csprojAssemblyReference.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.fmEdicion.resources
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.Properties.Resources.resources
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.csproj.GenerateResource.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.csproj.CoreCompileInputs.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.exe
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.pdb
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.fmIntroDatos.resources

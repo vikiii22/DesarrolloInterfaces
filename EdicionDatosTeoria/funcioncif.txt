@@ -1,0 +1,29 @@
+  public bool validacif(string cif)
+        {
+            int Suma=0, Control;              byte n;             bool Resulta=false;
+            if (cif.Length == 9)
+            {  //sumar las cifras pares
+                Suma = Convert.ToInt32(Convert.ToString(cif[2])) +
+                Convert.ToInt32(Convert.ToString(cif[4])) + Convert.ToInt32(Convert.ToString(cif[6]));
+              
+                for (n = 0; n <= 3; n++)
+                {//suma los impares
+                    string impares = Convert.ToString(Convert.ToInt32(Convert.ToString(cif[n*2+1])) * 2);
+                    Suma=Suma+ Convert.ToInt32(Convert.ToString(impares[0]));
+                    if (impares.Length > 1)
+                          Suma = Suma + Convert.ToInt32(Convert.ToString(impares[1]));
+                }
+                Control = 10 - (Suma % 10);/////////////////////////////////////
+                string primercar = Convert.ToString(cif[0]);
+                if ((primercar.IndexOf("X") >= 0) || (primercar.IndexOf("P") >= 0))
+                {   //Control tipo letra
+                    Resulta = (cif[8] == (char)(64 + Control));  
+                }
+                else
+                {   //Control tipo número
+                    if (Control == 10) Control = 0; 
+                    Resulta = (Convert.ToString(cif[8])) == Convert.ToString(Control);
+                }
+            }//DEL IF
+            return Resulta;
+        } //fin de la funcion

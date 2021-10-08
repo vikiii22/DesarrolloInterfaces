@@ -1,0 +1,11 @@
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\bin\Debug\Formulario.exe.config
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\bin\Debug\Formulario.exe
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\bin\Debug\Formulario.pdb
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\obj\Debug\Formulario.csprojAssemblyReference.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\obj\Debug\Formulario.fmFormulario.resources
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\obj\Debug\Formulario.Properties.Resources.resources
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\obj\Debug\Formulario.csproj.GenerateResource.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\obj\Debug\Formulario.csproj.CoreCompileInputs.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\obj\Debug\Formulario.exe
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\obj\Debug\Formulario.pdb
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\01Formulario\Formulario\Formulario\obj\Debug\Formulario.fmAcercaDe.resources

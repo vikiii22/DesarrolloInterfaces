@@ -1,0 +1,11 @@
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\bin\Debug\netcoreapp2.1\Ejercicio1.deps.json
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\bin\Debug\netcoreapp2.1\Ejercicio1.runtimeconfig.json
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\bin\Debug\netcoreapp2.1\Ejercicio1.runtimeconfig.dev.json
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\bin\Debug\netcoreapp2.1\Ejercicio1.dll
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\bin\Debug\netcoreapp2.1\Ejercicio1.pdb
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\obj\Debug\netcoreapp2.1\Ejercicio1.csprojAssemblyReference.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\obj\Debug\netcoreapp2.1\Ejercicio1.csproj.CoreCompileInputs.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\obj\Debug\netcoreapp2.1\Ejercicio1.AssemblyInfoInputs.cache
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\obj\Debug\netcoreapp2.1\Ejercicio1.AssemblyInfo.cs
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\obj\Debug\netcoreapp2.1\Ejercicio1.dll
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\ejerciciosconsola\Ejercicio1\Ejercicio1\obj\Debug\netcoreapp2.1\Ejercicio1.pdb
