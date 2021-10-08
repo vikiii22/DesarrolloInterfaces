@@ -173,6 +173,7 @@ namespace ListasYMenus
             int index = listBoxAlumnos.SelectedIndex;
             if (listBoxAlumnos.SelectedIndex < listBoxAlumnos.Items.Count - 1)
             {
+
                 listBoxAlumnos.Items.Insert(listBoxAlumnos.SelectedIndex + 2, listBoxAlumnos.SelectedItem);
                 listBoxAlumnos.Items.RemoveAt(listBoxAlumnos.SelectedIndex);
                 listBoxAlumnos.SelectedIndex = index + 1;
