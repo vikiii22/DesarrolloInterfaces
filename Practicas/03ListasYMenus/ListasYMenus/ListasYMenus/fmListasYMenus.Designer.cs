@@ -73,6 +73,7 @@
             this.btBuscar.TabIndex = 17;
             this.btBuscar.Text = "Buscar";
             this.btBuscar.UseVisualStyleBackColor = true;
+            this.btBuscar.Click += new System.EventHandler(this.btBuscar_Click);
             // 
             // btInsertar
             // 
@@ -82,6 +83,7 @@
             this.btInsertar.TabIndex = 16;
             this.btInsertar.Text = "Insertar";
             this.btInsertar.UseVisualStyleBackColor = true;
+            this.btInsertar.Click += new System.EventHandler(this.btInsertar_Click);
             // 
             // btBorrar
             // 
@@ -91,6 +93,7 @@
             this.btBorrar.TabIndex = 15;
             this.btBorrar.Text = "Borrar";
             this.btBorrar.UseVisualStyleBackColor = true;
+            this.btBorrar.Click += new System.EventHandler(this.btBorrar_Click);
             // 
             // btAnyadir
             // 
@@ -228,6 +231,7 @@
             this.btFlechaAbajo.Size = new System.Drawing.Size(41, 93);
             this.btFlechaAbajo.TabIndex = 12;
             this.btFlechaAbajo.UseVisualStyleBackColor = true;
+            this.btFlechaAbajo.Click += new System.EventHandler(this.btFlechaAbajo_Click);
             // 
             // btFlechaArriba
             // 
@@ -236,6 +240,7 @@
             this.btFlechaArriba.Size = new System.Drawing.Size(41, 93);
             this.btFlechaArriba.TabIndex = 13;
             this.btFlechaArriba.UseVisualStyleBackColor = true;
+            this.btFlechaArriba.Click += new System.EventHandler(this.btFlechaArriba_Click);
             // 
             // label1
             // 

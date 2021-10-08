@@ -88,9 +88,94 @@ namespace ListasYMenus
 
         private void tbNuevo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)13)
+            if (e.KeyChar == (char)13)
             {
                 btAnyadir.PerformClick();
+            }
+        }
+
+        private void btBorrar_Click(object sender, EventArgs e)
+        {
+            if (listBoxAlumnos.SelectedIndex < 0)
+            {
+                MessageBox.Show("Selecciona un alumno");
+            }
+            else
+            {
+                //listBoxAlumnos.Items.Remove(listBoxAlumnos.Items[listBoxAlumnos.SelectedIndex]);
+                listBoxAlumnos.Items.RemoveAt(listBoxAlumnos.SelectedIndex);
+            }
+        }
+
+        private void btInsertar_Click(object sender, EventArgs e)
+        {
+            tbNuevo.SelectAll();
+            if (tbNuevo.Text == "")
+            {
+                MessageBox.Show("Introduce nombre");
+                tbNuevo.Focus();
+            }
+            else
+            {
+                if (listBoxAlumnos.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Elige posición en la lista");
+                }
+                else
+                {
+                    if (listBoxAlumnos.Items.IndexOf(tbNuevo.Text) == -1)
+                    {
+                        listBoxAlumnos.Items.Insert(listBoxAlumnos.SelectedIndex, tbNuevo.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El alumno ya existe");
+                        tbNuevo.Focus();
+                    }
+                }
+            }
+        }
+
+        private void btBuscar_Click(object sender, EventArgs e)
+        {
+            if (tbNuevo.Text == "")
+            {
+                MessageBox.Show("Ingresa nombre");
+                tbNuevo.Focus();
+            }
+            else
+            {
+                if (listBoxAlumnos.Items.IndexOf(tbNuevo.Text) == -1)
+                {
+                    MessageBox.Show(tbNuevo.Text + " No existe");
+                }
+                else
+                {
+                    listBoxAlumnos.SelectedIndex = listBoxAlumnos.Items.IndexOf(tbNuevo.Text);
+                }
+            }
+            tbNuevo.Focus();
+        }
+
+        private void btFlechaArriba_Click(object sender, EventArgs e)
+        {
+            int index = listBoxAlumnos.SelectedIndex;
+            if (listBoxAlumnos.SelectedIndex > 0)
+            {
+                listBoxAlumnos.Items.Insert(listBoxAlumnos.SelectedIndex - 1, listBoxAlumnos.SelectedItem);
+                listBoxAlumnos.Items.RemoveAt(listBoxAlumnos.SelectedIndex);
+                listBoxAlumnos.SelectedIndex = index - 1;
+            }
+        }
+
+        private void btFlechaAbajo_Click(object sender, EventArgs e)
+        {
+            int index = listBoxAlumnos.SelectedIndex;
+            if (listBoxAlumnos.SelectedIndex < listBoxAlumnos.Items.Count - 1)
+            {
+                listBoxAlumnos.Items.Insert(listBoxAlumnos.SelectedIndex + 2, listBoxAlumnos.SelectedItem);
+                listBoxAlumnos.Items.RemoveAt(listBoxAlumnos.SelectedIndex);
+                listBoxAlumnos.SelectedIndex = index + 1;
             }
         }
     }
