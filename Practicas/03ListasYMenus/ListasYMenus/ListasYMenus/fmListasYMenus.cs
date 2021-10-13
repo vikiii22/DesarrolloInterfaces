@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,10 @@ namespace ListasYMenus
 {
     public partial class fmListasYMenus : Form
     {
+        //fmAcercaDe ventanaAcercaDe;
         public fmListasYMenus()
         {
             InitializeComponent();
-            comboBoxGrupos.Text = "1A";
         }
 
         private void btMostrarMas_Click(object sender, EventArgs e)
@@ -177,6 +178,63 @@ namespace ListasYMenus
                 listBoxAlumnos.Items.Insert(listBoxAlumnos.SelectedIndex + 2, listBoxAlumnos.SelectedItem);
                 listBoxAlumnos.Items.RemoveAt(listBoxAlumnos.SelectedIndex);
                 listBoxAlumnos.SelectedIndex = index + 1;
+            }
+        }
+
+        private void itAcercaDe_Click(object sender, EventArgs e)
+        {
+            /*VentanaAcercaDe = new fmAcercaDe();
+            VentanaAcercaDe;*/
+        }
+
+        private void itNuevo_Click(object sender, EventArgs e)
+        {
+            listBoxAlumnos.Items.Clear();
+        }
+
+        private void itSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void fmListasYMenus_Load(object sender, EventArgs e)
+        {
+            comboBoxGrupos.SelectedIndex = 0;
+            btAbrir.PerformClick();
+        }
+
+        private void btGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {//@ actúa como prefijo de un elemento de código que el compilador interpreta como identificador
+                StreamWriter miArchivo = new StreamWriter(@".\cursos\" + comboBoxGrupos.Text + ".txt");
+                foreach (object lista in listBoxAlumnos.Items)
+                {
+                    miArchivo.WriteLine(lista.ToString());
+                }
+                miArchivo.Close();
+            }
+            catch (Exception miError)
+            {
+                MessageBox.Show(miError.Message);
+            }
+        }
+
+        private void btAbrir_Click(object sender, EventArgs e)
+        {
+            listBoxAlumnos.Items.Clear();
+            try
+            {
+                StreamReader miArchivo = new StreamReader(@".\cursos\" + comboBoxGrupos.Text + ".txt");
+                while (miArchivo.Peek() >= 0)
+                {
+                    listBoxAlumnos.Items.Add(Convert.ToString(miArchivo.ReadLine()));
+                }
+                miArchivo.Close();
+            }
+            catch(Exception miError)
+            {
+                MessageBox.Show(miError.Message);
             }
         }
     }

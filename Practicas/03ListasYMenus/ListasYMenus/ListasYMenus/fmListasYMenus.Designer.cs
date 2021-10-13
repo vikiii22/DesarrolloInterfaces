@@ -43,13 +43,23 @@
             this.btSalir = new System.Windows.Forms.Button();
             this.btOrdenar = new System.Windows.Forms.Button();
             this.btActualizar = new System.Windows.Forms.Button();
-            this.btFlechaAbajo = new System.Windows.Forms.Button();
-            this.btFlechaArriba = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbNuevo = new System.Windows.Forms.TextBox();
             this.lbNuevo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.mnListas = new System.Windows.Forms.MenuStrip();
+            this.itArchivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.itNuevo = new System.Windows.Forms.ToolStripMenuItem();
+            this.itAbrir = new System.Windows.Forms.ToolStripMenuItem();
+            this.itGuardar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.itSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.itAyuda = new System.Windows.Forms.ToolStripMenuItem();
+            this.itAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
+            this.btFlechaArriba = new System.Windows.Forms.Button();
+            this.btFlechaAbajo = new System.Windows.Forms.Button();
             this.pnActualiza.SuspendLayout();
+            this.mnListas.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnActualiza
@@ -110,11 +120,9 @@
             this.listBoxAlumnos.FormattingEnabled = true;
             this.listBoxAlumnos.ItemHeight = 16;
             this.listBoxAlumnos.Items.AddRange(new object[] {
-            "Luis",
-            "Paco",
-            "Pepe",
-            "Ramon",
-            "Jose"});
+            "Jose",
+            "Fer",
+            "Nacho"});
             this.listBoxAlumnos.Location = new System.Drawing.Point(57, 122);
             this.listBoxAlumnos.Name = "listBoxAlumnos";
             this.listBoxAlumnos.Size = new System.Drawing.Size(198, 212);
@@ -137,6 +145,7 @@
             this.comboBoxGrupos.Name = "comboBoxGrupos";
             this.comboBoxGrupos.Size = new System.Drawing.Size(121, 24);
             this.comboBoxGrupos.TabIndex = 2;
+            this.comboBoxGrupos.TextChanged += new System.EventHandler(this.btAbrir_Click);
             // 
             // btMostrarTodos
             // 
@@ -169,6 +178,7 @@
             this.btNuevo.TabIndex = 5;
             this.btNuevo.Text = "Nuevo";
             this.btNuevo.UseVisualStyleBackColor = true;
+            this.btNuevo.Click += new System.EventHandler(this.itNuevo_Click);
             // 
             // btAbrir
             // 
@@ -179,6 +189,7 @@
             this.btAbrir.TabIndex = 6;
             this.btAbrir.Text = "Abrir";
             this.btAbrir.UseVisualStyleBackColor = true;
+            this.btAbrir.Click += new System.EventHandler(this.btAbrir_Click);
             // 
             // btGuardar
             // 
@@ -189,6 +200,7 @@
             this.btGuardar.TabIndex = 7;
             this.btGuardar.Text = "Guardar";
             this.btGuardar.UseVisualStyleBackColor = true;
+            this.btGuardar.Click += new System.EventHandler(this.btGuardar_Click);
             // 
             // btSalir
             // 
@@ -199,6 +211,7 @@
             this.btSalir.TabIndex = 8;
             this.btSalir.Text = "Salir";
             this.btSalir.UseVisualStyleBackColor = true;
+            this.btSalir.Click += new System.EventHandler(this.itSalir_Click);
             // 
             // btOrdenar
             // 
@@ -223,24 +236,6 @@
             this.btActualizar.Text = "Actualizar";
             this.btActualizar.UseVisualStyleBackColor = false;
             this.btActualizar.Click += new System.EventHandler(this.btActualizar_Click);
-            // 
-            // btFlechaAbajo
-            // 
-            this.btFlechaAbajo.Location = new System.Drawing.Point(293, 241);
-            this.btFlechaAbajo.Name = "btFlechaAbajo";
-            this.btFlechaAbajo.Size = new System.Drawing.Size(41, 93);
-            this.btFlechaAbajo.TabIndex = 12;
-            this.btFlechaAbajo.UseVisualStyleBackColor = true;
-            this.btFlechaAbajo.Click += new System.EventHandler(this.btFlechaAbajo_Click);
-            // 
-            // btFlechaArriba
-            // 
-            this.btFlechaArriba.Location = new System.Drawing.Point(293, 135);
-            this.btFlechaArriba.Name = "btFlechaArriba";
-            this.btFlechaArriba.Size = new System.Drawing.Size(41, 93);
-            this.btFlechaArriba.TabIndex = 13;
-            this.btFlechaArriba.UseVisualStyleBackColor = true;
-            this.btFlechaArriba.Click += new System.EventHandler(this.btFlechaArriba_Click);
             // 
             // label1
             // 
@@ -279,6 +274,102 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "Alumnos";
             // 
+            // mnListas
+            // 
+            this.mnListas.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mnListas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itArchivo,
+            this.itAyuda});
+            this.mnListas.Location = new System.Drawing.Point(0, 0);
+            this.mnListas.Name = "mnListas";
+            this.mnListas.Size = new System.Drawing.Size(944, 28);
+            this.mnListas.TabIndex = 18;
+            this.mnListas.Text = "menuStrip1";
+            // 
+            // itArchivo
+            // 
+            this.itArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itNuevo,
+            this.itAbrir,
+            this.itGuardar,
+            this.toolStripMenuItem1,
+            this.itSalir});
+            this.itArchivo.Name = "itArchivo";
+            this.itArchivo.Size = new System.Drawing.Size(71, 24);
+            this.itArchivo.Text = "A&rchivo";
+            // 
+            // itNuevo
+            // 
+            this.itNuevo.Image = global::ListasYMenus.Properties.Resources.NUEVO;
+            this.itNuevo.Name = "itNuevo";
+            this.itNuevo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.itNuevo.Size = new System.Drawing.Size(216, 26);
+            this.itNuevo.Text = "Nuevo";
+            this.itNuevo.Click += new System.EventHandler(this.itNuevo_Click);
+            // 
+            // itAbrir
+            // 
+            this.itAbrir.Name = "itAbrir";
+            this.itAbrir.Size = new System.Drawing.Size(216, 26);
+            this.itAbrir.Text = "A&brir";
+            this.itAbrir.Click += new System.EventHandler(this.btAbrir_Click);
+            // 
+            // itGuardar
+            // 
+            this.itGuardar.Image = global::ListasYMenus.Properties.Resources.GRABAR;
+            this.itGuardar.Name = "itGuardar";
+            this.itGuardar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+            this.itGuardar.Size = new System.Drawing.Size(216, 26);
+            this.itGuardar.Text = "Guardar";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 6);
+            // 
+            // itSalir
+            // 
+            this.itSalir.Name = "itSalir";
+            this.itSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
+            this.itSalir.Size = new System.Drawing.Size(216, 26);
+            this.itSalir.Text = "Salir";
+            this.itSalir.Click += new System.EventHandler(this.itSalir_Click);
+            // 
+            // itAyuda
+            // 
+            this.itAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itAcercaDe});
+            this.itAyuda.Name = "itAyuda";
+            this.itAyuda.Size = new System.Drawing.Size(63, 24);
+            this.itAyuda.Text = "Ayuda";
+            // 
+            // itAcercaDe
+            // 
+            this.itAcercaDe.Name = "itAcercaDe";
+            this.itAcercaDe.Size = new System.Drawing.Size(216, 26);
+            this.itAcercaDe.Text = "Acerca De";
+            this.itAcercaDe.Click += new System.EventHandler(this.itAcercaDe_Click);
+            // 
+            // btFlechaArriba
+            // 
+            this.btFlechaArriba.Image = global::ListasYMenus.Properties.Resources.flechaA;
+            this.btFlechaArriba.Location = new System.Drawing.Point(293, 135);
+            this.btFlechaArriba.Name = "btFlechaArriba";
+            this.btFlechaArriba.Size = new System.Drawing.Size(41, 93);
+            this.btFlechaArriba.TabIndex = 13;
+            this.btFlechaArriba.UseVisualStyleBackColor = true;
+            this.btFlechaArriba.Click += new System.EventHandler(this.btFlechaArriba_Click);
+            // 
+            // btFlechaAbajo
+            // 
+            this.btFlechaAbajo.Image = global::ListasYMenus.Properties.Resources.flechaB;
+            this.btFlechaAbajo.Location = new System.Drawing.Point(293, 241);
+            this.btFlechaAbajo.Name = "btFlechaAbajo";
+            this.btFlechaAbajo.Size = new System.Drawing.Size(41, 93);
+            this.btFlechaAbajo.TabIndex = 12;
+            this.btFlechaAbajo.UseVisualStyleBackColor = true;
+            this.btFlechaAbajo.Click += new System.EventHandler(this.btFlechaAbajo_Click);
+            // 
             // fmListasYMenus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -301,10 +392,15 @@
             this.Controls.Add(this.comboBoxGrupos);
             this.Controls.Add(this.listBoxAlumnos);
             this.Controls.Add(this.pnActualiza);
+            this.Controls.Add(this.mnListas);
+            this.MainMenuStrip = this.mnListas;
             this.MaximizeBox = false;
             this.Name = "fmListasYMenus";
             this.Text = "Listas y Menús";
+            this.Load += new System.EventHandler(this.fmListasYMenus_Load);
             this.pnActualiza.ResumeLayout(false);
+            this.mnListas.ResumeLayout(false);
+            this.mnListas.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,6 +429,15 @@
         private System.Windows.Forms.TextBox tbNuevo;
         private System.Windows.Forms.Label lbNuevo;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MenuStrip mnListas;
+        private System.Windows.Forms.ToolStripMenuItem itArchivo;
+        private System.Windows.Forms.ToolStripMenuItem itAyuda;
+        private System.Windows.Forms.ToolStripMenuItem itNuevo;
+        private System.Windows.Forms.ToolStripMenuItem itAbrir;
+        private System.Windows.Forms.ToolStripMenuItem itGuardar;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem itSalir;
+        private System.Windows.Forms.ToolStripMenuItem itAcercaDe;
     }
 }
 
