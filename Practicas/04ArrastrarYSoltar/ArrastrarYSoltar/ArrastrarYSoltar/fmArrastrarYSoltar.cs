@@ -13,6 +13,8 @@ namespace ArrastrarYSoltar
 {
     public partial class fmArrastrarYSoltar : Form
     {
+        fmPapelera ventanaPapelera = new fmPapelera();
+
         public fmArrastrarYSoltar()
         {
             InitializeComponent();
@@ -86,7 +88,7 @@ namespace ArrastrarYSoltar
 
         private void anyadeListBox(ListBox lbAcopla, ListBox lbArrastra)
         {
-            for (int i=0; i < lbArrastra.Items.Count; i++)
+            for (int i = 0; i < lbArrastra.Items.Count; i++)
             {
                 if (lbArrastra.GetSelected(i))
                 {
@@ -104,6 +106,53 @@ namespace ArrastrarYSoltar
             else
             {
                 e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void btBorra1_Click(object sender, EventArgs e)
+        {
+            borraListBox(lb1);
+        }
+
+        private void btBorra2_Click(object sender, EventArgs e)
+        {
+            borraListBox(lb2);
+        }
+
+        private void btBorraTodo1_Click(object sender, EventArgs e)
+        {
+            lb1.Items.Clear();
+        }
+
+        private void btBorraTodo2_Click(object sender, EventArgs e)
+        {
+            lb2.Items.Clear();
+        }
+
+        private void cbOrdenar_CheckedChanged(object sender, EventArgs e)
+        {
+            lb1.Sorted = cbOrdenar.Checked;
+        }
+
+        private void cbOrdenar2_CheckedChanged(object sender, EventArgs e)
+        {
+            lb2.Sorted = cbOrdenar2.Checked;
+        }
+
+        private void btPapelera_DragDrop(object sender, DragEventArgs e)
+        {
+            anyadeListBox2(lb1);
+            borraListBox(lb1);
+        }
+
+        private void anyadeListBox2(ListBox miListBox)
+        {
+            for (int i = 0; i < miListBox.Items.Count; i++)
+            {
+                if (miListBox.GetSelected(i))
+                {
+                    ventanaPapelera.lbPapelera.Items.Add(miListBox.Items[i]);
+                }
             }
         }
     }
