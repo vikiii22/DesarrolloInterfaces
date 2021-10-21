@@ -33,16 +33,16 @@
             this.lb2 = new System.Windows.Forms.ListBox();
             this.cbOrdenar = new System.Windows.Forms.CheckBox();
             this.cbOrdenar2 = new System.Windows.Forms.CheckBox();
-            this.btBorra1 = new System.Windows.Forms.Button();
             this.btBorraTodo1 = new System.Windows.Forms.Button();
             this.btBorra2 = new System.Windows.Forms.Button();
             this.btBorraTodo2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btPapelera = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.vaciarPapeleraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btPapelera = new System.Windows.Forms.Button();
+            this.btBorra1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,7 @@
             this.lb1.TabIndex = 0;
             this.lb1.DragDrop += new System.Windows.Forms.DragEventHandler(this.lb1_DragDrop);
             this.lb1.DragEnter += new System.Windows.Forms.DragEventHandler(this.lb1_DragEnter);
+            this.lb1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb1_KeyDown);
             this.lb1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lb1_MouseDown);
             // 
             // lb2
@@ -72,6 +73,7 @@
             this.lb2.TabIndex = 1;
             this.lb2.DragDrop += new System.Windows.Forms.DragEventHandler(this.lb1_DragDrop);
             this.lb2.DragEnter += new System.Windows.Forms.DragEventHandler(this.lb1_DragEnter);
+            this.lb2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lb2_KeyDown);
             this.lb2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lb2_MouseDown);
             // 
             // cbOrdenar
@@ -95,16 +97,6 @@
             this.cbOrdenar2.Text = "Ordena";
             this.cbOrdenar2.UseVisualStyleBackColor = true;
             this.cbOrdenar2.CheckedChanged += new System.EventHandler(this.cbOrdenar2_CheckedChanged);
-            // 
-            // btBorra1
-            // 
-            this.btBorra1.Image = global::ArrastrarYSoltar.Properties.Resources.ELIMINA;
-            this.btBorra1.Location = new System.Drawing.Point(107, 140);
-            this.btBorra1.Name = "btBorra1";
-            this.btBorra1.Size = new System.Drawing.Size(32, 30);
-            this.btBorra1.TabIndex = 4;
-            this.btBorra1.UseVisualStyleBackColor = true;
-            this.btBorra1.Click += new System.EventHandler(this.btBorra1_Click);
             // 
             // btBorraTodo1
             // 
@@ -148,19 +140,6 @@
             this.label1.Text = "Arrastra un Archivo de texto a los ListBox\r\nIntercambia los Elementos entre ellos" +
     "";
             // 
-            // btPapelera
-            // 
-            this.btPapelera.AllowDrop = true;
-            this.btPapelera.AutoSize = true;
-            this.btPapelera.Location = new System.Drawing.Point(374, 450);
-            this.btPapelera.Name = "btPapelera";
-            this.btPapelera.Size = new System.Drawing.Size(75, 80);
-            this.btPapelera.TabIndex = 9;
-            this.btPapelera.Text = "Papelera";
-            this.btPapelera.UseVisualStyleBackColor = true;
-            this.btPapelera.DragDrop += new System.Windows.Forms.DragEventHandler(this.btPapelera_DragDrop);
-            this.btPapelera.DragEnter += new System.Windows.Forms.DragEventHandler(this.lb1_DragEnter);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -176,6 +155,7 @@
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             this.abrirToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
             this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.itcAbrir_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -187,6 +167,31 @@
             this.vaciarPapeleraToolStripMenuItem.Name = "vaciarPapeleraToolStripMenuItem";
             this.vaciarPapeleraToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
             this.vaciarPapeleraToolStripMenuItem.Text = "Vaciar Papelera";
+            // 
+            // btPapelera
+            // 
+            this.btPapelera.AllowDrop = true;
+            this.btPapelera.AutoSize = true;
+            this.btPapelera.Location = new System.Drawing.Point(374, 450);
+            this.btPapelera.Name = "btPapelera";
+            this.btPapelera.Size = new System.Drawing.Size(75, 80);
+            this.btPapelera.TabIndex = 9;
+            this.btPapelera.Text = "Papelera";
+            this.btPapelera.UseMnemonic = false;
+            this.btPapelera.UseVisualStyleBackColor = true;
+            this.btPapelera.Click += new System.EventHandler(this.itcAbrir_Click);
+            this.btPapelera.DragDrop += new System.Windows.Forms.DragEventHandler(this.btPapelera_DragDrop);
+            this.btPapelera.DragEnter += new System.Windows.Forms.DragEventHandler(this.lb1_DragEnter);
+            // 
+            // btBorra1
+            // 
+            this.btBorra1.Image = global::ArrastrarYSoltar.Properties.Resources.ELIMINA;
+            this.btBorra1.Location = new System.Drawing.Point(107, 140);
+            this.btBorra1.Name = "btBorra1";
+            this.btBorra1.Size = new System.Drawing.Size(32, 30);
+            this.btBorra1.TabIndex = 4;
+            this.btBorra1.UseVisualStyleBackColor = true;
+            this.btBorra1.Click += new System.EventHandler(this.btBorra1_Click);
             // 
             // fmArrastrarYSoltar
             // 
@@ -205,6 +210,7 @@
             this.Controls.Add(this.lb1);
             this.Name = "fmArrastrarYSoltar";
             this.Text = "Arrastrar y Soltar";
+            this.Load += new System.EventHandler(this.fmArrastrarYSoltar_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

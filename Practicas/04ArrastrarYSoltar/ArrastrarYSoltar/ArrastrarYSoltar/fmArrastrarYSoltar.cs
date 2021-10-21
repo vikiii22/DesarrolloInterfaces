@@ -141,18 +141,55 @@ namespace ArrastrarYSoltar
 
         private void btPapelera_DragDrop(object sender, DragEventArgs e)
         {
-            anyadeListBox2(lb1);
-            borraListBox(lb1);
+            if (lb1.SelectedIndex > -1)
+            {
+                anyadeListBox2(lb1, "1");
+                borraListBox(lb1);
+            }
+            if (lb2.SelectedIndex > -1)
+            {
+                anyadeListBox2(lb2, "2");
+                borraListBox(lb2);
+            }
         }
 
-        private void anyadeListBox2(ListBox miListBox)
+        private void anyadeListBox2(ListBox miListBox, string numListBox)
         {
             for (int i = 0; i < miListBox.Items.Count; i++)
             {
                 if (miListBox.GetSelected(i))
                 {
-                    ventanaPapelera.lbPapelera.Items.Add(miListBox.Items[i]);
+                    ventanaPapelera.lbPapelera.Items.Add(miListBox.Items[i] + "-" + numListBox);
                 }
+            }
+        }
+
+        private void fmArrastrarYSoltar_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itcAbrir_Click(object sender, EventArgs e)
+        {
+            ventanaPapelera.miLb1 = lb1;
+            ventanaPapelera.miLb2 = lb2;
+            ventanaPapelera.ShowDialog();
+        }
+
+        private void lb2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Back || e.KeyCode == Keys.Delete){
+                anyadeListBox2(lb2, "2");
+                borraListBox(lb2);
+            }
+        }
+
+        private void lb1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Back || e.KeyCode == Keys.Delete)
+            {
+                anyadeListBox2(lb1, "1");
+                borraListBox(lb1);
             }
         }
     }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btVaciarPapelera = new System.Windows.Forms.Button();
-            this.btRestaurarTodo = new System.Windows.Forms.Button();
             this.btRestaurarSeleccionados = new System.Windows.Forms.Button();
+            this.btRestaurarTodo = new System.Windows.Forms.Button();
+            this.btVaciarPapelera = new System.Windows.Forms.Button();
             this.lbPapelera = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,15 +47,16 @@
             this.panel1.Size = new System.Drawing.Size(446, 110);
             this.panel1.TabIndex = 0;
             // 
-            // btVaciarPapelera
+            // btRestaurarSeleccionados
             // 
-            this.btVaciarPapelera.AutoSize = true;
-            this.btVaciarPapelera.Location = new System.Drawing.Point(12, 31);
-            this.btVaciarPapelera.Name = "btVaciarPapelera";
-            this.btVaciarPapelera.Size = new System.Drawing.Size(75, 44);
-            this.btVaciarPapelera.TabIndex = 0;
-            this.btVaciarPapelera.Text = "Vaciar\r\nPapelera";
-            this.btVaciarPapelera.UseVisualStyleBackColor = true;
+            this.btRestaurarSeleccionados.AutoSize = true;
+            this.btRestaurarSeleccionados.Location = new System.Drawing.Point(324, 23);
+            this.btRestaurarSeleccionados.Name = "btRestaurarSeleccionados";
+            this.btRestaurarSeleccionados.Size = new System.Drawing.Size(110, 61);
+            this.btRestaurarSeleccionados.TabIndex = 2;
+            this.btRestaurarSeleccionados.Text = "Restaurar\r\nElementos\r\nSeleccionados";
+            this.btRestaurarSeleccionados.UseVisualStyleBackColor = true;
+            this.btRestaurarSeleccionados.Click += new System.EventHandler(this.btRestaurarSeleccionados_Click);
             // 
             // btRestaurarTodo
             // 
@@ -66,16 +67,18 @@
             this.btRestaurarTodo.TabIndex = 1;
             this.btRestaurarTodo.Text = "Restaurar\r\nTodos\r\nElementos";
             this.btRestaurarTodo.UseVisualStyleBackColor = true;
+            this.btRestaurarTodo.Click += new System.EventHandler(this.btRestaurarTodo_Click);
             // 
-            // btRestaurarSeleccionados
+            // btVaciarPapelera
             // 
-            this.btRestaurarSeleccionados.AutoSize = true;
-            this.btRestaurarSeleccionados.Location = new System.Drawing.Point(324, 23);
-            this.btRestaurarSeleccionados.Name = "btRestaurarSeleccionados";
-            this.btRestaurarSeleccionados.Size = new System.Drawing.Size(110, 61);
-            this.btRestaurarSeleccionados.TabIndex = 2;
-            this.btRestaurarSeleccionados.Text = "Restaurar\r\nElementos\r\nSeleccionados";
-            this.btRestaurarSeleccionados.UseVisualStyleBackColor = true;
+            this.btVaciarPapelera.AutoSize = true;
+            this.btVaciarPapelera.Location = new System.Drawing.Point(12, 31);
+            this.btVaciarPapelera.Name = "btVaciarPapelera";
+            this.btVaciarPapelera.Size = new System.Drawing.Size(75, 44);
+            this.btVaciarPapelera.TabIndex = 0;
+            this.btVaciarPapelera.Text = "Vaciar\r\nPapelera";
+            this.btVaciarPapelera.UseVisualStyleBackColor = true;
+            this.btVaciarPapelera.Click += new System.EventHandler(this.btVaciarPapelera_Click);
             // 
             // lbPapelera
             // 
