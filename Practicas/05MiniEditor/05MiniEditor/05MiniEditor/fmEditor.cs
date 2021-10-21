@@ -103,5 +103,126 @@ namespace _05MiniEditor
             string fuente = cbFuente.Text;
             rtbEditor.SelectionFont = new Font(fuente, tamanyo, estilo);
         }
+
+        private void lbColores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Color miColor = Color.Black;
+            switch (lbColores.SelectedIndex)
+            {
+                case 0:
+                    miColor = Color.Red;
+                    break;
+                case 1:
+                    miColor = Color.Green;
+                    break;
+                case 2:
+                    miColor = Color.Blue;
+                    break;
+                case 3:
+                    miColor = Color.Gray;
+                    break;
+                case 4:
+                    miColor = Color.Yellow;
+                    break;
+                case 5:
+                    miColor = Color.Orange;
+                    break;
+                case 6:
+                    miColor = Color.Black;
+                    break;
+            }
+            rtbEditor.SelectionColor = miColor;
+            rtbEditor.Focus();
+        }
+
+        private void btAbrir_Click(object sender, EventArgs e)
+        {
+            if (tbNombre.Text == "")
+            {
+                MessageBox.Show("Pon un nombre");
+                tbNombre.Focus();
+            }
+            else
+            {
+                rtbEditor.Clear();
+                try
+                {
+                    rtbEditor.LoadFile(@".\Archivos" + tbNombre.Text + ".rtf");
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                rtbEditor.Focus();
+            }
+        }
+
+        private void btGuardar_Click(object sender, EventArgs e)
+        {
+            if (tbNombre.Text == "")
+            {
+                MessageBox.Show("Pon un nombre");
+                tbNombre.Focus();
+            }
+            else
+            {
+                //rtbEditor.Clear();
+                try
+                {
+                    rtbEditor.SaveFile(@".\Archivos" + tbNombre.Text + ".rtf");
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                rtbEditor.Focus();
+            }
+        }
+
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbEditor.Clear();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void cortarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbEditor.Cut();
+        }
+
+        private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbEditor.Copy();
+        }
+
+        private void pegarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbEditor.Paste();
+        }
+
+        private void vaciarPortapapelesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+        }
+
+        private void itDeshacer_Click(object sender, EventArgs e)
+        {
+            if (rtbEditor.CanUndo)
+            {
+                rtbEditor.Undo();
+            }
+        }
+
+        private void itRehacer_Click(object sender, EventArgs e)
+        {
+            if (rtbEditor.CanRedo)
+            {
+                rtbEditor.Redo();
+            }
+        }
     }
 }
