@@ -42,6 +42,11 @@ namespace _05MiniEditor
             }
             rtbEditor.SelectionFont = new Font(rtbEditor.SelectionFont, negrita | subrayado | cursiva | tachado);
             rtbEditor.Focus();
+
+            itNegrita.Checked = cbNegrita.Checked;
+            itCursiva.Checked = cbCursiva.Checked;
+            itSubrayado.Checked = cbSubrayado.Checked;
+            itTachado.Checked = cbTachado.Checked;
         }
 
         private void rbIzquierda_CheckedChanged(object sender, EventArgs e)
@@ -63,6 +68,10 @@ namespace _05MiniEditor
                 rtbEditor.SelectionAlignment = HorizontalAlignment.Center;
             }
             rtbEditor.Focus();
+
+            itCent.Checked = rbCentrada.Checked;
+            itDere.Checked = rbDerecha.Checked;
+            itIzq.Checked = rbIzquierda.Checked;
         }
 
         private void cbTamanio_KeyPress(object sender, KeyPressEventArgs e)
@@ -106,6 +115,26 @@ namespace _05MiniEditor
 
         private void lbColores_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int indice = 0;
+            if(sender is ToolStripMenuItem)
+            {
+                ToolStripMenuItem elementos = sender as ToolStripMenuItem;
+                if(elementos != null)
+                {
+                    indice = itColores.DropDownItems.IndexOf(elementos);
+                    lbColores.SelectedIndex = indice;
+                }
+            }
+            else
+            {
+                for (int i=0; i<lbColores.Items.Count; i++)
+                {
+                    ((ToolStripMenuItem)itColores.DropDownItems[i]).Checked = false;
+                }
+                indice = lbColores.SelectedIndex;
+            }
+            ((ToolStripMenuItem)itColores.DropDownItems[indice]).Checked = true;
+
             Color miColor = Color.Black;
             switch (lbColores.SelectedIndex)
             {
@@ -224,5 +253,45 @@ namespace _05MiniEditor
                 rtbEditor.Redo();
             }
         }
+
+        private void itDere_Click(object sender, EventArgs e)
+        {
+            rbDerecha.Checked = true;
+        }
+
+        private void itCent_Click(object sender, EventArgs e)
+        {
+            rbCentrada.Checked = true;
+        }
+
+        private void itIzq_Click(object sender, EventArgs e)
+        {
+            rbIzquierda.Checked = true;
+        }
+
+        private void itNegrita_Click(object sender, EventArgs e)
+        {
+            cbNegrita.Checked = !cbNegrita.Checked;
+        }
+
+        private void itCursiva_Click(object sender, EventArgs e)
+        {
+            cbCursiva.Checked = !cbCursiva.Checked;
+        }
+
+        private void itSubrayado_Click(object sender, EventArgs e)
+        {
+            cbSubrayado.Checked = !cbSubrayado.Checked;
+        }
+
+        private void itTachado_Click(object sender, EventArgs e)
+        {
+            cbTachado.Checked = !cbTachado.Checked;
+        }
     }
 }
+
+/**
+ * Falta poner un context menuStrip con los items de la interface del pdf y asociar los items a los correspondientes del menú principal
+ * y hacer que se muestre solo en el richtextbox
+ * */
