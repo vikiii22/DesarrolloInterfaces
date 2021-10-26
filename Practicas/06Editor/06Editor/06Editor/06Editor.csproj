@@ -52,6 +52,18 @@
     <Compile Include="fmEditor.Designer.cs">
       <DependentUpon>fmEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmDatos.Designer.cs">
+      <DependentUpon>fmDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmMargenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmMargenes.Designer.cs">
+      <DependentUpon>fmMargenes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fmEditor.resx">
@@ -88,6 +100,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\guardar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintDocumentControl_697_24.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CORTAR.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\COPIA.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CORTA.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PEGA.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DESHAZ.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CopiarFormatos.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ESTILO.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\negrita.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cursiva.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subrayado.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tachado.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IZQDA.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CENTRO.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DCHA.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PALETA.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rehacer.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
