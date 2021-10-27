@@ -16,7 +16,9 @@ namespace _06Editor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Documento1());
+            fmPresentacion ventanaPresentacion = new fmPresentacion();
+            ventanaPresentacion.ShowDialog();
+            Application.Run(new fmEditor());
         }
     }
 }
