@@ -75,21 +75,21 @@
             this.itGuardar = new System.Windows.Forms.ToolStripMenuItem();
             this.itGuardarComo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itImprimir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ediciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deshacerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rehacerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itDeshacer = new System.Windows.Forms.ToolStripMenuItem();
+            this.itRehacer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.cortarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pegarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itCortar = new System.Windows.Forms.ToolStripMenuItem();
+            this.itPegar = new System.Windows.Forms.ToolStripMenuItem();
+            this.itCopiar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.borrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seleccionarTodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itBorrar = new System.Windows.Forms.ToolStripMenuItem();
+            this.itSeleccionarTodo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.irAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itIrA = new System.Windows.Forms.ToolStripMenuItem();
             this.formatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fuentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDeFondoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,6 +113,9 @@
             this.rtbEditor = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dlgAbrir = new System.Windows.Forms.OpenFileDialog();
+            this.dlgGuardar = new System.Windows.Forms.SaveFileDialog();
+            this.dlgImprimir = new System.Windows.Forms.PrintDialog();
+            this.printDocEditor = new System.Drawing.Printing.PrintDocument();
             this.tsBarraEstandar.SuspendLayout();
             this.tsBarraFormato.SuspendLayout();
             this.stEstadoEditor.SuspendLayout();
@@ -153,6 +156,7 @@
             this.tsbNuevo.Name = "tsbNuevo";
             this.tsbNuevo.Size = new System.Drawing.Size(24, 24);
             this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.Click += new System.EventHandler(this.itNuevo_Click);
             // 
             // tsbAbrir
             // 
@@ -162,6 +166,7 @@
             this.tsbAbrir.Name = "tsbAbrir";
             this.tsbAbrir.Size = new System.Drawing.Size(24, 24);
             this.tsbAbrir.Text = "toolStripButton2";
+            this.tsbAbrir.Click += new System.EventHandler(this.itAbrir_Click);
             // 
             // tsbGuardar
             // 
@@ -171,6 +176,7 @@
             this.tsbGuardar.Name = "tsbGuardar";
             this.tsbGuardar.Size = new System.Drawing.Size(24, 24);
             this.tsbGuardar.Text = "toolStripButton3";
+            this.tsbGuardar.Click += new System.EventHandler(this.itGuardar_Click);
             // 
             // tsbImprimir
             // 
@@ -180,6 +186,7 @@
             this.tsbImprimir.Name = "tsbImprimir";
             this.tsbImprimir.Size = new System.Drawing.Size(24, 24);
             this.tsbImprimir.Text = "toolStripButton4";
+            this.tsbImprimir.Click += new System.EventHandler(this.itImprimir_Click);
             // 
             // toolStripSeparator1
             // 
@@ -483,7 +490,7 @@
             this.itGuardar,
             this.itGuardarComo,
             this.toolStripMenuItem1,
-            this.imprimirToolStripMenuItem,
+            this.itImprimir,
             this.toolStripMenuItem2,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
@@ -515,24 +522,27 @@
             this.itGuardar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.itGuardar.Size = new System.Drawing.Size(216, 26);
             this.itGuardar.Text = "Guardar";
+            this.itGuardar.Click += new System.EventHandler(this.itGuardar_Click);
             // 
             // itGuardarComo
             // 
             this.itGuardarComo.Name = "itGuardarComo";
             this.itGuardarComo.Size = new System.Drawing.Size(216, 26);
             this.itGuardarComo.Text = "Guardar como";
+            this.itGuardarComo.Click += new System.EventHandler(this.itGuardarComo_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 6);
             // 
-            // imprimirToolStripMenuItem
+            // itImprimir
             // 
-            this.imprimirToolStripMenuItem.Image = global::_06Editor.Properties.Resources.PrintDocumentControl_697_24;
-            this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.imprimirToolStripMenuItem.Text = "Imprimir";
+            this.itImprimir.Image = global::_06Editor.Properties.Resources.PrintDocumentControl_697_24;
+            this.itImprimir.Name = "itImprimir";
+            this.itImprimir.Size = new System.Drawing.Size(216, 26);
+            this.itImprimir.Text = "Imprimir";
+            this.itImprimir.Click += new System.EventHandler(this.itImprimir_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -549,83 +559,91 @@
             // ediciónToolStripMenuItem
             // 
             this.ediciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deshacerToolStripMenuItem,
-            this.rehacerToolStripMenuItem,
+            this.itDeshacer,
+            this.itRehacer,
             this.toolStripMenuItem3,
-            this.cortarToolStripMenuItem,
-            this.pegarToolStripMenuItem,
-            this.copiarToolStripMenuItem,
+            this.itCortar,
+            this.itPegar,
+            this.itCopiar,
             this.toolStripMenuItem4,
-            this.borrarToolStripMenuItem,
-            this.seleccionarTodoToolStripMenuItem,
+            this.itBorrar,
+            this.itSeleccionarTodo,
             this.toolStripMenuItem5,
-            this.irAToolStripMenuItem});
+            this.itIrA});
             this.ediciónToolStripMenuItem.Name = "ediciónToolStripMenuItem";
             this.ediciónToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.ediciónToolStripMenuItem.Text = "Edición";
             // 
-            // deshacerToolStripMenuItem
+            // itDeshacer
             // 
-            this.deshacerToolStripMenuItem.Name = "deshacerToolStripMenuItem";
-            this.deshacerToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
-            this.deshacerToolStripMenuItem.Text = "Deshacer";
+            this.itDeshacer.Name = "itDeshacer";
+            this.itDeshacer.Size = new System.Drawing.Size(216, 26);
+            this.itDeshacer.Text = "Deshacer";
+            this.itDeshacer.Click += new System.EventHandler(this.itDeshacer_Click);
             // 
-            // rehacerToolStripMenuItem
+            // itRehacer
             // 
-            this.rehacerToolStripMenuItem.Name = "rehacerToolStripMenuItem";
-            this.rehacerToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
-            this.rehacerToolStripMenuItem.Text = "Rehacer";
+            this.itRehacer.Name = "itRehacer";
+            this.itRehacer.Size = new System.Drawing.Size(216, 26);
+            this.itRehacer.Text = "Rehacer";
+            this.itRehacer.Click += new System.EventHandler(this.itRehacer_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(193, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(213, 6);
             // 
-            // cortarToolStripMenuItem
+            // itCortar
             // 
-            this.cortarToolStripMenuItem.Name = "cortarToolStripMenuItem";
-            this.cortarToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
-            this.cortarToolStripMenuItem.Text = "Cortar";
+            this.itCortar.Name = "itCortar";
+            this.itCortar.Size = new System.Drawing.Size(216, 26);
+            this.itCortar.Text = "Cortar";
+            this.itCortar.Click += new System.EventHandler(this.itCortar_Click);
             // 
-            // pegarToolStripMenuItem
+            // itPegar
             // 
-            this.pegarToolStripMenuItem.Name = "pegarToolStripMenuItem";
-            this.pegarToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
-            this.pegarToolStripMenuItem.Text = "Pegar";
+            this.itPegar.Name = "itPegar";
+            this.itPegar.Size = new System.Drawing.Size(216, 26);
+            this.itPegar.Text = "Pegar";
+            this.itPegar.Click += new System.EventHandler(this.itPegar_Click);
             // 
-            // copiarToolStripMenuItem
+            // itCopiar
             // 
-            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
-            this.copiarToolStripMenuItem.Text = "Copiar";
+            this.itCopiar.Name = "itCopiar";
+            this.itCopiar.Size = new System.Drawing.Size(216, 26);
+            this.itCopiar.Text = "Copiar";
+            this.itCopiar.Click += new System.EventHandler(this.itCopiar_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(193, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(213, 6);
             // 
-            // borrarToolStripMenuItem
+            // itBorrar
             // 
-            this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
-            this.borrarToolStripMenuItem.Text = "Borrar";
+            this.itBorrar.Name = "itBorrar";
+            this.itBorrar.Size = new System.Drawing.Size(216, 26);
+            this.itBorrar.Text = "Borrar";
+            this.itBorrar.Click += new System.EventHandler(this.itBorrar_Click);
             // 
-            // seleccionarTodoToolStripMenuItem
+            // itSeleccionarTodo
             // 
-            this.seleccionarTodoToolStripMenuItem.Name = "seleccionarTodoToolStripMenuItem";
-            this.seleccionarTodoToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
-            this.seleccionarTodoToolStripMenuItem.Text = "Seleccionar todo";
+            this.itSeleccionarTodo.Name = "itSeleccionarTodo";
+            this.itSeleccionarTodo.Size = new System.Drawing.Size(216, 26);
+            this.itSeleccionarTodo.Text = "Seleccionar todo";
+            this.itSeleccionarTodo.Click += new System.EventHandler(this.itSeleccionarTodo_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(193, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(213, 6);
             // 
-            // irAToolStripMenuItem
+            // itIrA
             // 
-            this.irAToolStripMenuItem.Name = "irAToolStripMenuItem";
-            this.irAToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
-            this.irAToolStripMenuItem.Text = "Ir a";
+            this.itIrA.Name = "itIrA";
+            this.itIrA.Size = new System.Drawing.Size(216, 26);
+            this.itIrA.Text = "Ir a";
+            this.itIrA.Click += new System.EventHandler(this.itIrA_Click);
             // 
             // formatoToolStripMenuItem
             // 
@@ -780,9 +798,33 @@
             // 
             // dlgAbrir
             // 
+            this.dlgAbrir.AutoUpgradeEnabled = false;
             this.dlgAbrir.DefaultExt = "rtf";
             this.dlgAbrir.Filter = "Archivo de Texto(.txt)|*.txt|Archivo Rico(.rtf)|*.rtf|Todos los archivos(*.*)|*.*" +
     "";
+            this.dlgAbrir.InitialDirectory = ".\\";
+            // 
+            // dlgGuardar
+            // 
+            this.dlgGuardar.AutoUpgradeEnabled = false;
+            this.dlgGuardar.DefaultExt = "rtf";
+            this.dlgGuardar.Filter = "Archivo de Texto(.txt)|*.txt|Archivo Rico(.rtf)|*.rtf|Todos los archivos(*.*)|*.*" +
+    "";
+            this.dlgGuardar.FilterIndex = 2;
+            this.dlgGuardar.InitialDirectory = ".\\";
+            this.dlgGuardar.Title = "Guardando como";
+            // 
+            // dlgImprimir
+            // 
+            this.dlgImprimir.AllowSomePages = true;
+            this.dlgImprimir.Document = this.printDocEditor;
+            this.dlgImprimir.PrintToFile = true;
+            this.dlgImprimir.ShowHelp = true;
+            this.dlgImprimir.UseEXDialog = true;
+            // 
+            // printDocEditor
+            // 
+            this.printDocEditor.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocEditor_PrintPage);
             // 
             // fmEditor
             // 
@@ -865,20 +907,20 @@
         private System.Windows.Forms.ToolStripMenuItem itGuardar;
         private System.Windows.Forms.ToolStripMenuItem itGuardarComo;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deshacerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rehacerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itDeshacer;
+        private System.Windows.Forms.ToolStripMenuItem itRehacer;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem cortarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pegarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem copiarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itCortar;
+        private System.Windows.Forms.ToolStripMenuItem itPegar;
+        private System.Windows.Forms.ToolStripMenuItem itCopiar;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem borrarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem seleccionarTodoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itBorrar;
+        private System.Windows.Forms.ToolStripMenuItem itSeleccionarTodo;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem irAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itIrA;
         private System.Windows.Forms.ToolStripMenuItem fuentesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorDeFondoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
@@ -898,6 +940,9 @@
         private System.Windows.Forms.ToolStripMenuItem ayudaGeneralToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.OpenFileDialog dlgAbrir;
+        private System.Windows.Forms.SaveFileDialog dlgGuardar;
+        private System.Windows.Forms.PrintDialog dlgImprimir;
+        private System.Drawing.Printing.PrintDocument printDocEditor;
     }
 }
 

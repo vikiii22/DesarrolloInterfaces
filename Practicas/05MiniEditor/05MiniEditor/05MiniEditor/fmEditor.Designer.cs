@@ -431,7 +431,7 @@
             // 
             this.itCortar.Name = "itCortar";
             this.itCortar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.itCortar.Size = new System.Drawing.Size(216, 26);
+            this.itCortar.Size = new System.Drawing.Size(214, 26);
             this.itCortar.Text = "Cortar";
             this.itCortar.Click += new System.EventHandler(this.cortarToolStripMenuItem_Click);
             // 
@@ -439,7 +439,7 @@
             // 
             this.itCopiar.Name = "itCopiar";
             this.itCopiar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.itCopiar.Size = new System.Drawing.Size(216, 26);
+            this.itCopiar.Size = new System.Drawing.Size(214, 26);
             this.itCopiar.Text = "Copiar";
             this.itCopiar.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
             // 
@@ -447,38 +447,38 @@
             // 
             this.itPegar.Name = "itPegar";
             this.itPegar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.itPegar.Size = new System.Drawing.Size(216, 26);
+            this.itPegar.Size = new System.Drawing.Size(214, 26);
             this.itPegar.Text = "Pegar";
             this.itPegar.Click += new System.EventHandler(this.pegarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(211, 6);
             // 
             // itVaciar
             // 
             this.itVaciar.Name = "itVaciar";
-            this.itVaciar.Size = new System.Drawing.Size(216, 26);
+            this.itVaciar.Size = new System.Drawing.Size(214, 26);
             this.itVaciar.Text = "Vaciar Portapapeles";
             this.itVaciar.Click += new System.EventHandler(this.vaciarPortapapelesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(211, 6);
             // 
             // itDeshacer
             // 
             this.itDeshacer.Name = "itDeshacer";
-            this.itDeshacer.Size = new System.Drawing.Size(216, 26);
+            this.itDeshacer.Size = new System.Drawing.Size(214, 26);
             this.itDeshacer.Text = "Deshacer";
             this.itDeshacer.Click += new System.EventHandler(this.itDeshacer_Click);
             // 
             // itRehacer
             // 
             this.itRehacer.Name = "itRehacer";
-            this.itRehacer.Size = new System.Drawing.Size(216, 26);
+            this.itRehacer.Size = new System.Drawing.Size(214, 26);
             this.itRehacer.Text = "Rehacer";
             this.itRehacer.Click += new System.EventHandler(this.itRehacer_Click);
             // 
@@ -636,8 +636,9 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.acercaDeToolStripMenuItem.Text = "Acerca De";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // rtbEditor
             // 

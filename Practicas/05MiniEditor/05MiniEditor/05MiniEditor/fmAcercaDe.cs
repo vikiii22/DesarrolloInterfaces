@@ -8,28 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _06Editor
+namespace _05MiniEditor
 {
-    public partial class fmDatos : Form
+    public partial class fmAcercaDe : Form
     {
-        public fmDatos()
+        public fmAcercaDe()
         {
             InitializeComponent();
         }
 
-        private void btCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void tbDato_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btAceptar_Click(object sender, EventArgs e)
         {
-            
+            Close();
         }
     }
 }

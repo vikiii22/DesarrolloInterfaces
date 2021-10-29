@@ -12,6 +12,8 @@ namespace _05MiniEditor
 {
     public partial class fmEditorTextos : Form
     {
+        fmAcercaDe ventantaAcercaDe;
+
         public fmEditorTextos()
         {
             InitializeComponent();
@@ -76,7 +78,25 @@ namespace _05MiniEditor
 
         private void cbTamanio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Poner código para solo números
+            switch (e.KeyChar)
+            {
+                case (char)8:
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case '0':
+                case ',':
+                    break;
+                default:
+                    e.KeyChar = (char)0;
+                    break;
+            }
         }
 
         private void cbTamanio_TextChanged(object sender, EventArgs e)
@@ -287,6 +307,13 @@ namespace _05MiniEditor
         private void itTachado_Click(object sender, EventArgs e)
         {
             cbTachado.Checked = !cbTachado.Checked;
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ventantaAcercaDe = new fmAcercaDe();
+            ventantaAcercaDe.ShowDialog();
+            ventantaAcercaDe.Dispose();
         }
     }
 }
