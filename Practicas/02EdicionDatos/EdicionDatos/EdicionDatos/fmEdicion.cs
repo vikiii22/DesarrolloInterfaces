@@ -13,6 +13,7 @@ namespace EdicionDatos
     public partial class fmEdicion : Form
     {
         fmIntroDatos ventanaDatos = new fmIntroDatos();
+        fmAcercaDe ventanaAcercaDe;
         public fmEdicion()
         {
             InitializeComponent();
@@ -116,6 +117,12 @@ namespace EdicionDatos
         private void pnDatos_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ventanaAcercaDe = new fmAcercaDe();
+            ventanaAcercaDe.ShowDialog();
         }
     }
 }

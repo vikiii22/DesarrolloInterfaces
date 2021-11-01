@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btIntDatos = new System.Windows.Forms.Button();
             this.pnDatos = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.laLocalidad = new System.Windows.Forms.Label();
             this.laDireccion = new System.Windows.Forms.Label();
             this.lbNombrePrincipal = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.pnDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +118,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Acerca De";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btIntDatos
             // 
@@ -154,6 +155,18 @@
             this.pnDatos.TabIndex = 7;
             this.pnDatos.Visible = false;
             this.pnDatos.Paint += new System.Windows.Forms.PaintEventHandler(this.pnDatos_Paint);
+            // 
+            // label10
+            // 
+            this.label10.AutoEllipsis = true;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(165, 17);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(406, 29);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "LOS DATOS INTRODUCIDOS SON:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
@@ -288,18 +301,6 @@
             this.lbNombrePrincipal.Size = new System.Drawing.Size(17, 17);
             this.lbNombrePrincipal.TabIndex = 1;
             this.lbNombrePrincipal.Text = "X";
-            // 
-            // label10
-            // 
-            this.label10.AutoEllipsis = true;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(165, 17);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(406, 29);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "LOS DATOS INTRODUCIDOS SON:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // fmEdicion
             // 

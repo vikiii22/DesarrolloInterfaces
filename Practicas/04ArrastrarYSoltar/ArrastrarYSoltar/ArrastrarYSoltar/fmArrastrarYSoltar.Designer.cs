@@ -43,6 +43,8 @@
             this.vaciarPapeleraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btPapelera = new System.Windows.Forms.Button();
             this.btBorra1 = new System.Windows.Forms.Button();
+            this.btSalir = new System.Windows.Forms.Button();
+            this.btAcercaDe = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,31 +102,32 @@
             // 
             // btBorraTodo1
             // 
-            this.btBorraTodo1.Location = new System.Drawing.Point(242, 149);
+            this.btBorraTodo1.Location = new System.Drawing.Point(196, 149);
             this.btBorraTodo1.Name = "btBorraTodo1";
-            this.btBorraTodo1.Size = new System.Drawing.Size(75, 23);
+            this.btBorraTodo1.Size = new System.Drawing.Size(121, 23);
             this.btBorraTodo1.TabIndex = 5;
-            this.btBorraTodo1.Text = "button2";
+            this.btBorraTodo1.Text = "Eliminar Todo";
             this.btBorraTodo1.UseVisualStyleBackColor = true;
             this.btBorraTodo1.Click += new System.EventHandler(this.btBorraTodo1_Click);
             // 
             // btBorra2
             // 
+            this.btBorra2.AutoSize = true;
+            this.btBorra2.Image = global::ArrastrarYSoltar.Properties.Resources.ELIMINA;
             this.btBorra2.Location = new System.Drawing.Point(510, 149);
             this.btBorra2.Name = "btBorra2";
-            this.btBorra2.Size = new System.Drawing.Size(75, 23);
+            this.btBorra2.Size = new System.Drawing.Size(33, 26);
             this.btBorra2.TabIndex = 6;
-            this.btBorra2.Text = "button3";
             this.btBorra2.UseVisualStyleBackColor = true;
             this.btBorra2.Click += new System.EventHandler(this.btBorra2_Click);
             // 
             // btBorraTodo2
             // 
-            this.btBorraTodo2.Location = new System.Drawing.Point(654, 149);
+            this.btBorraTodo2.Location = new System.Drawing.Point(610, 149);
             this.btBorraTodo2.Name = "btBorraTodo2";
-            this.btBorraTodo2.Size = new System.Drawing.Size(75, 23);
+            this.btBorraTodo2.Size = new System.Drawing.Size(119, 23);
             this.btBorraTodo2.TabIndex = 7;
-            this.btBorraTodo2.Text = "button4";
+            this.btBorraTodo2.Text = "Eliminar Todo";
             this.btBorraTodo2.UseVisualStyleBackColor = true;
             this.btBorraTodo2.Click += new System.EventHandler(this.btBorraTodo2_Click);
             // 
@@ -193,11 +196,34 @@
             this.btBorra1.UseVisualStyleBackColor = true;
             this.btBorra1.Click += new System.EventHandler(this.btBorra1_Click);
             // 
+            // btSalir
+            // 
+            this.btSalir.Location = new System.Drawing.Point(784, 506);
+            this.btSalir.Name = "btSalir";
+            this.btSalir.Size = new System.Drawing.Size(75, 23);
+            this.btSalir.TabIndex = 10;
+            this.btSalir.Text = "Salir";
+            this.btSalir.UseVisualStyleBackColor = true;
+            this.btSalir.Click += new System.EventHandler(this.btSalir_Click);
+            // 
+            // btAcercaDe
+            // 
+            this.btAcercaDe.AutoSize = true;
+            this.btAcercaDe.Location = new System.Drawing.Point(689, 504);
+            this.btAcercaDe.Name = "btAcercaDe";
+            this.btAcercaDe.Size = new System.Drawing.Size(84, 27);
+            this.btAcercaDe.TabIndex = 11;
+            this.btAcercaDe.Text = "Acerca De";
+            this.btAcercaDe.UseVisualStyleBackColor = true;
+            this.btAcercaDe.Click += new System.EventHandler(this.btAcercaDe_Click);
+            // 
             // fmArrastrarYSoltar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 552);
+            this.Controls.Add(this.btAcercaDe);
+            this.Controls.Add(this.btSalir);
             this.Controls.Add(this.btPapelera);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btBorraTodo2);
@@ -233,6 +259,8 @@
         private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem vaciarPapeleraToolStripMenuItem;
+        private System.Windows.Forms.Button btSalir;
+        private System.Windows.Forms.Button btAcercaDe;
     }
 }
 

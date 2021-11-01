@@ -14,6 +14,7 @@ namespace ArrastrarYSoltar
     public partial class fmArrastrarYSoltar : Form
     {
         fmPapelera ventanaPapelera = new fmPapelera();
+        fmAcercaDe ventanaAcercaDe;
 
         public fmArrastrarYSoltar()
         {
@@ -191,6 +192,17 @@ namespace ArrastrarYSoltar
                 anyadeListBox2(lb1, "1");
                 borraListBox(lb1);
             }
+        }
+
+        private void btSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btAcercaDe_Click(object sender, EventArgs e)
+        {
+            ventanaAcercaDe = new fmAcercaDe();
+            ventanaAcercaDe.ShowDialog();
         }
     }
 }

@@ -63,6 +63,16 @@ namespace ListasYMenus.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ABRIR {
+            get {
+                object obj = ResourceManager.GetObject("ABRIR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap flechaA {
             get {
                 object obj = ResourceManager.GetObject("flechaA", resourceCulture);

@@ -13,7 +13,7 @@ namespace ListasYMenus
 {
     public partial class fmListasYMenus : Form
     {
-        //fmAcercaDe ventanaAcercaDe;
+        fmAcercaDe ventanaAcercaDe;
         public fmListasYMenus()
         {
             InitializeComponent();
@@ -183,8 +183,8 @@ namespace ListasYMenus
 
         private void itAcercaDe_Click(object sender, EventArgs e)
         {
-            /*VentanaAcercaDe = new fmAcercaDe();
-            VentanaAcercaDe;*/
+            ventanaAcercaDe = new fmAcercaDe();
+            ventanaAcercaDe.ShowDialog();
         }
 
         private void itNuevo_Click(object sender, EventArgs e)

@@ -9,3 +9,4 @@ D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\Edi
 D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.exe
 D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.pdb
 D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.fmIntroDatos.resources
+D:\Documents\2DAM\DesarrolloInterfaces\Practicas\02EdicionDatos\EdicionDatos\EdicionDatos\obj\Debug\EdicionDatos.fmAcercaDe.resources
