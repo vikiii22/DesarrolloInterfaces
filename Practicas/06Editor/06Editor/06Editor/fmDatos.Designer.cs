@@ -110,11 +110,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox tbDato;
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label lbDato;
         public System.Windows.Forms.Label lbTipo;
         public System.Windows.Forms.Button btAceptar;
+        public System.Windows.Forms.TextBox tbDato;
     }
 }

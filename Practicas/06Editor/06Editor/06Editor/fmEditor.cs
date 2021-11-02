@@ -259,24 +259,12 @@ namespace _06Editor
             ventanaDatos.Text = "Para ir a una línea concreta";
             ventanaDatos.lbTipo.Text = "Número";
             ventanaDatos.lbDato.Text = "Número de línea";
-
+            
 
             ventanaDatos.ShowDialog();
         }
 
-        private void tsbNegrita_Click(object sender, EventArgs e)
-        {
-            if (tsbNegrita.Checked)
-            {
-                FontStyle negrita = new FontStyle();
-                rtbEditor.Font = new Font(rtbEditor.Font, FontStyle.Bold);
-            }
-            else
-            {
-                rtbEditor.Font = new Font(rtbEditor.Font, FontStyle.Regular);
-            }
-        }
-
+        
         private void tsbCopiarFormato_Click(object sender, EventArgs e)
         {
             if (tsbCopiarFormato.Checked) stEstadoEditor.Items[0].Text = "Vas a copiar formato a la nueva ubicación";
@@ -322,6 +310,63 @@ namespace _06Editor
             rtbEditor.SelectionIndent = 0;
             rtbEditor.SelectionBullet = false;
             //itVietas.Checked = false;
+        }
+
+
+        private void tsbCursiva_CheckedChanged(object sender, EventArgs e)
+        {
+            FontStyle negrita = new FontStyle();
+            FontStyle cursiva = new FontStyle();
+            FontStyle subrayado = new FontStyle();
+
+            if (tsbNegrita.Checked)
+            {
+                negrita = FontStyle.Bold;
+            }
+
+            if (tsbCursiva.Checked)
+            {
+                cursiva = FontStyle.Italic;
+            }
+
+            if (tsbSubrayado.Checked) {
+                subrayado = FontStyle.Underline;
+            }
+
+            rtbEditor.SelectionFont = new Font(rtbEditor.SelectionFont, negrita | cursiva | subrayado);
+        }
+
+        private void cbTamanyo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case (char)8:
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case '0':
+                    break;
+                default:
+                    e.KeyChar = (char)0;
+                    break;
+            }
+        }
+
+        private void cbTamanyo_TextChanged(object sender, EventArgs e)
+        {
+            miEstilo = new FontStyle();
+            miEstilo = rtbEditor.SelectionFont.Style;
+            string fuente = rtbEditor.SelectionFont.Name;
+            if(cbTamanyo.Text != "")
+            {
+                rtbEditor.SelectionFont = new Font(fuente, Convert.ToInt32(cbTamanyo.Text), miEstilo);
+            }
         }
     }
 }
