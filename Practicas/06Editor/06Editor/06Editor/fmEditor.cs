@@ -12,6 +12,14 @@ namespace _06Editor
 {
     public partial class fmEditor : Form
     {
+        FontStyle miEstilo = new FontStyle();
+        string miFuente;
+        float miTamanyo;
+        Color miColor;
+
+        string[] linea;
+        int totalLineasImpresas;
+
         fmDatos ventanaDatos = new fmDatos();
         public fmEditor()
         {
@@ -100,8 +108,29 @@ namespace _06Editor
 
         private void itAbrir_Click(object sender, EventArgs e)
         {
-            dlgAbrir.ShowDialog();
+            //dlgAbrir.ShowDialog();
+            stEstadoEditor.Items[0].Text = "Abriendo archivo de diferentes formatos";
+            if (rtbEditor.Modified)
+            {
+                DialogResult resultado = MessageBox.Show("Hay cambios pendientes de guardar, guardas?", "Guardar cambios", MessageBoxButtons.YesNoCancel);
 
+                switch (resultado)
+                {
+                    case DialogResult.Yes:
+                        itGuardar.PerformClick();
+                        break;
+                    case DialogResult.Cancel:
+                        rtbEditor.Focus();
+                        return;
+                }
+            }
+            if (dlgAbrir.ShowDialog() == DialogResult.OK && dlgAbrir.FileName.Length > 0)
+            {
+                if (dlgAbrir.FilterIndex == 1)
+                {
+                    // rtbEditor.
+                }
+            }
 
         }
 
@@ -136,8 +165,7 @@ namespace _06Editor
                 }
             }
         }
-        string[] linea;
-        int totalLineasImpresas;
+
 
         private void itImprimir_Click(object sender, EventArgs e)
         {
@@ -215,7 +243,7 @@ namespace _06Editor
 
         private void itBorrar_Click(object sender, EventArgs e)
         {
-            if(rtbEditor.SelectionLength > 0)
+            if (rtbEditor.SelectionLength > 0)
             {
                 rtbEditor.SelectedText = "";
             }
@@ -229,11 +257,71 @@ namespace _06Editor
         private void itIrA_Click(object sender, EventArgs e)
         {
             ventanaDatos.Text = "Para ir a una línea concreta";
-            ventanaDatos.lbTipo.Text = "Num de línea";
+            ventanaDatos.lbTipo.Text = "Número";
             ventanaDatos.lbDato.Text = "Número de línea";
-            
+
 
             ventanaDatos.ShowDialog();
+        }
+
+        private void tsbNegrita_Click(object sender, EventArgs e)
+        {
+            if (tsbNegrita.Checked)
+            {
+                FontStyle negrita = new FontStyle();
+                rtbEditor.Font = new Font(rtbEditor.Font, FontStyle.Bold);
+            }
+            else
+            {
+                rtbEditor.Font = new Font(rtbEditor.Font, FontStyle.Regular);
+            }
+        }
+
+        private void tsbCopiarFormato_Click(object sender, EventArgs e)
+        {
+            if (tsbCopiarFormato.Checked) stEstadoEditor.Items[0].Text = "Vas a copiar formato a la nueva ubicación";
+            else stEstadoEditor.Items[0].Text = "";
+
+            miEstilo = rtbEditor.SelectionFont.Style;
+            miFuente = rtbEditor.SelectionFont.Name;
+            miTamanyo = rtbEditor.SelectionFont.Size;
+            miColor = rtbEditor.SelectionColor;
+        }
+
+        private void rtbEditor_MouseDown(object sender, MouseEventArgs e)
+        {
+            stEstadoEditor.Items[0].Text = "Comprobar el botón de copiar formatos";
+
+            if (tsbCopiarFormato.Checked)
+            {
+                rtbEditor.SelectionFont = new Font(miFuente, miTamanyo, miEstilo);
+                rtbEditor.SelectionColor = miColor;
+            }
+        }
+
+        private void itQuitarFormato_Click(object sender, EventArgs e)
+        {
+            //itIzquierda.Checked = true;
+            tsbIzquierda.Checked = true;
+            tsbNegrita.Checked = false;
+            tsbCursiva.Checked = false;
+            tsbSubrayado.Checked = false;
+            tsbTachado.Checked = false;
+
+            tsbCopiarFormato.Checked = false;
+            FontStyle estilo = new FontStyle();
+            rtbEditor.SelectionFont = new Font("Arial", 10, estilo);
+            rtbEditor.SelectionColor = Color.Black;
+            rtbEditor.SelectionAlignment = HorizontalAlignment.Left;
+
+            cbFuentes.SelectedIndex = cbFuentes.Items.IndexOf("Arial");
+            cbTamanyo.Text = "10";
+            rtbEditor.BackColor = Color.White;
+
+            rtbEditor.SelectionRightIndent = 0;
+            rtbEditor.SelectionIndent = 0;
+            rtbEditor.SelectionBullet = false;
+            //itVietas.Checked = false;
         }
     }
 }

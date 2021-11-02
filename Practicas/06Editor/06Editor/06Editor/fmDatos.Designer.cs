@@ -85,7 +85,7 @@
             // lbTipo
             // 
             this.lbTipo.AutoSize = true;
-            this.lbTipo.Location = new System.Drawing.Point(293, 175);
+            this.lbTipo.Location = new System.Drawing.Point(192, 175);
             this.lbTipo.Name = "lbTipo";
             this.lbTipo.Size = new System.Drawing.Size(36, 17);
             this.lbTipo.TabIndex = 5;

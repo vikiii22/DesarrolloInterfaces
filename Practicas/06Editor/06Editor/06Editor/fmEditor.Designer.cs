@@ -58,7 +58,7 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.cbFuentes = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.tscbTamanyo = new System.Windows.Forms.ToolStripComboBox();
+            this.cbTamanyo = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbColores = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
@@ -201,6 +201,7 @@
             this.tsbCortar.Name = "tsbCortar";
             this.tsbCortar.Size = new System.Drawing.Size(24, 24);
             this.tsbCortar.Text = "toolStripButton5";
+            this.tsbCortar.Click += new System.EventHandler(this.itCortar_Click);
             // 
             // tsbCopiar
             // 
@@ -210,6 +211,7 @@
             this.tsbCopiar.Name = "tsbCopiar";
             this.tsbCopiar.Size = new System.Drawing.Size(24, 24);
             this.tsbCopiar.Text = "toolStripButton6";
+            this.tsbCopiar.Click += new System.EventHandler(this.itCopiar_Click);
             // 
             // tsbPegar
             // 
@@ -219,6 +221,7 @@
             this.tsbPegar.Name = "tsbPegar";
             this.tsbPegar.Size = new System.Drawing.Size(24, 24);
             this.tsbPegar.Text = "toolStripButton7";
+            this.tsbPegar.Click += new System.EventHandler(this.itPegar_Click);
             // 
             // toolStripSeparator2
             // 
@@ -233,6 +236,7 @@
             this.tsbDeshacer.Name = "tsbDeshacer";
             this.tsbDeshacer.Size = new System.Drawing.Size(24, 24);
             this.tsbDeshacer.Text = "toolStripButton8";
+            this.tsbDeshacer.Click += new System.EventHandler(this.itDeshacer_Click);
             // 
             // tsbRehacer
             // 
@@ -242,6 +246,7 @@
             this.tsbRehacer.Name = "tsbRehacer";
             this.tsbRehacer.Size = new System.Drawing.Size(24, 24);
             this.tsbRehacer.Text = "toolStripButton9";
+            this.tsbRehacer.Click += new System.EventHandler(this.itRehacer_Click);
             // 
             // toolStripSeparator3
             // 
@@ -250,12 +255,14 @@
             // 
             // tsbCopiarFormato
             // 
+            this.tsbCopiarFormato.CheckOnClick = true;
             this.tsbCopiarFormato.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbCopiarFormato.Image = global::_06Editor.Properties.Resources.CopiarFormatos;
             this.tsbCopiarFormato.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCopiarFormato.Name = "tsbCopiarFormato";
             this.tsbCopiarFormato.Size = new System.Drawing.Size(24, 24);
             this.tsbCopiarFormato.Text = "toolStripButton10";
+            this.tsbCopiarFormato.Click += new System.EventHandler(this.tsbCopiarFormato_Click);
             // 
             // toolStripSeparator4
             // 
@@ -270,6 +277,7 @@
             this.itQuitarFormato.Name = "itQuitarFormato";
             this.itQuitarFormato.Size = new System.Drawing.Size(24, 24);
             this.itQuitarFormato.Text = "toolStripButton11";
+            this.itQuitarFormato.Click += new System.EventHandler(this.itQuitarFormato_Click);
             // 
             // toolStripSeparator5
             // 
@@ -291,7 +299,7 @@
             this.toolStripSeparator7,
             this.cbFuentes,
             this.toolStripSeparator8,
-            this.tscbTamanyo,
+            this.cbTamanyo,
             this.toolStripSeparator9,
             this.tsbColores,
             this.toolStripSeparator10});
@@ -303,12 +311,14 @@
             // 
             // tsbNegrita
             // 
+            this.tsbNegrita.CheckOnClick = true;
             this.tsbNegrita.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbNegrita.Image = global::_06Editor.Properties.Resources.negrita;
             this.tsbNegrita.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNegrita.Name = "tsbNegrita";
             this.tsbNegrita.Size = new System.Drawing.Size(24, 25);
             this.tsbNegrita.Text = "toolStripButton12";
+            this.tsbNegrita.Click += new System.EventHandler(this.tsbNegrita_Click);
             // 
             // tsbCursiva
             // 
@@ -385,11 +395,11 @@
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(6, 28);
             // 
-            // tscbTamanyo
+            // cbTamanyo
             // 
-            this.tscbTamanyo.MaxLength = 2;
-            this.tscbTamanyo.Name = "tscbTamanyo";
-            this.tscbTamanyo.Size = new System.Drawing.Size(75, 28);
+            this.cbTamanyo.MaxLength = 2;
+            this.cbTamanyo.Name = "cbTamanyo";
+            this.cbTamanyo.Size = new System.Drawing.Size(75, 28);
             // 
             // toolStripSeparator9
             // 
@@ -502,7 +512,7 @@
             this.itNuevo.Image = global::_06Editor.Properties.Resources.NUEVO;
             this.itNuevo.Name = "itNuevo";
             this.itNuevo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.itNuevo.Size = new System.Drawing.Size(216, 26);
+            this.itNuevo.Size = new System.Drawing.Size(189, 26);
             this.itNuevo.Text = "&Nuevo";
             this.itNuevo.Click += new System.EventHandler(this.itNuevo_Click);
             // 
@@ -511,7 +521,7 @@
             this.itAbrir.Image = global::_06Editor.Properties.Resources.ABRIR;
             this.itAbrir.Name = "itAbrir";
             this.itAbrir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.itAbrir.Size = new System.Drawing.Size(216, 26);
+            this.itAbrir.Size = new System.Drawing.Size(189, 26);
             this.itAbrir.Text = "Abrir";
             this.itAbrir.Click += new System.EventHandler(this.itAbrir_Click);
             // 
@@ -520,40 +530,40 @@
             this.itGuardar.Image = global::_06Editor.Properties.Resources.guardar;
             this.itGuardar.Name = "itGuardar";
             this.itGuardar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.itGuardar.Size = new System.Drawing.Size(216, 26);
+            this.itGuardar.Size = new System.Drawing.Size(189, 26);
             this.itGuardar.Text = "Guardar";
             this.itGuardar.Click += new System.EventHandler(this.itGuardar_Click);
             // 
             // itGuardarComo
             // 
             this.itGuardarComo.Name = "itGuardarComo";
-            this.itGuardarComo.Size = new System.Drawing.Size(216, 26);
+            this.itGuardarComo.Size = new System.Drawing.Size(189, 26);
             this.itGuardarComo.Text = "Guardar como";
             this.itGuardarComo.Click += new System.EventHandler(this.itGuardarComo_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(186, 6);
             // 
             // itImprimir
             // 
             this.itImprimir.Image = global::_06Editor.Properties.Resources.PrintDocumentControl_697_24;
             this.itImprimir.Name = "itImprimir";
-            this.itImprimir.Size = new System.Drawing.Size(216, 26);
+            this.itImprimir.Size = new System.Drawing.Size(189, 26);
             this.itImprimir.Text = "Imprimir";
             this.itImprimir.Click += new System.EventHandler(this.itImprimir_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(186, 6);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // ediciónToolStripMenuItem
@@ -666,63 +676,63 @@
             // fuentesToolStripMenuItem
             // 
             this.fuentesToolStripMenuItem.Name = "fuentesToolStripMenuItem";
-            this.fuentesToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.fuentesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.fuentesToolStripMenuItem.Text = "Fuentes";
             // 
             // colorDeFondoToolStripMenuItem
             // 
             this.colorDeFondoToolStripMenuItem.Name = "colorDeFondoToolStripMenuItem";
-            this.colorDeFondoToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.colorDeFondoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.colorDeFondoToolStripMenuItem.Text = "Color de Fondo";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(206, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(213, 6);
             // 
             // márgenesToolStripMenuItem
             // 
             this.márgenesToolStripMenuItem.Name = "márgenesToolStripMenuItem";
-            this.márgenesToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.márgenesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.márgenesToolStripMenuItem.Text = "Márgenes";
             // 
             // justificaciónToolStripMenuItem
             // 
             this.justificaciónToolStripMenuItem.Name = "justificaciónToolStripMenuItem";
-            this.justificaciónToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.justificaciónToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.justificaciónToolStripMenuItem.Text = "Justificación";
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(206, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(213, 6);
             // 
             // viñetasToolStripMenuItem
             // 
             this.viñetasToolStripMenuItem.Name = "viñetasToolStripMenuItem";
-            this.viñetasToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.viñetasToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.viñetasToolStripMenuItem.Text = "Viñetas";
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(206, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(213, 6);
             // 
             // formatoDePáginaToolStripMenuItem
             // 
             this.formatoDePáginaToolStripMenuItem.Name = "formatoDePáginaToolStripMenuItem";
-            this.formatoDePáginaToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.formatoDePáginaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.formatoDePáginaToolStripMenuItem.Text = "Formato de Página";
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(206, 6);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(213, 6);
             // 
             // quitarFormatosToolStripMenuItem
             // 
             this.quitarFormatosToolStripMenuItem.Name = "quitarFormatosToolStripMenuItem";
-            this.quitarFormatosToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.quitarFormatosToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.quitarFormatosToolStripMenuItem.Text = "Quitar Formatos";
             // 
             // verToolStripMenuItem
@@ -766,19 +776,19 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             // 
             // indiceAyudaToolStripMenuItem
             // 
             this.indiceAyudaToolStripMenuItem.Name = "indiceAyudaToolStripMenuItem";
-            this.indiceAyudaToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.indiceAyudaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.indiceAyudaToolStripMenuItem.Text = "Indice Ayuda";
             // 
             // ayudaGeneralToolStripMenuItem
             // 
             this.ayudaGeneralToolStripMenuItem.Name = "ayudaGeneralToolStripMenuItem";
-            this.ayudaGeneralToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.ayudaGeneralToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.ayudaGeneralToolStripMenuItem.Text = "Ayuda General";
             // 
             // rtbEditor
@@ -789,6 +799,7 @@
             this.rtbEditor.Size = new System.Drawing.Size(1073, 471);
             this.rtbEditor.TabIndex = 4;
             this.rtbEditor.Text = "";
+            this.rtbEditor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbEditor_MouseDown);
             // 
             // timer1
             // 
@@ -885,7 +896,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripComboBox cbFuentes;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripComboBox tscbTamanyo;
+        private System.Windows.Forms.ToolStripComboBox cbTamanyo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripButton tsbColores;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
