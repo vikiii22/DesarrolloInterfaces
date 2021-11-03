@@ -128,10 +128,18 @@ namespace _06Editor
             {
                 if (dlgAbrir.FilterIndex == 1)
                 {
-                    // rtbEditor.
+                    rtbEditor.LoadFile(dlgAbrir.FileName, RichTextBoxStreamType.PlainText);
                 }
+                else
+                {
+                    rtbEditor.LoadFile(dlgAbrir.FileName, RichTextBoxStreamType.RichText);
+                }
+                Text = dlgAbrir.FileName;
+                rtbEditor.Modified = false;
             }
-
+            stEstadoEditor.Items[0].Text = "";
+            rtbEditor.Focus();
+            itQuitarFormato.PerformClick();
         }
 
         private void itGuardar_Click(object sender, EventArgs e)
@@ -259,12 +267,12 @@ namespace _06Editor
             ventanaDatos.Text = "Para ir a una línea concreta";
             ventanaDatos.lbTipo.Text = "Número";
             ventanaDatos.lbDato.Text = "Número de línea";
-            
+
 
             ventanaDatos.ShowDialog();
         }
 
-        
+
         private void tsbCopiarFormato_Click(object sender, EventArgs e)
         {
             if (tsbCopiarFormato.Checked) stEstadoEditor.Items[0].Text = "Vas a copiar formato a la nueva ubicación";
@@ -312,30 +320,6 @@ namespace _06Editor
             //itVietas.Checked = false;
         }
 
-
-        private void tsbCursiva_CheckedChanged(object sender, EventArgs e)
-        {
-            FontStyle negrita = new FontStyle();
-            FontStyle cursiva = new FontStyle();
-            FontStyle subrayado = new FontStyle();
-
-            if (tsbNegrita.Checked)
-            {
-                negrita = FontStyle.Bold;
-            }
-
-            if (tsbCursiva.Checked)
-            {
-                cursiva = FontStyle.Italic;
-            }
-
-            if (tsbSubrayado.Checked) {
-                subrayado = FontStyle.Underline;
-            }
-
-            rtbEditor.SelectionFont = new Font(rtbEditor.SelectionFont, negrita | cursiva | subrayado);
-        }
-
         private void cbTamanyo_KeyPress(object sender, KeyPressEventArgs e)
         {
             switch (e.KeyChar)
@@ -363,10 +347,174 @@ namespace _06Editor
             miEstilo = new FontStyle();
             miEstilo = rtbEditor.SelectionFont.Style;
             string fuente = rtbEditor.SelectionFont.Name;
-            if(cbTamanyo.Text != "")
+            if (cbTamanyo.Text != "")
             {
-                rtbEditor.SelectionFont = new Font(fuente, Convert.ToInt32(cbTamanyo.Text), miEstilo);
+                rtbEditor.SelectionFont = new Font(fuente, Convert.ToInt32(Math.Truncate(Convert.ToDecimal(cbTamanyo.Text))), miEstilo);
             }
+        }
+
+        private void tsbNegrita_Click(object sender, EventArgs e)
+        {
+            FontStyle negrita = new FontStyle();
+            FontStyle cursiva = new FontStyle();
+            FontStyle subrayado = new FontStyle();
+            FontStyle tachado = new FontStyle();
+
+            if (tsbNegrita.Checked)
+            {
+                negrita = FontStyle.Bold;
+            }
+
+            if (tsbCursiva.Checked)
+            {
+                cursiva = FontStyle.Italic;
+            }
+
+            if (tsbSubrayado.Checked)
+            {
+                subrayado = FontStyle.Underline;
+            }
+
+            if (tsbTachado.Checked)
+            {
+                tachado = FontStyle.Strikeout;
+            }
+
+            rtbEditor.SelectionFont = new Font(rtbEditor.SelectionFont, negrita | cursiva | subrayado | tachado);
+            rtbEditor.Focus();
+        }
+
+        void desmarca()
+        {
+            tsbIzquierda.Checked = false;
+            tsbCentro.Checked = false;
+            tsbDerecha.Checked = false;
+            //itIzquierda.Checked = false;
+            //itCentro.Checked = false;
+            //itDerecha.Checked = false;
+        }
+
+        private void tsbIzquierda_Click(object sender, EventArgs e)
+        {
+            desmarca();
+            tsbIzquierda.Checked = true;
+            //itIzquierda.Checked = true;
+            rtbEditor.SelectionAlignment = HorizontalAlignment.Left;
+        }
+
+        private void tsbCentro_Click(object sender, EventArgs e)
+        {
+            desmarca();
+            tsbCentro.Checked = true;
+            //itCentro...
+            rtbEditor.SelectionAlignment = HorizontalAlignment.Center;
+        }
+
+        private void tsbDerecha_Click(object sender, EventArgs e)
+        {
+            desmarca();
+            tsbDerecha.Checked = true;
+            //itDerecha...
+            rtbEditor.SelectionAlignment = HorizontalAlignment.Right;
+        }
+
+        private void cbFuentes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbFuentes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                FontStyle estilo = new FontStyle();
+                estilo = rtbEditor.SelectionFont.Style;
+                string fuente = cbFuentes.Text;
+                float tamanyo = rtbEditor.SelectionFont.Size;
+                rtbEditor.SelectionFont = new Font(fuente, tamanyo, estilo);
+            }
+            catch
+            {
+                return;
+            }
+            rtbEditor.Focus();
+        }
+
+        private void tsbColores_Click(object sender, EventArgs e)
+        {
+            dlgColor.Color = rtbEditor.SelectionColor;
+            if (dlgColor.ShowDialog() == DialogResult.OK)
+            {
+                rtbEditor.SelectionColor = dlgColor.Color;
+                rtbEditor.Modified = true;
+            }
+
+        }
+
+        private void itBarraDeEstado_Click(object sender, EventArgs e)
+        {
+            itBarraDeEstado.Checked = !itBarraDeEstado.Checked;
+            tsmBarraDeEstado.Checked = !tsmBarraDeEstado.Checked;
+            stEstadoEditor.Visible = itBarraDeEstado.Checked;
+        }
+
+        private void itBarraDeHerramientasEstándar_Click(object sender, EventArgs e)
+        {
+            itBarraDeHerramientasEstándar.Checked = !itBarraDeHerramientasEstándar.Checked;
+            tsmBarraHerramEstandar.Checked = !tsmBarraHerramEstandar.Checked;
+            tsBarraEstandar.Visible = itBarraDeHerramientasEstándar.Checked;
+        }
+
+        private void itBarraDeHerramientasFormato_Click(object sender, EventArgs e)
+        {
+            itBarraDeHerramientasFormato.Checked = !itBarraDeHerramientasFormato.Checked;
+            tsmBarraDeHerramFormato.Checked = !tsmBarraDeHerramFormato.Checked;
+            tsBarraFormato.Visible = itBarraDeHerramientasFormato.Checked;
+        }
+
+        private void itFuentes_Click(object sender, EventArgs e)
+        {
+            dlgFuente.Color = rtbEditor.SelectionColor;
+            dlgFuente.Font = rtbEditor.SelectionFont;
+
+            if (dlgFuente.ShowDialog() == DialogResult.OK)
+            {
+                rtbEditor.SelectionFont = dlgFuente.Font;
+                rtbEditor.SelectionColor = dlgFuente.Color;
+                cbFuentes.SelectedIndex = cbFuentes.Items.IndexOf(rtbEditor.SelectionFont.Name);
+                cbTamanyo.Text = Convert.ToString(Math.Truncate(Convert.ToDecimal(dlgFuente.Font.Size)));
+                tsbNegrita.Checked = rtbEditor.SelectionFont.Bold;
+                tsbSubrayado.Checked = rtbEditor.SelectionFont.Underline;
+                tsbTachado.Checked = rtbEditor.SelectionFont.Strikeout;
+                tsbCursiva.Checked = rtbEditor.SelectionFont.Italic;
+                rtbEditor.Modified = true;
+            }
+        }
+
+        private void rtbEditor_SelectionChanged(object sender, EventArgs e)
+        {
+            //Si se borra el texto modificado los valores de los controles no cambian.
+            //Hay que ponerlos con los valores del parrafo actual
+            try
+            {
+                cbTamanyo.Text = Convert.ToString(Math.Truncate(rtbEditor.SelectionFont.Size));
+                //itVietas.Checked = rtbEditor.SelectionBullet;
+                tsbNegrita.Checked = rtbEditor.SelectionFont.Bold;
+                tsbSubrayado.Checked = rtbEditor.SelectionFont.Underline;
+                tsbTachado.Checked = rtbEditor.SelectionFont.Strikeout;
+                tsbCursiva.Checked = rtbEditor.SelectionFont.Italic;
+                cbFuentes.SelectedIndex = cbFuentes.Items.IndexOf(rtbEditor.SelectionFont.Name);
+            }
+            catch
+            {
+                return;
+            }
+            tsbIzquierda.Checked = rtbEditor.SelectionAlignment == HorizontalAlignment.Left;
+            tsbDerecha.Checked = rtbEditor.SelectionAlignment == HorizontalAlignment.Right;
+            tsbCentro.Checked = rtbEditor.SelectionAlignment == HorizontalAlignment.Center;
+            itIzquierda.Checked = rtbEditor.SelectionAlignment == HorizontalAlignment.Left;
+            itDerecha.Checked = rtbEditor.SelectionAlignment == HorizontalAlignment.Right;
+            itCentro.Checked = rtbEditor.SelectionAlignment == HorizontalAlignment.Center;
         }
     }
 }
