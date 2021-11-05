@@ -21,6 +21,7 @@ namespace _06Editor
         int totalLineasImpresas;
 
         fmDatos ventanaDatos = new fmDatos();
+        fmMargenes ventanaMargenes = new fmMargenes();
 
         public fmEditor()
         {
@@ -287,11 +288,28 @@ namespace _06Editor
             ventanaDatos.Text = "Para ir a una línea concreta";
             ventanaDatos.lbTipo.Text = "Número";
             ventanaDatos.lbDato.Text = "Número de línea";
-            
+            ventanaDatos.tbDato.Clear();
 
+            //ventanaDatos.tbDato.Text = Convert.ToString(rtbEditor.SelectionLength);
 
+            if (ventanaDatos.ShowDialog() == DialogResult.OK)
+            {
+                int numLinea = 0, cuenta = 0, acumula = 0;
 
-            ventanaDatos.ShowDialog();
+                try
+                {
+                    numLinea = Convert.ToInt32(ventanaDatos.tbDato.Text);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                while((cuenta < (numLinea - 1)) && (cuenta <(rtbEditor.Lines.Length -1))){
+                    acumula += ((rtbEditor.Lines[cuenta].Length) + 1);
+                    cuenta++;
+                }
+                rtbEditor.SelectionStart = acumula;
+            }
         }
 
 
@@ -546,7 +564,14 @@ namespace _06Editor
 
         private void itMargenes_Click(object sender, EventArgs e)
         {
+            ventanaMargenes.cbIzquierdo.Text = Convert.ToString(rtbEditor.SelectionIndent);
+            ventanaMargenes.cbDerecho.Text = Convert.ToString(rtbEditor.SelectionRightIndent);
 
+            if (ventanaMargenes.ShowDialog() == DialogResult.OK)
+            {
+                rtbEditor.SelectionRightIndent = Convert.ToInt32(ventanaMargenes.cbDerecho.Text);
+                rtbEditor.SelectionIndent = Convert.ToInt32(ventanaMargenes.cbIzquierdo.Text);
+            }
         }
 
         private void itVinyetas_Click(object sender, EventArgs e)

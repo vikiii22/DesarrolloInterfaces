@@ -30,15 +30,7 @@ namespace _06Editor
 
         private void btAceptar_Click(object sender, EventArgs e)
         {
-            ventanaEditor = new fmEditor();
-            int linea = Convert.ToInt32(tbDato.Text);
-            if ((linea < 0) || (linea > ventanaEditor.rtbEditor.Text.Length))
-            {
-                linea = 0;
-            }
-            Close();
-            ventanaEditor.rtbEditor.SelectionStart = linea;
-            ventanaEditor.rtbEditor.Focus();
+         
         }
     }
 }

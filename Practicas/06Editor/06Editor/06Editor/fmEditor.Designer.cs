@@ -125,11 +125,17 @@
             this.printDocEditor = new System.Drawing.Printing.PrintDocument();
             this.dlgColor = new System.Windows.Forms.ColorDialog();
             this.dlgFuente = new System.Windows.Forms.FontDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cmnEdicion = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deshacerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rehacerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
             this.tsBarraEstandar.SuspendLayout();
             this.cmnBarras.SuspendLayout();
             this.tsBarraFormato.SuspendLayout();
             this.stEstadoEditor.SuspendLayout();
             this.mnsEditor.SuspendLayout();
+            this.cmnEdicion.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsBarraEstandar
@@ -204,6 +210,7 @@
             this.tsbNuevo.Name = "tsbNuevo";
             this.tsbNuevo.Size = new System.Drawing.Size(24, 24);
             this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.ToolTipText = "Crear Nuevo archivo";
             this.tsbNuevo.Click += new System.EventHandler(this.itNuevo_Click);
             // 
             // tsbAbrir
@@ -665,71 +672,71 @@
             // itDeshacer
             // 
             this.itDeshacer.Name = "itDeshacer";
-            this.itDeshacer.Size = new System.Drawing.Size(196, 26);
+            this.itDeshacer.Size = new System.Drawing.Size(216, 26);
             this.itDeshacer.Text = "Deshacer";
             this.itDeshacer.Click += new System.EventHandler(this.itDeshacer_Click);
             // 
             // itRehacer
             // 
             this.itRehacer.Name = "itRehacer";
-            this.itRehacer.Size = new System.Drawing.Size(196, 26);
+            this.itRehacer.Size = new System.Drawing.Size(216, 26);
             this.itRehacer.Text = "Rehacer";
             this.itRehacer.Click += new System.EventHandler(this.itRehacer_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(193, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(213, 6);
             // 
             // itCortar
             // 
             this.itCortar.Name = "itCortar";
-            this.itCortar.Size = new System.Drawing.Size(196, 26);
+            this.itCortar.Size = new System.Drawing.Size(216, 26);
             this.itCortar.Text = "Cortar";
             this.itCortar.Click += new System.EventHandler(this.itCortar_Click);
             // 
             // itPegar
             // 
             this.itPegar.Name = "itPegar";
-            this.itPegar.Size = new System.Drawing.Size(196, 26);
+            this.itPegar.Size = new System.Drawing.Size(216, 26);
             this.itPegar.Text = "Pegar";
             this.itPegar.Click += new System.EventHandler(this.itPegar_Click);
             // 
             // itCopiar
             // 
             this.itCopiar.Name = "itCopiar";
-            this.itCopiar.Size = new System.Drawing.Size(196, 26);
+            this.itCopiar.Size = new System.Drawing.Size(216, 26);
             this.itCopiar.Text = "Copiar";
             this.itCopiar.Click += new System.EventHandler(this.itCopiar_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(193, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(213, 6);
             // 
             // itBorrar
             // 
             this.itBorrar.Name = "itBorrar";
-            this.itBorrar.Size = new System.Drawing.Size(196, 26);
+            this.itBorrar.Size = new System.Drawing.Size(216, 26);
             this.itBorrar.Text = "Borrar";
             this.itBorrar.Click += new System.EventHandler(this.itBorrar_Click);
             // 
             // itSeleccionarTodo
             // 
             this.itSeleccionarTodo.Name = "itSeleccionarTodo";
-            this.itSeleccionarTodo.Size = new System.Drawing.Size(196, 26);
+            this.itSeleccionarTodo.Size = new System.Drawing.Size(216, 26);
             this.itSeleccionarTodo.Text = "Seleccionar todo";
             this.itSeleccionarTodo.Click += new System.EventHandler(this.itSeleccionarTodo_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(193, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(213, 6);
             // 
             // itIrA
             // 
             this.itIrA.Name = "itIrA";
-            this.itIrA.Size = new System.Drawing.Size(196, 26);
+            this.itIrA.Size = new System.Drawing.Size(216, 26);
             this.itIrA.Text = "Ir a";
             this.itIrA.Click += new System.EventHandler(this.itIrA_Click);
             // 
@@ -916,6 +923,7 @@
             // 
             // rtbEditor
             // 
+            this.rtbEditor.ContextMenuStrip = this.cmnEdicion;
             this.rtbEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbEditor.Location = new System.Drawing.Point(0, 83);
             this.rtbEditor.Name = "rtbEditor";
@@ -969,6 +977,33 @@
             // 
             this.dlgFuente.ShowColor = true;
             // 
+            // cmnEdicion
+            // 
+            this.cmnEdicion.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmnEdicion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deshacerToolStripMenuItem,
+            this.rehacerToolStripMenuItem,
+            this.toolStripMenuItem10});
+            this.cmnEdicion.Name = "cmnEdicion";
+            this.cmnEdicion.Size = new System.Drawing.Size(140, 58);
+            // 
+            // deshacerToolStripMenuItem
+            // 
+            this.deshacerToolStripMenuItem.Name = "deshacerToolStripMenuItem";
+            this.deshacerToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.deshacerToolStripMenuItem.Text = "Deshacer";
+            // 
+            // rehacerToolStripMenuItem
+            // 
+            this.rehacerToolStripMenuItem.Name = "rehacerToolStripMenuItem";
+            this.rehacerToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.rehacerToolStripMenuItem.Text = "Rehacer";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(136, 6);
+            // 
             // fmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -994,6 +1029,7 @@
             this.stEstadoEditor.PerformLayout();
             this.mnsEditor.ResumeLayout(false);
             this.mnsEditor.PerformLayout();
+            this.cmnEdicion.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1097,6 +1133,11 @@
         private System.Windows.Forms.ToolStripMenuItem itCentro;
         private System.Windows.Forms.ToolStripMenuItem itIzquierda;
         private System.Windows.Forms.FontDialog dlgFuente;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ContextMenuStrip cmnEdicion;
+        private System.Windows.Forms.ToolStripMenuItem deshacerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rehacerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem10;
     }
 }
 

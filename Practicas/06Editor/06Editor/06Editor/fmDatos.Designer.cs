@@ -55,6 +55,7 @@
             // 
             // btAceptar
             // 
+            this.btAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btAceptar.Location = new System.Drawing.Point(80, 123);
             this.btAceptar.Name = "btAceptar";
             this.btAceptar.Size = new System.Drawing.Size(75, 23);
