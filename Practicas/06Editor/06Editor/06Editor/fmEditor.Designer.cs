@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tsBarraEstandar = new System.Windows.Forms.ToolStrip();
+            this.cmnBarras = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmBarraHerramEstandar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmBarraDeHerramFormato = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmBarraDeEstado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbAbrir = new System.Windows.Forms.ToolStripButton();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
@@ -92,14 +96,17 @@
             this.itIrA = new System.Windows.Forms.ToolStripMenuItem();
             this.formatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itFuentes = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorDeFondoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itColorDeFondo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
-            this.márgenesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.justificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itMargenes = new System.Windows.Forms.ToolStripMenuItem();
+            this.itJustificacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.itDerecha = new System.Windows.Forms.ToolStripMenuItem();
+            this.itCentro = new System.Windows.Forms.ToolStripMenuItem();
+            this.itIzquierda = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
-            this.viñetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itVinyetas = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
-            this.formatoDePáginaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itFormatoPagina = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
             this.quitarFormatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,19 +124,12 @@
             this.dlgImprimir = new System.Windows.Forms.PrintDialog();
             this.printDocEditor = new System.Drawing.Printing.PrintDocument();
             this.dlgColor = new System.Windows.Forms.ColorDialog();
-            this.cmnBarras = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmBarraHerramEstandar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmBarraDeHerramFormato = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmBarraDeEstado = new System.Windows.Forms.ToolStripMenuItem();
-            this.itDerecha = new System.Windows.Forms.ToolStripMenuItem();
-            this.itCentro = new System.Windows.Forms.ToolStripMenuItem();
-            this.itIzquierda = new System.Windows.Forms.ToolStripMenuItem();
             this.dlgFuente = new System.Windows.Forms.FontDialog();
             this.tsBarraEstandar.SuspendLayout();
+            this.cmnBarras.SuspendLayout();
             this.tsBarraFormato.SuspendLayout();
             this.stEstadoEditor.SuspendLayout();
             this.mnsEditor.SuspendLayout();
-            this.cmnBarras.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsBarraEstandar
@@ -158,6 +158,43 @@
             this.tsBarraEstandar.Size = new System.Drawing.Size(1073, 27);
             this.tsBarraEstandar.TabIndex = 0;
             this.tsBarraEstandar.Text = "toolStrip1";
+            // 
+            // cmnBarras
+            // 
+            this.cmnBarras.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmnBarras.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmBarraHerramEstandar,
+            this.tsmBarraDeHerramFormato,
+            this.tsmBarraDeEstado});
+            this.cmnBarras.Name = "cmnBarras";
+            this.cmnBarras.Size = new System.Drawing.Size(289, 82);
+            // 
+            // tsmBarraHerramEstandar
+            // 
+            this.tsmBarraHerramEstandar.Checked = true;
+            this.tsmBarraHerramEstandar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmBarraHerramEstandar.Name = "tsmBarraHerramEstandar";
+            this.tsmBarraHerramEstandar.Size = new System.Drawing.Size(288, 26);
+            this.tsmBarraHerramEstandar.Text = "Barra de Herramientas estándar";
+            this.tsmBarraHerramEstandar.Click += new System.EventHandler(this.itBarraDeHerramientasEstándar_Click);
+            // 
+            // tsmBarraDeHerramFormato
+            // 
+            this.tsmBarraDeHerramFormato.Checked = true;
+            this.tsmBarraDeHerramFormato.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmBarraDeHerramFormato.Name = "tsmBarraDeHerramFormato";
+            this.tsmBarraDeHerramFormato.Size = new System.Drawing.Size(288, 26);
+            this.tsmBarraDeHerramFormato.Text = "Barra de Herramientas Formato";
+            this.tsmBarraDeHerramFormato.Click += new System.EventHandler(this.itBarraDeHerramientasFormato_Click);
+            // 
+            // tsmBarraDeEstado
+            // 
+            this.tsmBarraDeEstado.Checked = true;
+            this.tsmBarraDeEstado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmBarraDeEstado.Name = "tsmBarraDeEstado";
+            this.tsmBarraDeEstado.Size = new System.Drawing.Size(288, 26);
+            this.tsmBarraDeEstado.Text = "Barra de Estado";
+            this.tsmBarraDeEstado.Click += new System.EventHandler(this.itBarraDeEstado_Click);
             // 
             // tsbNuevo
             // 
@@ -473,6 +510,7 @@
             this.stEstadoEditor.Size = new System.Drawing.Size(1073, 24);
             this.stEstadoEditor.TabIndex = 2;
             this.stEstadoEditor.Text = "statusStrip1";
+            this.stEstadoEditor.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.stEstadoEditor_ItemClicked);
             // 
             // sl1
             // 
@@ -699,14 +737,14 @@
             // 
             this.formatoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itFuentes,
-            this.colorDeFondoToolStripMenuItem,
+            this.itColorDeFondo,
             this.toolStripMenuItem6,
-            this.márgenesToolStripMenuItem,
-            this.justificaciónToolStripMenuItem,
+            this.itMargenes,
+            this.itJustificacion,
             this.toolStripMenuItem7,
-            this.viñetasToolStripMenuItem,
+            this.itVinyetas,
             this.toolStripMenuItem8,
-            this.formatoDePáginaToolStripMenuItem,
+            this.itFormatoPagina,
             this.toolStripMenuItem9,
             this.quitarFormatosToolStripMenuItem});
             this.formatoToolStripMenuItem.Name = "formatoToolStripMenuItem";
@@ -716,68 +754,99 @@
             // itFuentes
             // 
             this.itFuentes.Name = "itFuentes";
-            this.itFuentes.Size = new System.Drawing.Size(216, 26);
+            this.itFuentes.Size = new System.Drawing.Size(209, 26);
             this.itFuentes.Text = "Fuentes";
             this.itFuentes.Click += new System.EventHandler(this.itFuentes_Click);
             // 
-            // colorDeFondoToolStripMenuItem
+            // itColorDeFondo
             // 
-            this.colorDeFondoToolStripMenuItem.Name = "colorDeFondoToolStripMenuItem";
-            this.colorDeFondoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.colorDeFondoToolStripMenuItem.Text = "Color de Fondo";
+            this.itColorDeFondo.Name = "itColorDeFondo";
+            this.itColorDeFondo.Size = new System.Drawing.Size(209, 26);
+            this.itColorDeFondo.Text = "Color de Fondo";
+            this.itColorDeFondo.Click += new System.EventHandler(this.itColorDeFondo_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(206, 6);
             // 
-            // márgenesToolStripMenuItem
+            // itMargenes
             // 
-            this.márgenesToolStripMenuItem.Name = "márgenesToolStripMenuItem";
-            this.márgenesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.márgenesToolStripMenuItem.Text = "Márgenes";
+            this.itMargenes.Name = "itMargenes";
+            this.itMargenes.Size = new System.Drawing.Size(209, 26);
+            this.itMargenes.Text = "Márgenes";
+            this.itMargenes.Click += new System.EventHandler(this.itMargenes_Click);
             // 
-            // justificaciónToolStripMenuItem
+            // itJustificacion
             // 
-            this.justificaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itJustificacion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itDerecha,
             this.itCentro,
             this.itIzquierda});
-            this.justificaciónToolStripMenuItem.Name = "justificaciónToolStripMenuItem";
-            this.justificaciónToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.justificaciónToolStripMenuItem.Text = "Justificación";
+            this.itJustificacion.Name = "itJustificacion";
+            this.itJustificacion.Size = new System.Drawing.Size(209, 26);
+            this.itJustificacion.Text = "Justificación";
+            // 
+            // itDerecha
+            // 
+            this.itDerecha.Image = global::_06Editor.Properties.Resources.DCHA;
+            this.itDerecha.Name = "itDerecha";
+            this.itDerecha.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.itDerecha.Size = new System.Drawing.Size(195, 26);
+            this.itDerecha.Text = "Derecha";
+            this.itDerecha.Click += new System.EventHandler(this.tsbDerecha_Click);
+            // 
+            // itCentro
+            // 
+            this.itCentro.Image = global::_06Editor.Properties.Resources.CENTRO;
+            this.itCentro.Name = "itCentro";
+            this.itCentro.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.itCentro.Size = new System.Drawing.Size(195, 26);
+            this.itCentro.Text = "Centro";
+            this.itCentro.Click += new System.EventHandler(this.tsbCentro_Click);
+            // 
+            // itIzquierda
+            // 
+            this.itIzquierda.Image = global::_06Editor.Properties.Resources.IZQDA;
+            this.itIzquierda.Name = "itIzquierda";
+            this.itIzquierda.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.itIzquierda.Size = new System.Drawing.Size(195, 26);
+            this.itIzquierda.Text = "Izquierda";
+            this.itIzquierda.Click += new System.EventHandler(this.tsbIzquierda_Click);
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(206, 6);
             // 
-            // viñetasToolStripMenuItem
+            // itVinyetas
             // 
-            this.viñetasToolStripMenuItem.Name = "viñetasToolStripMenuItem";
-            this.viñetasToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.viñetasToolStripMenuItem.Text = "Viñetas";
+            this.itVinyetas.Name = "itVinyetas";
+            this.itVinyetas.Size = new System.Drawing.Size(209, 26);
+            this.itVinyetas.Text = "Viñetas";
+            this.itVinyetas.Click += new System.EventHandler(this.itVinyetas_Click);
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(206, 6);
             // 
-            // formatoDePáginaToolStripMenuItem
+            // itFormatoPagina
             // 
-            this.formatoDePáginaToolStripMenuItem.Name = "formatoDePáginaToolStripMenuItem";
-            this.formatoDePáginaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.formatoDePáginaToolStripMenuItem.Text = "Formato de Página";
+            this.itFormatoPagina.Name = "itFormatoPagina";
+            this.itFormatoPagina.Size = new System.Drawing.Size(209, 26);
+            this.itFormatoPagina.Text = "Formato de Página";
+            this.itFormatoPagina.Click += new System.EventHandler(this.itFormatoPagina_Click);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(206, 6);
             // 
             // quitarFormatosToolStripMenuItem
             // 
             this.quitarFormatosToolStripMenuItem.Name = "quitarFormatosToolStripMenuItem";
-            this.quitarFormatosToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.quitarFormatosToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.quitarFormatosToolStripMenuItem.Text = "Quitar Formatos";
             // 
             // verToolStripMenuItem
@@ -830,19 +899,19 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             // 
             // indiceAyudaToolStripMenuItem
             // 
             this.indiceAyudaToolStripMenuItem.Name = "indiceAyudaToolStripMenuItem";
-            this.indiceAyudaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.indiceAyudaToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.indiceAyudaToolStripMenuItem.Text = "Indice Ayuda";
             // 
             // ayudaGeneralToolStripMenuItem
             // 
             this.ayudaGeneralToolStripMenuItem.Name = "ayudaGeneralToolStripMenuItem";
-            this.ayudaGeneralToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.ayudaGeneralToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.ayudaGeneralToolStripMenuItem.Text = "Ayuda General";
             // 
             // rtbEditor
@@ -896,61 +965,6 @@
             // 
             this.dlgColor.AnyColor = true;
             // 
-            // cmnBarras
-            // 
-            this.cmnBarras.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmnBarras.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmBarraHerramEstandar,
-            this.tsmBarraDeHerramFormato,
-            this.tsmBarraDeEstado});
-            this.cmnBarras.Name = "cmnBarras";
-            this.cmnBarras.Size = new System.Drawing.Size(289, 82);
-            // 
-            // tsmBarraHerramEstandar
-            // 
-            this.tsmBarraHerramEstandar.Checked = true;
-            this.tsmBarraHerramEstandar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmBarraHerramEstandar.Name = "tsmBarraHerramEstandar";
-            this.tsmBarraHerramEstandar.Size = new System.Drawing.Size(288, 26);
-            this.tsmBarraHerramEstandar.Text = "Barra de Herramientas estándar";
-            this.tsmBarraHerramEstandar.Click += new System.EventHandler(this.itBarraDeHerramientasEstándar_Click);
-            // 
-            // tsmBarraDeHerramFormato
-            // 
-            this.tsmBarraDeHerramFormato.Checked = true;
-            this.tsmBarraDeHerramFormato.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmBarraDeHerramFormato.Name = "tsmBarraDeHerramFormato";
-            this.tsmBarraDeHerramFormato.Size = new System.Drawing.Size(288, 26);
-            this.tsmBarraDeHerramFormato.Text = "Barra de Herramientas Formato";
-            this.tsmBarraDeHerramFormato.Click += new System.EventHandler(this.itBarraDeHerramientasFormato_Click);
-            // 
-            // tsmBarraDeEstado
-            // 
-            this.tsmBarraDeEstado.Checked = true;
-            this.tsmBarraDeEstado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmBarraDeEstado.Name = "tsmBarraDeEstado";
-            this.tsmBarraDeEstado.Size = new System.Drawing.Size(288, 26);
-            this.tsmBarraDeEstado.Text = "Barra de Estado";
-            this.tsmBarraDeEstado.Click += new System.EventHandler(this.itBarraDeEstado_Click);
-            // 
-            // itDerecha
-            // 
-            this.itDerecha.Name = "itDerecha";
-            this.itDerecha.Size = new System.Drawing.Size(216, 26);
-            this.itDerecha.Text = "Derecha";
-            // 
-            // itCentro
-            // 
-            this.itCentro.Name = "itCentro";
-            this.itCentro.Size = new System.Drawing.Size(216, 26);
-            this.itCentro.Text = "Centro";
-            // 
-            // itIzquierda
-            // 
-            this.itIzquierda.Name = "itIzquierda";
-            this.itIzquierda.Size = new System.Drawing.Size(216, 26);
-            this.itIzquierda.Text = "Izquierda";
-            // 
             // dlgFuente
             // 
             this.dlgFuente.ShowColor = true;
@@ -968,17 +982,18 @@
             this.MainMenuStrip = this.mnsEditor;
             this.Name = "fmEditor";
             this.Text = "Documento1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fmEditor_FormClosing);
             this.Load += new System.EventHandler(this.fmEditor_Load);
             this.Resize += new System.EventHandler(this.fmEditor_Resize);
             this.tsBarraEstandar.ResumeLayout(false);
             this.tsBarraEstandar.PerformLayout();
+            this.cmnBarras.ResumeLayout(false);
             this.tsBarraFormato.ResumeLayout(false);
             this.tsBarraFormato.PerformLayout();
             this.stEstadoEditor.ResumeLayout(false);
             this.stEstadoEditor.PerformLayout();
             this.mnsEditor.ResumeLayout(false);
             this.mnsEditor.PerformLayout();
-            this.cmnBarras.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1051,14 +1066,14 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem itIrA;
         private System.Windows.Forms.ToolStripMenuItem itFuentes;
-        private System.Windows.Forms.ToolStripMenuItem colorDeFondoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itColorDeFondo;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem márgenesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem justificaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itMargenes;
+        private System.Windows.Forms.ToolStripMenuItem itJustificacion;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem viñetasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itVinyetas;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem formatoDePáginaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itFormatoPagina;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem quitarFormatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itBarraDeHerramientasEstándar;

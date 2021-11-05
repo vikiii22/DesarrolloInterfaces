@@ -21,6 +21,7 @@ namespace _06Editor
         int totalLineasImpresas;
 
         fmDatos ventanaDatos = new fmDatos();
+
         public fmEditor()
         {
             InitializeComponent();
@@ -35,8 +36,27 @@ namespace _06Editor
             stEstadoEditor.Items[1].Text = "Lin." + Convert.ToString(linea) + "    Col." + Convert.ToString(columna);
             stEstadoEditor.Items[2].Text = "Car. " + Convert.ToString(rtbEditor.SelectionStart);
 
+            bool HaySeleccion = rtbEditor.SelectionLength > 0;
 
-            //bool haySeleccion = rtbEditor.SelectionStart;
+            if (HaySeleccion)
+            {
+                stEstadoEditor.Items[0].Text = "Hay texto seleccionado";
+            }
+            else
+            {
+                stEstadoEditor.Items[0].Text = "";
+            }
+            tsbCopiar.Enabled = HaySeleccion;
+            tsbCortar.Enabled = HaySeleccion;
+            tsbDeshacer.Enabled = rtbEditor.CanUndo;
+            tsbRehacer.Enabled = rtbEditor.CanRedo;
+            tsbPegar.Enabled = Clipboard.ContainsText();
+            itPegar.Enabled = tsbPegar.Enabled;
+            itCopiar.Enabled = tsbCopiar.Enabled;
+            itCortar.Enabled = tsbCortar.Enabled;
+            itDeshacer.Enabled = tsbDeshacer.Enabled;
+            itRehacer.Enabled = tsbRehacer.Enabled;
+            itBorrar.Enabled = HaySeleccion;
         }
 
         private void tamanyoEstado()
@@ -267,6 +287,8 @@ namespace _06Editor
             ventanaDatos.Text = "Para ir a una línea concreta";
             ventanaDatos.lbTipo.Text = "Número";
             ventanaDatos.lbDato.Text = "Número de línea";
+            
+
 
 
             ventanaDatos.ShowDialog();
@@ -481,12 +503,7 @@ namespace _06Editor
             {
                 rtbEditor.SelectionFont = dlgFuente.Font;
                 rtbEditor.SelectionColor = dlgFuente.Color;
-                cbFuentes.SelectedIndex = cbFuentes.Items.IndexOf(rtbEditor.SelectionFont.Name);
-                cbTamanyo.Text = Convert.ToString(Math.Truncate(Convert.ToDecimal(dlgFuente.Font.Size)));
-                tsbNegrita.Checked = rtbEditor.SelectionFont.Bold;
-                tsbSubrayado.Checked = rtbEditor.SelectionFont.Underline;
-                tsbTachado.Checked = rtbEditor.SelectionFont.Strikeout;
-                tsbCursiva.Checked = rtbEditor.SelectionFont.Italic;
+                rtbEditor_SelectionChanged(sender, e);
                 rtbEditor.Modified = true;
             }
         }
@@ -515,6 +532,85 @@ namespace _06Editor
             itIzquierda.Checked = rtbEditor.SelectionAlignment == HorizontalAlignment.Left;
             itDerecha.Checked = rtbEditor.SelectionAlignment == HorizontalAlignment.Right;
             itCentro.Checked = rtbEditor.SelectionAlignment == HorizontalAlignment.Center;
+        }
+
+        private void itColorDeFondo_Click(object sender, EventArgs e)
+        {
+            dlgColor.Color = rtbEditor.BackColor;
+            if (dlgColor.ShowDialog() == DialogResult.OK)
+            {
+                rtbEditor.BackColor = dlgColor.Color;
+                rtbEditor.Modified = true;
+            }
+        }
+
+        private void itMargenes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itVinyetas_Click(object sender, EventArgs e)
+        {
+            itVinyetas.Checked = !itVinyetas.Checked;
+            rtbEditor.SelectionBullet = itVinyetas.Checked;
+            rtbEditor.Modified = true;
+        }
+
+        private void itFormatoPagina_Click(object sender, EventArgs e)
+        {
+            dlgFuente.Color = rtbEditor.ForeColor;
+            dlgFuente.Font = rtbEditor.Font;
+
+            if (dlgFuente.ShowDialog() == DialogResult.OK)
+            {
+                rtbEditor.Font = dlgFuente.Font;
+                rtbEditor.ForeColor = dlgFuente.Color;
+                rtbEditor_SelectionChanged(sender, e);
+                rtbEditor.Modified = true;
+            }
+        }
+
+        /*private void fmEditor_FormClosed(object sender, FormClosingEventArgs e)
+        {
+            if ((rtbEditor.Modified) && (rtbEditor.Text.Length > 0))
+            {
+                DialogResult resultado = MessageBox.Show("Hay cambios pendientes de guardar. Guardas?", "Guardar cambios", MessageBoxButtons.YesNoCancel);
+
+                switch (resultado)
+                {
+                    case DialogResult.Yes:
+                        itGuardar.PerformClick();
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        rtbEditor.Focus();
+                        return;
+                }
+            }
+        }*/
+
+        private void fmEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((rtbEditor.Modified) && (rtbEditor.Text.Length > 0))
+            {
+                DialogResult resultado = MessageBox.Show("Hay cambios pendientes de guardar. Guardas?", "Guardar cambios", MessageBoxButtons.YesNoCancel);
+
+                switch (resultado)
+                {
+                    case DialogResult.Yes:
+                        itGuardar.PerformClick();
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        rtbEditor.Focus();
+                        return;
+                }
+            }
+        }
+
+        private void stEstadoEditor_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
