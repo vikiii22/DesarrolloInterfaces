@@ -1,0 +1,65 @@
+private void Dibujar()
+        {
+            Graphics g1 = pbEdigrafi.CreateGraphics();
+            Graphics g2 = Graphics.FromImage(mibmp);
+            Image mimage = null;
+            if (accion != "BorrarSeleccion")
+                mimage = pbEdigrafi.Image;
+            
+            switch (accion)
+            {
+                case "Linea":
+                    g1.DrawLine(lapiz, OrigenX, OrigenY, actualX, actualY);
+                    break;
+                case "Rectangulo":
+                    if (rellenando)
+                        if (itSolido.Checked)
+                            g1.FillRectangle(relleno, new Rectangle(Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                        else
+                            g1.FillRectangle(estilorelleno, new Rectangle(Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                    g1.DrawRectangle(lapiz, Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY));
+                    break;
+                case "Lapiz":
+                    if (puntos.Length > 1)
+                    {
+                        g1.DrawLines(lapiz, puntos);
+                        g2.DrawLines(lapiz, puntos);
+                    }
+                    break;
+                case "Goma":
+                    if (puntos.Length > 1)
+                    {
+                        g1.DrawLines(goma, puntos);
+                        g2.DrawLines(goma, puntos);
+                    }
+                    break;
+                case "Circulo":
+                    int radio = Convert.ToInt32(Math.Truncate(Math.Sqrt(Math.Pow((OrigenX - actualX), 2) + Math.Pow((OrigenY - actualY), 2))));
+                    if (rellenando)
+                        if (itSolido.Checked)
+                            g1.FillEllipse(relleno, OrigenX - radio, OrigenY - radio, radio * 2, radio * 2);
+                        else
+                            g1.FillEllipse(estilorelleno, OrigenX - radio, OrigenY - radio, radio * 2, radio * 2);
+                    g1.DrawEllipse(lapiz, OrigenX - radio, OrigenY - radio, radio * 2, radio * 2);
+                    break;
+                case "Elipse":
+                    if (rellenando)
+                        if (itSolido.Checked)
+                            g1.FillEllipse(relleno, new Rectangle(Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                        else
+                            g1.FillEllipse(estilorelleno, new Rectangle(Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                    g1.DrawEllipse(lapiz, Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY));
+                    break;
+                case "Texto":
+                    g1.DrawString(mitexto, mifuente, colorTexto, actualX, actualY - 10);
+                    break;
+                case "BorrarSeleccion":
+                    SolidBrush rellenoborra = new SolidBrush(pbEdigrafi.BackColor);  //Color.White); pbEdigrafi.BackColor;
+                    g1.FillRectangle(rellenoborra, new Rectangle(OrigenX, OrigenY, Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                    break;
+            }
+            g1.Dispose();
+            g2.Dispose();
+            if (accion != "BorrarSeleccion")
+                pbEdigrafi.Image = mimage;
+        }

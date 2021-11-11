@@ -1,0 +1,25 @@
+    private void Inicializar()
+        {
+            accion = "Lapiz";
+            puntos = new Point[0];
+            lapiz = new Pen(Color.Black, 1);
+            colorTexto = new SolidBrush(Color.FromArgb(0, 0, 0));
+            goma = new Pen(Color.White, 10);  //Color.White
+            relleno = new SolidBrush(Color.FromArgb(255, 255, 255));//
+            mibmp = new Bitmap(pbEdigrafi.Width, pbEdigrafi.Height);
+            pbEdigrafi.Image = mibmp;
+            pbEdigrafi.BackColor = Color.White;
+            tsbLapiz.Checked = true;  //para que funcione esto hay que desmarcar todo antes
+            itLapiz.Checked = true;
+            itLinea5.Checked = true;
+            itSinRelleno.Checked = true;
+            rellenando = false;
+
+            tsbColorlapiz.Image = Properties.Resources.colorlapiz;
+            tsbColorFondo.Image = Properties.Resources.colorfondo;
+            tsbColorRelleno.Image = Properties.Resources.brocha;
+            
+            CrearCursorLapiz();
+            tsl2.Text = "Grosor Linea: " + lapiz.Width.ToString(); //label status strip
+            tsl3.Text = "Grosor Goma: " + goma.Width.ToString();
+        }

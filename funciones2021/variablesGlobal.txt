@@ -1,0 +1,11 @@
+       bool pulsado, rellenando;
+        Point[] puntos;
+        int actualX, actualY, OrigenX, OrigenY;
+        Pen lapiz, goma;
+        SolidBrush relleno, colorTexto;
+        HatchBrush estilorelleno;
+        Bitmap mibmp;
+        string accion; // Tipos Figura { Linea, Lapiz, Goma, Rectangulo, Circulo, Elipse, Texto, BorrarSeleccion }
+        Font mifuente;
+        string mitexto;
+        Bitmap CuadradoBoton;

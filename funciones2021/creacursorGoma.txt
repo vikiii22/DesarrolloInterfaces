@@ -1,0 +1,15 @@
+ private void CrearCursorGoma()
+        {
+            int diametroG = Convert.ToInt32(goma.Width);
+            Bitmap Goma = new Bitmap(diametroG, diametroG);
+
+            Graphics gGoma = Graphics.FromImage(Goma);
+            gGoma.FillRectangle(Brushes.Magenta, 0, 0, diametroG, diametroG);
+            SolidBrush rellenoborra = new SolidBrush(pbEdigrafi.BackColor);
+            gGoma.FillEllipse(rellenoborra, 0, 0, diametroG - 1, diametroG - 1); //Brushes.White
+            gGoma.DrawEllipse(new Pen(Color.Black, 1), 0, 0, diametroG - 1, diametroG - 1);
+            Goma.MakeTransparent(Color.Magenta);
+            gGoma.Dispose();
+            IntPtr intprCursorGoma = Goma.GetHicon();
+            pbEdigrafi.Cursor = new Cursor(intprCursorGoma);
+        }

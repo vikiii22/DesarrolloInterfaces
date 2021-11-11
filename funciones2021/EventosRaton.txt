@@ -1,0 +1,54 @@
+ private void pbEdiGrafi_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                pulsado = true;
+                OrigenX = e.X;
+                OrigenY = e.Y;
+                actualX = e.X;
+                actualY = e.Y;
+            }
+        }
+
+
+        private void pbEdiGrafi_MouseMove(object sender, MouseEventArgs e)
+        {
+            tsl4.Text = "X: " + e.X.ToString() + " Y: " + e.Y.ToString();
+            if (pulsado)
+            {
+                if (accion == "Lapiz" || accion == "Goma")
+                {
+                    agregarPunto(new Point(e.X, e.Y));
+                    Dibujar();
+                }
+                else
+                {
+                    Dibujar();
+                    Color copiacolor = lapiz.Color;
+                    if (pulsado && (lapiz.Color != pbEdigrafi.BackColor))
+                    {
+                        lapiz.Color = Color.FromArgb(255 - lapiz.Color.R, 255 - lapiz.Color.G, 255 - lapiz.Color.B);// pbEdigrafi.BackColor;
+                        Dibujar();
+                    }
+                    actualX = e.X;
+                    actualY = e.Y;
+                    lapiz.Color = copiacolor;
+                    Dibujar();
+                }
+
+            }
+        }
+
+
+        private void pbEdiGrafi_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (pulsado)
+                Dibujar2();
+            pulsado = false;
+            //Aqui reinicializamos a puntos para que no se unan las lineas al volver a dibujar 
+            puntos = new Point[0];
+            //Marcamos como transparente  para que al cambiar de fondo no se vea lo que borramos 
+            mibmp.MakeTransparent(pbEdigrafi.BackColor);
+            //ponemos la imagen dibujada como fondo  para que el trabajo de dibujar sea mas rapido. 
+            pbEdigrafi.Image = mibmp;
+        }

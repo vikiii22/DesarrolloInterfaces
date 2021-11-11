@@ -461,7 +461,7 @@
             this.dlgGuardarDibujo.DefaultExt = "bmp";
             this.dlgGuardarDibujo.Filter = "Archivo Mapa de Bits (.bmp) | *.bmp | Archivo JPG (.jpg) | *.jpg | Todos los Arch" +
     "ivos (*.*)|*.*";
-            this.dlgGuardarDibujo.InitialDirectory = ".";
+            this.dlgGuardarDibujo.InitialDirectory = ".\\ficheros";
             // 
             // dlgAbrirDibujo
             // 
@@ -470,7 +470,7 @@
             this.dlgAbrirDibujo.FileName = "openFileDialog1";
             this.dlgAbrirDibujo.Filter = "Archivo Mapa de Bits (.bmp)|*.bmp | Archivo JPG (.jpg)|*.jpg | Todos los Archivos" +
     " (*.*)|*.*";
-            this.dlgAbrirDibujo.InitialDirectory = ".";
+            this.dlgAbrirDibujo.InitialDirectory = ".\\ficheros";
             // 
             // fmDibujo
             // 

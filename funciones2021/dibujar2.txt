@@ -1,0 +1,50 @@
+private void Dibujar2()
+        {
+            Graphics g2 = Graphics.FromImage(mibmp);
+            switch (accion)
+            {
+                case "Linea":
+                    g2.DrawLine(lapiz, OrigenX, OrigenY, actualX, actualY);
+                    break;
+                case "Rectangulo":
+                    if (rellenando)
+                        if (itSolido.Checked)
+                        {
+                            g2.FillRectangle(relleno, new Rectangle(Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                        }
+                        else
+                        {
+                            g2.FillRectangle(estilorelleno, new Rectangle(Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                        }
+                    g2.DrawRectangle(lapiz, Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY));
+                    break;
+                case "Elipse":
+                    if (rellenando)
+                        if (itSolido.Checked)
+
+                            g2.FillEllipse(relleno, new Rectangle(Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                        else
+                            g2.FillEllipse(estilorelleno, new Rectangle(Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                    g2.DrawEllipse(lapiz, Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY));
+                    break;
+                case "Circulo":
+                    //teorema de pitagoras
+                    int radio = Convert.ToInt32(Math.Truncate(Math.Sqrt(Math.Pow((OrigenX - actualX), 2) + Math.Pow((OrigenY - actualY), 2))));
+                    if (rellenando)
+                        if (itSolido.Checked)
+                            g2.FillEllipse(relleno, OrigenX - radio, OrigenY - radio, radio * 2, radio * 2);
+                        else
+                            g2.FillEllipse(estilorelleno, OrigenX - radio, OrigenY - radio, radio * 2, radio * 2);
+                    g2.DrawEllipse(lapiz, OrigenX - radio, OrigenY - radio, radio * 2, radio * 2);
+                    break;
+                case "Texto":
+                    g2.DrawString(mitexto, mifuente, colorTexto, actualX, actualY - 10);
+                    break;
+                case "BorrarSeleccion":
+                    SolidBrush rellenoborra = new SolidBrush(pbEdigrafi.BackColor);// Color.White);
+                    g2.FillRectangle(rellenoborra, new Rectangle(OrigenX, OrigenY, Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                    break;
+            }
+
+            g2.Dispose();
+        }
