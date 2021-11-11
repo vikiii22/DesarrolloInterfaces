@@ -40,7 +40,11 @@
             this.tsbPoligono = new System.Windows.Forms.ToolStripButton();
             this.tsbCurvaAbierta = new System.Windows.Forms.ToolStripButton();
             this.tsbCurvaCerrada = new System.Windows.Forms.ToolStripButton();
+            this.tsbTXT = new System.Windows.Forms.ToolStripButton();
             this.stGrafico = new System.Windows.Forms.StatusStrip();
+            this.tsl1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsl2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tspDemostracion = new System.Windows.Forms.ToolStripProgressBar();
             this.pbEditor = new System.Windows.Forms.PictureBox();
             this.pnColores = new System.Windows.Forms.Panel();
             this.btAplicar = new System.Windows.Forms.Button();
@@ -53,18 +57,14 @@
             this.laPrueba = new System.Windows.Forms.Label();
             this.btCambiaColor = new System.Windows.Forms.Button();
             this.ckRelleno = new System.Windows.Forms.CheckBox();
-            this.tsbTXT = new System.Windows.Forms.ToolStripButton();
-            this.tsl1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsl2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tspDemostracion = new System.Windows.Forms.ToolStripProgressBar();
             this.btDemo = new System.Windows.Forms.Button();
             this.pbDemo = new System.Windows.Forms.ProgressBar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmNuevo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAbrir = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmGuardar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -193,6 +193,15 @@
             this.tsbCurvaCerrada.Size = new System.Drawing.Size(50, 24);
             this.tsbCurvaCerrada.Text = "CURC";
             // 
+            // tsbTXT
+            // 
+            this.tsbTXT.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbTXT.Image = ((System.Drawing.Image)(resources.GetObject("tsbTXT.Image")));
+            this.tsbTXT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbTXT.Name = "tsbTXT";
+            this.tsbTXT.Size = new System.Drawing.Size(38, 24);
+            this.tsbTXT.Text = "TXT";
+            // 
             // stGrafico
             // 
             this.stGrafico.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -205,6 +214,26 @@
             this.stGrafico.Size = new System.Drawing.Size(1233, 25);
             this.stGrafico.TabIndex = 1;
             this.stGrafico.Text = "statusStrip1";
+            // 
+            // tsl1
+            // 
+            this.tsl1.AutoSize = false;
+            this.tsl1.Name = "tsl1";
+            this.tsl1.Size = new System.Drawing.Size(137, 20);
+            // 
+            // tsl2
+            // 
+            this.tsl2.AutoSize = false;
+            this.tsl2.Name = "tsl2";
+            this.tsl2.Size = new System.Drawing.Size(137, 20);
+            // 
+            // tspDemostracion
+            // 
+            this.tspDemostracion.ForeColor = System.Drawing.Color.Chartreuse;
+            this.tspDemostracion.Name = "tspDemostracion";
+            this.tspDemostracion.Size = new System.Drawing.Size(250, 19);
+            this.tspDemostracion.Step = 5;
+            this.tspDemostracion.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             // 
             // pbEditor
             // 
@@ -330,35 +359,6 @@
             this.ckRelleno.Text = "Con Relleno";
             this.ckRelleno.UseVisualStyleBackColor = true;
             // 
-            // tsbTXT
-            // 
-            this.tsbTXT.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbTXT.Image = ((System.Drawing.Image)(resources.GetObject("tsbTXT.Image")));
-            this.tsbTXT.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbTXT.Name = "tsbTXT";
-            this.tsbTXT.Size = new System.Drawing.Size(38, 24);
-            this.tsbTXT.Text = "TXT";
-            // 
-            // tsl1
-            // 
-            this.tsl1.AutoSize = false;
-            this.tsl1.Name = "tsl1";
-            this.tsl1.Size = new System.Drawing.Size(137, 20);
-            // 
-            // tsl2
-            // 
-            this.tsl2.AutoSize = false;
-            this.tsl2.Name = "tsl2";
-            this.tsl2.Size = new System.Drawing.Size(137, 20);
-            // 
-            // tspDemostracion
-            // 
-            this.tspDemostracion.ForeColor = System.Drawing.Color.Chartreuse;
-            this.tspDemostracion.Name = "tspDemostracion";
-            this.tspDemostracion.Size = new System.Drawing.Size(250, 19);
-            this.tspDemostracion.Step = 5;
-            this.tspDemostracion.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            // 
             // btDemo
             // 
             this.btDemo.AutoSize = true;
@@ -396,8 +396,8 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmNuevo,
             this.toolStripMenuItem1,
-            this.abrirToolStripMenuItem,
-            this.guardarToolStripMenuItem,
+            this.tsmAbrir,
+            this.tsmGuardar,
             this.toolStripMenuItem2,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
@@ -416,17 +416,19 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 6);
             // 
-            // abrirToolStripMenuItem
+            // tsmAbrir
             // 
-            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.abrirToolStripMenuItem.Text = "Abrir";
+            this.tsmAbrir.Name = "tsmAbrir";
+            this.tsmAbrir.Size = new System.Drawing.Size(216, 26);
+            this.tsmAbrir.Text = "Abrir";
+            this.tsmAbrir.Click += new System.EventHandler(this.tsmAbrir_Click);
             // 
-            // guardarToolStripMenuItem
+            // tsmGuardar
             // 
-            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.guardarToolStripMenuItem.Text = "Guardar";
+            this.tsmGuardar.Name = "tsmGuardar";
+            this.tsmGuardar.Size = new System.Drawing.Size(216, 26);
+            this.tsmGuardar.Text = "Guardar";
+            this.tsmGuardar.Click += new System.EventHandler(this.tsmGuardar_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -450,19 +452,25 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.acercaDeToolStripMenuItem.Text = "Acerca De";
             // 
             // dlgGuardarDibujo
             // 
+            this.dlgGuardarDibujo.AutoUpgradeEnabled = false;
+            this.dlgGuardarDibujo.DefaultExt = "bmp";
             this.dlgGuardarDibujo.Filter = "Archivo Mapa de Bits (.bmp) | *.bmp | Archivo JPG (.jpg) | *.jpg | Todos los Arch" +
     "ivos (*.*)|*.*";
+            this.dlgGuardarDibujo.InitialDirectory = ".";
             // 
             // dlgAbrirDibujo
             // 
+            this.dlgAbrirDibujo.AutoUpgradeEnabled = false;
+            this.dlgAbrirDibujo.DefaultExt = "bmp";
             this.dlgAbrirDibujo.FileName = "openFileDialog1";
-            this.dlgAbrirDibujo.Filter = "Archivo Mapa de Bits (.bmp) | *.bmp | Archivo JPG (.jpg) | *.jpg | Todos los Arch" +
-    "ivos (*.*)|*.*";
+            this.dlgAbrirDibujo.Filter = "Archivo Mapa de Bits (.bmp)|*.bmp | Archivo JPG (.jpg)|*.jpg | Todos los Archivos" +
+    " (*.*)|*.*";
+            this.dlgAbrirDibujo.InitialDirectory = ".";
             // 
             // fmDibujo
             // 
@@ -538,8 +546,8 @@
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmNuevo;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmAbrir;
+        private System.Windows.Forms.ToolStripMenuItem tsmGuardar;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;

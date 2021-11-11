@@ -116,6 +116,28 @@ namespace _07Dibujo
             tsl2.Text = "Grosor Línea: 2";
         }
 
+        private void tsmAbrir_Click(object sender, EventArgs e)
+        {
+            dlgAbrirDibujo.FileName = Text;
+            if(dlgAbrirDibujo.ShowDialog()==DialogResult.OK && dlgAbrirDibujo.FileName.Length > 0)
+            {
+                pbEditor.Image = Image.FromFile(dlgAbrirDibujo.FileName);
+                imEditor.DrawImage(pbEditor.Image, new Point(0, 0));
+                Text = dlgAbrirDibujo.FileName;
+                pbEditor.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+
+        private void tsmGuardar_Click(object sender, EventArgs e)
+        {
+            dlgGuardarDibujo.FileName = Text;
+            if(dlgGuardarDibujo.ShowDialog()==DialogResult.OK && dlgGuardarDibujo.FileName.Length > 0)
+            {
+                pbEditor.Image.Save(dlgGuardarDibujo.FileName);
+                Text = dlgGuardarDibujo.FileName;
+            }
+        }
+
         private void fmDibujo_Load(object sender, EventArgs e)
         {
             mig = new Bitmap(pbEditor.Width, pbEditor.Height);
