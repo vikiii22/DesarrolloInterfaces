@@ -37,7 +37,7 @@
             this.estiloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.tsLateral = new System.Windows.Forms.ToolStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbAbrir = new System.Windows.Forms.ToolStripButton();
@@ -60,7 +60,7 @@
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
+            this.tsLateral.SuspendLayout();
             this.pnEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditorGrafico)).BeginInit();
             this.SuspendLayout();
@@ -138,23 +138,23 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStrip2
+            // tsLateral
             // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tsLateral.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tsLateral.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripButton6,
             this.toolStripButton7,
             this.toolStripButton8});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 55);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(25, 514);
-            this.toolStrip2.TabIndex = 3;
-            this.toolStrip2.Text = "toolStrip2";
-            this.toolStrip2.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
+            this.tsLateral.Location = new System.Drawing.Point(0, 55);
+            this.tsLateral.Name = "tsLateral";
+            this.tsLateral.Size = new System.Drawing.Size(25, 514);
+            this.tsLateral.TabIndex = 3;
+            this.tsLateral.Text = "toolStrip2";
+            this.tsLateral.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
             // 
             // statusStrip1
             // 
@@ -278,7 +278,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(22, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(37, 24);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // toolStripButton2
@@ -287,7 +287,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(22, 24);
+            this.toolStripButton2.Size = new System.Drawing.Size(37, 24);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
             // toolStripButton3
@@ -296,7 +296,7 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(22, 24);
+            this.toolStripButton3.Size = new System.Drawing.Size(37, 24);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
             // toolStripButton6
@@ -305,7 +305,7 @@
             this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(22, 24);
+            this.toolStripButton6.Size = new System.Drawing.Size(37, 24);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
             // toolStripButton7
@@ -314,7 +314,7 @@
             this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(22, 24);
+            this.toolStripButton7.Size = new System.Drawing.Size(37, 24);
             this.toolStripButton7.Text = "toolStripButton7";
             // 
             // toolStripButton8
@@ -323,7 +323,7 @@
             this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
             this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(22, 24);
+            this.toolStripButton8.Size = new System.Drawing.Size(37, 24);
             this.toolStripButton8.Text = "toolStripButton8";
             // 
             // EditorGrafico
@@ -334,7 +334,7 @@
             this.ClientSize = new System.Drawing.Size(933, 569);
             this.Controls.Add(this.pnEditor);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.toolStrip2);
+            this.Controls.Add(this.tsLateral);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -345,8 +345,8 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this.tsLateral.ResumeLayout(false);
+            this.tsLateral.PerformLayout();
             this.pnEditor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbEditorGrafico)).EndInit();
             this.ResumeLayout(false);
@@ -364,7 +364,7 @@
         private System.Windows.Forms.ToolStripMenuItem estiloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStrip tsLateral;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbAbrir;
