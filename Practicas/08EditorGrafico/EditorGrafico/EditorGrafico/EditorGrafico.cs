@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace EditorGrafico
 {
-    public partial class Form1 : Form
+    public partial class EditorGrafico : Form
     {
-        public Form1()
+        public EditorGrafico()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
