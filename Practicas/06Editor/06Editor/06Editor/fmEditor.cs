@@ -637,5 +637,11 @@ namespace _06Editor
         {
 
         }
+
+        private void tsmAcercaDe_Click(object sender, EventArgs e)
+        {
+            fmAcercaDe ventanaAcercaDe = new fmAcercaDe();
+            ventanaAcercaDe.ShowDialog();
+        }
     }
 }
