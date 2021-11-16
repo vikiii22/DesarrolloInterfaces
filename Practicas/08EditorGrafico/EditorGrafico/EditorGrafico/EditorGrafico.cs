@@ -80,8 +80,31 @@ namespace EditorGrafico
             }
         }
 
+        private void pbEditorGrafico_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (pulsado)
+                Dibujar2();
+            pulsado = false;
+            //Aqui reinicializamos a puntos para que no se unan las lineas al volver a dibujar 
+            puntos = new Point[0];
+            //Marcamos como transparente  para que al cambiar de fondo no se vea lo que borramos 
+            mibmp.MakeTransparent(pbEditorGrafico.BackColor);
+            //ponemos la imagen dibujada como fondo  para que el trabajo de dibujar sea mas rapido. 
+            pbEditorGrafico.Image = mibmp;
+        }
+
         string mitexto;
         Bitmap CuadradoBoton;
+
+        private void tsbLinea_Click(object sender, EventArgs e)
+        {
+            //Repetir en cada acción
+            accion = "Linea";
+            CrearCursorLapiz();
+            desmarca();
+            tsbLinea.Checked = true;
+            //itSolidoLinea.Checked = true;
+        }
 
         private void Inicializar()
         {
@@ -230,6 +253,28 @@ namespace EditorGrafico
         {
             IntPtr intPrCursor = Properties.Resources.lapizcortoNuevo1.GetHicon();
             pbEditorGrafico.Cursor = new Cursor(intPrCursor);
+        }
+
+        private void desmarca()
+        {
+            foreach(ToolStripButton boton in tsLateral.Items)
+            {
+                boton.Checked = false;
+            }
+            tsbLapiz.Checked = false;
+            tsbGoma.Checked = false;
+            desmarcaMenu(itFiguras.DropDownItems);
+            /*itGoma.Checked = false;
+            itBorrarSeleccion.Checked = false;*/
+
+        }
+
+        private void desmarcaMenu(ToolStripItemCollection listaMenu)
+        {
+            foreach(ToolStripItem miItem in listaMenu)
+            {
+                ((ToolStripMenuItem)miItem).Checked = false;
+            }
         }
     }
 }
