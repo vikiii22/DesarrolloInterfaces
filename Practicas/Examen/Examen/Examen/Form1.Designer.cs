@@ -201,6 +201,7 @@
             // btAnyadir
             // 
             this.btAnyadir.AutoSize = true;
+            this.btAnyadir.Enabled = false;
             this.btAnyadir.Image = global::Examen.Properties.Resources.suma;
             this.btAnyadir.Location = new System.Drawing.Point(147, 472);
             this.btAnyadir.Name = "btAnyadir";
@@ -212,6 +213,7 @@
             // btElimina
             // 
             this.btElimina.AutoSize = true;
+            this.btElimina.Enabled = false;
             this.btElimina.Image = global::Examen.Properties.Resources.resta;
             this.btElimina.Location = new System.Drawing.Point(205, 472);
             this.btElimina.Name = "btElimina";
@@ -245,6 +247,7 @@
             // btElimina2
             // 
             this.btElimina2.AutoSize = true;
+            this.btElimina2.Enabled = false;
             this.btElimina2.Image = global::Examen.Properties.Resources.resta;
             this.btElimina2.Location = new System.Drawing.Point(762, 472);
             this.btElimina2.Name = "btElimina2";
@@ -256,6 +259,7 @@
             // btNuevo2
             // 
             this.btNuevo2.AutoSize = true;
+            this.btNuevo2.Enabled = false;
             this.btNuevo2.Image = global::Examen.Properties.Resources.suma;
             this.btNuevo2.Location = new System.Drawing.Point(704, 472);
             this.btNuevo2.Name = "btNuevo2";
@@ -280,6 +284,7 @@
             this.tbNuevo.Name = "tbNuevo";
             this.tbNuevo.Size = new System.Drawing.Size(100, 22);
             this.tbNuevo.TabIndex = 20;
+            this.tbNuevo.TextChanged += new System.EventHandler(this.tbNuevo_TextChanged);
             this.tbNuevo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNuevo_KeyPress);
             // 
             // tbNuevo2
@@ -288,6 +293,7 @@
             this.tbNuevo2.Name = "tbNuevo2";
             this.tbNuevo2.Size = new System.Drawing.Size(100, 22);
             this.tbNuevo2.TabIndex = 21;
+            this.tbNuevo2.TextChanged += new System.EventHandler(this.tbNuevo2_TextChanged);
             this.tbNuevo2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNuevo2_KeyPress);
             // 
             // btAcercaDe

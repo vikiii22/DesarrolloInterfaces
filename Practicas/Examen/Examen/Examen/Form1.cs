@@ -94,6 +94,11 @@ namespace Examen
             if (lbAlmacenes2.SelectedIndex >= 0)
             {
                 btPasar2.Enabled = true;
+                btElimina2.Enabled = true;
+            }
+            else
+            {
+                btElimina2.Enabled = false;
             }
         }
 
@@ -144,6 +149,11 @@ namespace Examen
             if (lbAlmacenes1.SelectedIndex >= 0)
             {
                 btPasar1.Enabled = true;
+                btElimina.Enabled = true;
+            }
+            else
+            {
+                btElimina.Enabled = false;
             }
         }
 
@@ -312,82 +322,106 @@ namespace Examen
             }
         }
 
-       /* He intentado el drag drop pero no me ha funcionado, lo dejo comentado
-        * private void lbAlmacenes1_DragDrop(object sender, DragEventArgs e)
+        private void tbNuevo_TextChanged(object sender, EventArgs e)
         {
-            ListBox miListBox = (ListBox)sender;
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (tbNuevo.Text != "")
             {
-                string[] ficheros = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-                foreach (var fichero in ficheros)
-                {
-                    StreamReader miArchivo = new StreamReader(fichero, Encoding.Default);
-                    while (miArchivo.Peek() >= 0)
-                    {
-                        miListBox.Items.Add(Convert.ToString(miArchivo.ReadLine()));
-                    }
-                    miArchivo.Close();
-                }
+                btAnyadir.Enabled = true;
             }
             else
             {
-                if (e.Data.GetDataPresent(DataFormats.Text))
-                {
-                    if (sender == lbAlmacenes1 && lbAlmacenes2.SelectedIndex > -1)
-                    {
-                        anyadeListBox(lbAlmacenes1, lbAlmacenes2);
-                        borraListBox(lbAlmacenes2);
-                    }
-                    if (sender == lbAlmacenes2 && lbAlmacenes1.SelectedIndex > -1)
-                    {
-                        anyadeListBox(lbAlmacenes2, lbAlmacenes1);
-                        borraListBox(lbAlmacenes1);
-                    }
-                }
+                btAnyadir.Enabled = false;
             }
         }
 
-        private void borraListBox(ListBox lbBorra)
+        private void tbNuevo2_TextChanged(object sender, EventArgs e)
         {
-            int i = 0;
-            while (i < lbBorra.Items.Count)
+            if (tbNuevo2.Text != "")
             {
-                if (lbBorra.GetSelected(i))
-                {
-                    lbBorra.Items.RemoveAt(i);
-                }
-                else
-                {
-                    i++;
-                }
+                btNuevo2.Enabled = true;
+            }
+            else
+            {
+                btNuevo2.Enabled = false;
             }
         }
 
-        private void anyadeListBox(ListBox lbAcopla, ListBox lbArrastra)
-        {
-            for (int i = 0; i < lbArrastra.Items.Count; i++)
-            {
-                if (lbArrastra.GetSelected(i))
-                {
-                    lbAcopla.Items.Add(lbArrastra.Items[i]);
-                }
-            }
-        }
+        /* He intentado el drag drop pero no me ha funcionado, lo dejo comentado
+         * private void lbAlmacenes1_DragDrop(object sender, DragEventArgs e)
+         {
+             ListBox miListBox = (ListBox)sender;
+             if (e.Data.GetDataPresent(DataFormats.FileDrop))
+             {
+                 string[] ficheros = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+                 foreach (var fichero in ficheros)
+                 {
+                     StreamReader miArchivo = new StreamReader(fichero, Encoding.Default);
+                     while (miArchivo.Peek() >= 0)
+                     {
+                         miListBox.Items.Add(Convert.ToString(miArchivo.ReadLine()));
+                     }
+                     miArchivo.Close();
+                 }
+             }
+             else
+             {
+                 if (e.Data.GetDataPresent(DataFormats.Text))
+                 {
+                     if (sender == lbAlmacenes1 && lbAlmacenes2.SelectedIndex > -1)
+                     {
+                         anyadeListBox(lbAlmacenes1, lbAlmacenes2);
+                         borraListBox(lbAlmacenes2);
+                     }
+                     if (sender == lbAlmacenes2 && lbAlmacenes1.SelectedIndex > -1)
+                     {
+                         anyadeListBox(lbAlmacenes2, lbAlmacenes1);
+                         borraListBox(lbAlmacenes1);
+                     }
+                 }
+             }
+         }
 
-        private void lbAlmacenes1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (lbAlmacenes1.SelectedIndex >= 0)
-            {
-                lbAlmacenes2.DoDragDrop(lbAlmacenes1.SelectedItem, DragDropEffects.All);//Indica operación de arrastre.
-            }
-        }
+         private void borraListBox(ListBox lbBorra)
+         {
+             int i = 0;
+             while (i < lbBorra.Items.Count)
+             {
+                 if (lbBorra.GetSelected(i))
+                 {
+                     lbBorra.Items.RemoveAt(i);
+                 }
+                 else
+                 {
+                     i++;
+                 }
+             }
+         }
 
-        private void lbAlmacenes2_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (lbAlmacenes2.SelectedIndex >= 0)
-            {
-                lbAlmacenes1.DoDragDrop(lbAlmacenes2.SelectedItem, DragDropEffects.All);
-            }
-        }*/
+         private void anyadeListBox(ListBox lbAcopla, ListBox lbArrastra)
+         {
+             for (int i = 0; i < lbArrastra.Items.Count; i++)
+             {
+                 if (lbArrastra.GetSelected(i))
+                 {
+                     lbAcopla.Items.Add(lbArrastra.Items[i]);
+                 }
+             }
+         }
+
+         private void lbAlmacenes1_MouseDown(object sender, MouseEventArgs e)
+         {
+             if (lbAlmacenes1.SelectedIndex >= 0)
+             {
+                 lbAlmacenes2.DoDragDrop(lbAlmacenes1.SelectedItem, DragDropEffects.All);//Indica operación de arrastre.
+             }
+         }
+
+         private void lbAlmacenes2_MouseDown(object sender, MouseEventArgs e)
+         {
+             if (lbAlmacenes2.SelectedIndex >= 0)
+             {
+                 lbAlmacenes1.DoDragDrop(lbAlmacenes2.SelectedItem, DragDropEffects.All);
+             }
+         }*/
     }
 }
