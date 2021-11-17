@@ -111,6 +111,7 @@ namespace _05MiniEditor
             //rtbEditor.Focus();
         }
 
+        //Añadir fuentes a listbox cuando carga el formulario
         private void fmEditorTextos_Load(object sender, EventArgs e)
         {
             foreach (FontFamily misFuentes in FontFamily.Families)
@@ -314,6 +315,11 @@ namespace _05MiniEditor
             ventantaAcercaDe = new fmAcercaDe();
             ventantaAcercaDe.ShowDialog();
             ventantaAcercaDe.Dispose();
+        }
+
+        private void cbFuente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

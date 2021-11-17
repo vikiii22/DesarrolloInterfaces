@@ -237,5 +237,10 @@ namespace ListasYMenus
                 MessageBox.Show(miError.Message);
             }
         }
+
+        private void tbNuevo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

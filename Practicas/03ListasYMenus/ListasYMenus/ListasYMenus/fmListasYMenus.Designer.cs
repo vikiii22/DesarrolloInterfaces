@@ -310,6 +310,7 @@
             this.tbNuevo.Name = "tbNuevo";
             this.tbNuevo.Size = new System.Drawing.Size(100, 22);
             this.tbNuevo.TabIndex = 15;
+            this.tbNuevo.TextChanged += new System.EventHandler(this.tbNuevo_TextChanged);
             this.tbNuevo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNuevo_KeyPress);
             // 
             // lbNuevo
@@ -360,7 +361,7 @@
             this.itNuevo.Image = global::ListasYMenus.Properties.Resources.NUEVO;
             this.itNuevo.Name = "itNuevo";
             this.itNuevo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.itNuevo.Size = new System.Drawing.Size(216, 26);
+            this.itNuevo.Size = new System.Drawing.Size(189, 26);
             this.itNuevo.Text = "Nuevo";
             this.itNuevo.Click += new System.EventHandler(this.itNuevo_Click);
             // 
@@ -368,7 +369,7 @@
             // 
             this.itAbrir.Image = global::ListasYMenus.Properties.Resources.ABRIR;
             this.itAbrir.Name = "itAbrir";
-            this.itAbrir.Size = new System.Drawing.Size(216, 26);
+            this.itAbrir.Size = new System.Drawing.Size(189, 26);
             this.itAbrir.Text = "A&brir";
             this.itAbrir.Click += new System.EventHandler(this.btAbrir_Click);
             // 
@@ -377,20 +378,20 @@
             this.itGuardar.Image = global::ListasYMenus.Properties.Resources.GRABAR;
             this.itGuardar.Name = "itGuardar";
             this.itGuardar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.itGuardar.Size = new System.Drawing.Size(216, 26);
+            this.itGuardar.Size = new System.Drawing.Size(189, 26);
             this.itGuardar.Text = "Guardar";
             this.itGuardar.Click += new System.EventHandler(this.btGuardar_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(186, 6);
             // 
             // itSalir
             // 
             this.itSalir.Name = "itSalir";
             this.itSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.itSalir.Size = new System.Drawing.Size(216, 26);
+            this.itSalir.Size = new System.Drawing.Size(189, 26);
             this.itSalir.Text = "Salir";
             this.itSalir.Click += new System.EventHandler(this.itSalir_Click);
             // 
@@ -405,7 +406,7 @@
             // itAcercaDe
             // 
             this.itAcercaDe.Name = "itAcercaDe";
-            this.itAcercaDe.Size = new System.Drawing.Size(216, 26);
+            this.itAcercaDe.Size = new System.Drawing.Size(152, 26);
             this.itAcercaDe.Text = "Acerca De";
             this.itAcercaDe.Click += new System.EventHandler(this.itAcercaDe_Click);
             // 

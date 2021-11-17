@@ -345,6 +345,7 @@
             this.cbFuente.Size = new System.Drawing.Size(155, 24);
             this.cbFuente.TabIndex = 10;
             this.totiColor.SetToolTip(this.cbFuente, "Cambia el tipo de fuente");
+            this.cbFuente.SelectedIndexChanged += new System.EventHandler(this.cbFuente_SelectedIndexChanged);
             this.cbFuente.TextChanged += new System.EventHandler(this.cbFuente_TextChanged);
             // 
             // menuStrip1
@@ -636,7 +637,7 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.acercaDeToolStripMenuItem.Text = "Acerca De";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 

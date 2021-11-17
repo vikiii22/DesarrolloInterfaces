@@ -21,6 +21,7 @@ namespace ArrastrarYSoltar
             InitializeComponent();
         }
 
+        //Método que se encarga de hacer el arrastre de un listBox a otro.
         private void lb1_MouseDown(object sender, MouseEventArgs e)
         {
             if (lb1.SelectedIndex >= 0)
@@ -31,12 +32,13 @@ namespace ArrastrarYSoltar
 
         private void lb2_MouseDown(object sender, MouseEventArgs e)
         {
-            if (lb2.SelectedIndex >= 0)
+           if (lb2.SelectedIndex >= 0)
             {
                 lb1.DoDragDrop(lb2.SelectedItem, DragDropEffects.All);
             }
         }
 
+        //Carga un archivo dentro del Listbox
         private void lb1_DragDrop(object sender, DragEventArgs e)
         {
             ListBox miListBox = (ListBox)sender;
@@ -71,6 +73,7 @@ namespace ArrastrarYSoltar
             }
         }
 
+        //Método para borrar
         private void borraListBox(ListBox lbBorra)
         {
             int i = 0;
@@ -87,6 +90,7 @@ namespace ArrastrarYSoltar
             }
         }
 
+        //Se encarga de pasar de lb a otro
         private void anyadeListBox(ListBox lbAcopla, ListBox lbArrastra)
         {
             for (int i = 0; i < lbArrastra.Items.Count; i++)
@@ -98,6 +102,7 @@ namespace ArrastrarYSoltar
             }
         }
 
+        //Permite la entrada de un archivo
         private void lb1_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop) || e.Data.GetDataPresent(DataFormats.Text))
