@@ -55,7 +55,7 @@ namespace EditorGrafico
 
         private void EditorGrafico_MouseMove(object sender, MouseEventArgs e)
         {
-            //tsl4.Text = "X: " + e.X.ToString() + " Y: " + e.Y.ToString();
+            tsl4.Text = "X: " + e.X.ToString() + " Y: " + e.Y.ToString();
             if (pulsado)
             {
                 if (accion == "Lapiz" || accion == "Goma")
@@ -106,6 +106,15 @@ namespace EditorGrafico
             //itSolidoLinea.Checked = true;
         }
 
+        private void tsbLapiz_Click(object sender, EventArgs e)
+        {
+            accion = "Lapiz";
+            CrearCursorLapiz();
+            desmarca();
+            tsbLapiz.Checked = true;
+            //itLapiz.Checked = true;
+        }
+
         private void Inicializar()
         {
             accion = "Lapiz";
@@ -120,17 +129,77 @@ namespace EditorGrafico
             CrearCursorLapiz();
             rellenando = false;
 
-            /*tsbLapiz.Checked = true;  //para que funcione esto hay que desmarcar todo antes
-            itLapiz.Checked = true;
+            tsbLapiz.Checked = true;  //para que funcione esto hay que desmarcar todo antes
+            /*itLapiz.Checked = true;
             itLinea5.Checked = true;
             itSinRelleno.Checked = true;
 
             tsbColorlapiz.Image = Properties.Resources.colorlapiz;
             tsbColorFondo.Image = Properties.Resources.colorfondo;
-            tsbColorRelleno.Image = Properties.Resources.brocha;
+            tsbColorRelleno.Image = Properties.Resources.brocha;*/
 
             tsl2.Text = "Grosor Linea: " + lapiz.Width.ToString(); //label status strip
-            tsl3.Text = "Grosor Goma: " + goma.Width.ToString();*/
+            tsl3.Text = "Grosor Goma: " + goma.Width.ToString();
+        }
+
+        private void tsbGoma_Click(object sender, EventArgs e)
+        {
+            accion = "Goma";
+            CrearCursorGoma();
+            desmarca();
+            tsbGoma.Checked = true;
+            //itGoma.Checked = true;
+        }
+
+        private void tsbBorrarSeleccion_Click(object sender, EventArgs e)
+        {
+            accion = "BorrarSeleccion";
+            CrearCursorGoma();
+            desmarca();
+            tsbBorrarSeleccion.Checked = true;
+            //itBorrarSeleccion.Checked = true;
+        }
+
+        private void EditorGrafico_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Add)
+            {
+                if (accion == "Goma")
+                {
+                    if (goma.Width < 100)
+                    {
+                        goma.Width++;
+                        CrearCursorGoma();
+                    }
+                }
+                else
+                {
+                    if (lapiz.Width < 100)
+                    {
+                        lapiz.Width++;
+                    }
+                }
+            }
+            if (e.KeyCode == Keys.Subtract)
+            {
+                if (accion == "Goma")
+                {
+                    if (goma.Width > 10)
+                    {
+                        goma.Width--;
+                        CrearCursorGoma();
+                    }
+                }
+                else
+                {
+                    if (lapiz.Width > 1)
+                    {
+                        lapiz.Width--;
+                    }
+                }
+            }
+            tsl2.Text = "Grosor Línea: " + lapiz.Width.ToString();
+            tsl3.Text = "Grosor Goma: " + goma.Width.ToString();
         }
 
         private void Dibujar()
@@ -138,8 +207,8 @@ namespace EditorGrafico
             Graphics g1 = pbEditorGrafico.CreateGraphics();
             Graphics g2 = Graphics.FromImage(mibmp);
             Image mimage = null;
-            if (accion != "BorrarSeleccion")
-                mimage = pbEditorGrafico.Image;
+            //if (accion != "BorrarSeleccion")
+            mimage = pbEditorGrafico.Image;
 
             switch (accion)
             {
@@ -189,14 +258,19 @@ namespace EditorGrafico
                     g1.DrawString(mitexto, mifuente, colorTexto, actualX, actualY - 10);
                     break;
                 case "BorrarSeleccion":
-                    SolidBrush rellenoborra = new SolidBrush(pbEditorGrafico.BackColor);  //Color.White); pbEdigrafi.BackColor;
-                    g1.FillRectangle(rellenoborra, new Rectangle(OrigenX, OrigenY, Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                    //SolidBrush rellenoborra = new SolidBrush(pbEditorGrafico.BackColor);  //Color.White); pbEdigrafi.BackColor;
+                    Pen lapizBorra = new Pen(Color.Black, 1);
+                    lapizBorra.DashStyle = DashStyle.Custom;
+                    lapizBorra.DashPattern = new float[] { 8, 8 };
+
+                    //g1.FillRectangle(rellenoborra, new Rectangle(OrigenX, OrigenY, Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                    g1.DrawRectangle(lapizBorra, Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY));
                     break;
             }
             g1.Dispose();
             g2.Dispose();
-            if (accion != "BorrarSeleccion")
-                pbEditorGrafico.Image = mimage;
+            //if (accion != "BorrarSeleccion")
+            pbEditorGrafico.Image = mimage;
         }
 
         private void Dibujar2()
@@ -243,7 +317,7 @@ namespace EditorGrafico
                     break;
                 case "BorrarSeleccion":
                     SolidBrush rellenoborra = new SolidBrush(pbEditorGrafico.BackColor);// Color.White);
-                    g2.FillRectangle(rellenoborra, new Rectangle(OrigenX, OrigenY, Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
+                    g2.FillRectangle(rellenoborra, new Rectangle(Math.Min(OrigenX, actualX), Math.Min(OrigenY, actualY), Math.Abs(actualX - OrigenX), Math.Abs(actualY - OrigenY)));
                     break;
             }
             g2.Dispose();
@@ -257,7 +331,7 @@ namespace EditorGrafico
 
         private void desmarca()
         {
-            foreach(ToolStripButton boton in tsLateral.Items)
+            foreach (ToolStripButton boton in tsLateral.Items)
             {
                 boton.Checked = false;
             }
@@ -271,10 +345,26 @@ namespace EditorGrafico
 
         private void desmarcaMenu(ToolStripItemCollection listaMenu)
         {
-            foreach(ToolStripItem miItem in listaMenu)
+            foreach (ToolStripItem miItem in listaMenu)
             {
                 ((ToolStripMenuItem)miItem).Checked = false;
             }
+        }
+
+        private void CrearCursorGoma()
+        {
+            int diametroG = Convert.ToInt32(goma.Width);
+            Bitmap Goma = new Bitmap(diametroG, diametroG);
+
+            Graphics gGoma = Graphics.FromImage(Goma);
+            gGoma.FillRectangle(Brushes.Magenta, 0, 0, diametroG, diametroG);
+            SolidBrush rellenoborra = new SolidBrush(pbEditorGrafico.BackColor);
+            gGoma.FillEllipse(rellenoborra, 0, 0, diametroG - 1, diametroG - 1); //Brushes.White
+            gGoma.DrawEllipse(new Pen(Color.Black, 1), 0, 0, diametroG - 1, diametroG - 1);
+            Goma.MakeTransparent(Color.Magenta);
+            gGoma.Dispose();
+            IntPtr intprCursorGoma = Goma.GetHicon();
+            pbEditorGrafico.Cursor = new Cursor(intprCursorGoma);
         }
     }
 }
