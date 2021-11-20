@@ -89,7 +89,7 @@ namespace _07Dibujo
                 pbDemo.PerformStep();
                 tspDemostracion.PerformStep();
             }
-            pbEditor.BackColor = Color.FromArgb(255 - traRojo.Value, 255 - traVerde.Value, 255 - traAzul.Value);
+            //pbEditor.BackColor = Color.FromArgb(255 - traRojo.Value, 255 - traVerde.Value, 255 - traAzul.Value);
             pbDemo.Value = 100;
             tspDemostracion.Value = 100;
         }
@@ -138,6 +138,11 @@ namespace _07Dibujo
             }
         }
 
+        private void tsmSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void fmDibujo_Load(object sender, EventArgs e)
         {
             mig = new Bitmap(pbEditor.Width, pbEditor.Height);
@@ -166,6 +171,136 @@ namespace _07Dibujo
                 pnColores.Enabled = false;
                 btCambiaColor.Text = "Prueba de colores";
             }
+        }
+
+        private void tsbCuadrado_Click(object sender, EventArgs e)
+        {
+            pbEditor.Image = (Image)mig;
+
+            SolidBrush relleno;
+            if (ckRelleno.Checked)
+            {
+                relleno = new SolidBrush(Color.FromArgb(rojo, verde, azul));
+                imEditor.FillRectangle(relleno, new Rectangle(150, 1, 50, 50));
+            }
+            else
+            {
+                relleno = new SolidBrush(Color.FromArgb(255, 255, 255));
+                imEditor.FillRectangle(relleno, new Rectangle(150, 1, 50, 50));
+            }
+            imEditor.DrawRectangle(grosor, 150, 1, 50, 50);
+            relleno.Dispose();
+        }
+
+        private void tsbRectangulo_Click(object sender, EventArgs e)
+        {
+            pbEditor.Image = (Image)mig;
+            SolidBrush relleno;
+            if (ckRelleno.Checked)
+            {
+                relleno = new SolidBrush(Color.FromArgb(rojo, verde, azul));
+                imEditor.FillRectangle(relleno, new Rectangle(60, 1, 80, 60));
+            }
+            else
+            {
+                relleno = new SolidBrush(Color.FromArgb(255, 255, 255));
+                imEditor.FillRectangle(relleno, new Rectangle(60, 1, 80, 60));
+            }
+            relleno.Dispose();
+            imEditor.DrawRectangle(grosor, 60, 1, 80, 60);
+        }
+
+        private void tsbArco_Click(object sender, EventArgs e)
+        {
+            pbEditor.Image = (Image)mig;
+            imEditor.DrawArc(grosor, 0, 85, 150, 50, 90, 180);//360 en ultimo lugar dibuja un circulo
+        }
+
+        private void tsbCirculo_Click(object sender, EventArgs e)
+        {
+
+            pbEditor.Image = (Image)mig;
+            SolidBrush relleno;
+            if (ckRelleno.Checked)
+            {
+                relleno = new SolidBrush(Color.FromArgb(rojo, verde, azul));
+                imEditor.FillEllipse(relleno, new Rectangle(1, 1, 50, 50));
+            }
+            else
+            {
+                relleno = new SolidBrush(Color.FromArgb(255, 255, 255));
+                imEditor.FillEllipse(relleno, new Rectangle(1, 1, 50, 50));
+
+            }
+            imEditor.DrawEllipse(grosor, new Rectangle(1, 1, 50, 50));
+
+        }
+
+        private void tsbElipse_Click(object sender, EventArgs e)
+        {
+            pbEditor.Image = mig;
+            SolidBrush relleno;
+            if (ckRelleno.Checked)
+            {
+                relleno = new SolidBrush(Color.FromArgb(rojo, verde, azul));
+                imEditor.FillEllipse(relleno, new Rectangle(210, 1, 60, 40));
+            }
+            else
+            {
+                relleno = new SolidBrush(Color.FromArgb(255, 255, 255));
+                imEditor.FillEllipse(relleno, new Rectangle(210, 1, 60, 40));
+            }
+            imEditor.DrawEllipse(grosor, new Rectangle(210, 1, 60, 40));
+        }
+
+        private void tsbPoligono_Click(object sender, EventArgs e)
+        {
+            pbEditor.Image = (Image)mig;
+            Point[] vertices = { new Point(100,126),
+                            new Point(150,100),
+                            new Point(200, 126),
+                            new Point(200, 174),
+                            new Point(150, 200),
+                            new Point(100, 174)};//174
+                                                 // new Point(100, 250)};//174
+            imEditor.DrawPolygon(grosor, vertices);
+        }
+
+        private void tsbCurvaAbierta_Click(object sender, EventArgs e)
+        {
+            pbEditor.Image = mig;
+            Point[] vertices = { new Point(250, 126),
+                                new Point(300, 100),
+                                new Point(350, 126),
+                                new Point(400, 100) };
+            imEditor.DrawCurve(grosor, vertices);
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fmAcercaDe ventanaAcercaDe = new fmAcercaDe();
+            ventanaAcercaDe.ShowDialog();
+        }
+
+        private void tsbCurvaCerrada_Click(object sender, EventArgs e)
+        {
+            pbEditor.Image = mig;
+            Point[] vertices = { new Point(220, 206),
+                                new Point(270, 180),
+                                new Point(320, 206),
+                                new Point(370, 180) };
+
+            imEditor.DrawClosedCurve(grosor, vertices);
+
+        }
+
+        private void tbTexto_Click(object sender, EventArgs e)
+        {
+            pbEditor.Image = mig;
+            Font fuente = new Font("Arial", 15);
+            SolidBrush relleno = new SolidBrush(Color.FromArgb(rojo, verde, azul));
+            imEditor.DrawString("Texto Incrustado En Gráfico", fuente, relleno, 50, 220);
+            relleno.Dispose();
         }
     }
 }

@@ -35,7 +35,6 @@
             this.tsbRectangulo = new System.Windows.Forms.ToolStripButton();
             this.tsbArco = new System.Windows.Forms.ToolStripButton();
             this.tsbCirculo = new System.Windows.Forms.ToolStripButton();
-            this.tsbPol = new System.Windows.Forms.ToolStripButton();
             this.tsbElip = new System.Windows.Forms.ToolStripButton();
             this.tsbPoligono = new System.Windows.Forms.ToolStripButton();
             this.tsbCurvaAbierta = new System.Windows.Forms.ToolStripButton();
@@ -66,7 +65,7 @@
             this.tsmAbrir = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmGuardar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dlgGuardarDibujo = new System.Windows.Forms.SaveFileDialog();
@@ -90,7 +89,6 @@
             this.tsbRectangulo,
             this.tsbArco,
             this.tsbCirculo,
-            this.tsbPol,
             this.tsbElip,
             this.tsbPoligono,
             this.tsbCurvaAbierta,
@@ -120,6 +118,7 @@
             this.tsbCuadrado.Name = "tsbCuadrado";
             this.tsbCuadrado.Size = new System.Drawing.Size(42, 24);
             this.tsbCuadrado.Text = "CUA";
+            this.tsbCuadrado.Click += new System.EventHandler(this.tsbCuadrado_Click);
             // 
             // tsbRectangulo
             // 
@@ -129,6 +128,7 @@
             this.tsbRectangulo.Name = "tsbRectangulo";
             this.tsbRectangulo.Size = new System.Drawing.Size(39, 24);
             this.tsbRectangulo.Text = "REC";
+            this.tsbRectangulo.Click += new System.EventHandler(this.tsbRectangulo_Click);
             // 
             // tsbArco
             // 
@@ -138,6 +138,7 @@
             this.tsbArco.Name = "tsbArco";
             this.tsbArco.Size = new System.Drawing.Size(52, 24);
             this.tsbArco.Text = "ARCO";
+            this.tsbArco.Click += new System.EventHandler(this.tsbArco_Click);
             // 
             // tsbCirculo
             // 
@@ -147,15 +148,7 @@
             this.tsbCirculo.Name = "tsbCirculo";
             this.tsbCirculo.Size = new System.Drawing.Size(35, 24);
             this.tsbCirculo.Text = "CIR";
-            // 
-            // tsbPol
-            // 
-            this.tsbPol.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbPol.Image = ((System.Drawing.Image)(resources.GetObject("tsbPol.Image")));
-            this.tsbPol.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPol.Name = "tsbPol";
-            this.tsbPol.Size = new System.Drawing.Size(39, 24);
-            this.tsbPol.Text = "POL";
+            this.tsbCirculo.Click += new System.EventHandler(this.tsbCirculo_Click);
             // 
             // tsbElip
             // 
@@ -165,6 +158,7 @@
             this.tsbElip.Name = "tsbElip";
             this.tsbElip.Size = new System.Drawing.Size(40, 24);
             this.tsbElip.Text = "ELIP";
+            this.tsbElip.Click += new System.EventHandler(this.tsbElipse_Click);
             // 
             // tsbPoligono
             // 
@@ -174,6 +168,7 @@
             this.tsbPoligono.Name = "tsbPoligono";
             this.tsbPoligono.Size = new System.Drawing.Size(39, 24);
             this.tsbPoligono.Text = "POL";
+            this.tsbPoligono.Click += new System.EventHandler(this.tsbPoligono_Click);
             // 
             // tsbCurvaAbierta
             // 
@@ -183,6 +178,7 @@
             this.tsbCurvaAbierta.Name = "tsbCurvaAbierta";
             this.tsbCurvaAbierta.Size = new System.Drawing.Size(51, 24);
             this.tsbCurvaAbierta.Text = "CURA";
+            this.tsbCurvaAbierta.Click += new System.EventHandler(this.tsbCurvaAbierta_Click);
             // 
             // tsbCurvaCerrada
             // 
@@ -192,6 +188,7 @@
             this.tsbCurvaCerrada.Name = "tsbCurvaCerrada";
             this.tsbCurvaCerrada.Size = new System.Drawing.Size(50, 24);
             this.tsbCurvaCerrada.Text = "CURC";
+            this.tsbCurvaCerrada.Click += new System.EventHandler(this.tsbCurvaCerrada_Click);
             // 
             // tsbTXT
             // 
@@ -201,6 +198,7 @@
             this.tsbTXT.Name = "tsbTXT";
             this.tsbTXT.Size = new System.Drawing.Size(38, 24);
             this.tsbTXT.Text = "TXT";
+            this.tsbTXT.Click += new System.EventHandler(this.tbTexto_Click);
             // 
             // stGrafico
             // 
@@ -229,7 +227,7 @@
             // 
             // tspDemostracion
             // 
-            this.tspDemostracion.ForeColor = System.Drawing.Color.Chartreuse;
+            this.tspDemostracion.ForeColor = System.Drawing.SystemColors.Control;
             this.tspDemostracion.Name = "tspDemostracion";
             this.tspDemostracion.Size = new System.Drawing.Size(250, 19);
             this.tspDemostracion.Step = 5;
@@ -372,6 +370,7 @@
             // 
             // pbDemo
             // 
+            this.pbDemo.ForeColor = System.Drawing.SystemColors.Control;
             this.pbDemo.Location = new System.Drawing.Point(267, 489);
             this.pbDemo.Name = "pbDemo";
             this.pbDemo.Size = new System.Drawing.Size(447, 37);
@@ -399,7 +398,7 @@
             this.tsmAbrir,
             this.tsmGuardar,
             this.toolStripMenuItem2,
-            this.salirToolStripMenuItem});
+            this.tsmSalir});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -435,11 +434,12 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(213, 6);
             // 
-            // salirToolStripMenuItem
+            // tsmSalir
             // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.salirToolStripMenuItem.Text = "Salir";
+            this.tsmSalir.Name = "tsmSalir";
+            this.tsmSalir.Size = new System.Drawing.Size(216, 26);
+            this.tsmSalir.Text = "Salir";
+            this.tsmSalir.Click += new System.EventHandler(this.tsmSalir_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -452,8 +452,9 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.acercaDeToolStripMenuItem.Text = "Acerca De";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // dlgGuardarDibujo
             // 
@@ -530,7 +531,6 @@
         private System.Windows.Forms.ToolStripButton tsbRectangulo;
         private System.Windows.Forms.ToolStripButton tsbArco;
         private System.Windows.Forms.ToolStripButton tsbCirculo;
-        private System.Windows.Forms.ToolStripButton tsbPol;
         private System.Windows.Forms.ToolStripButton tsbElip;
         private System.Windows.Forms.ToolStripButton tsbPoligono;
         private System.Windows.Forms.ToolStripButton tsbCurvaAbierta;
@@ -549,7 +549,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmAbrir;
         private System.Windows.Forms.ToolStripMenuItem tsmGuardar;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmSalir;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog dlgGuardarDibujo;
