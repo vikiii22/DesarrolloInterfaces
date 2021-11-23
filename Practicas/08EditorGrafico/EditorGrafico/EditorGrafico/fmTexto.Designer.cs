@@ -50,6 +50,7 @@
             this.btFuente.TabIndex = 1;
             this.btFuente.Text = "button1";
             this.btFuente.UseVisualStyleBackColor = true;
+            this.btFuente.Click += new System.EventHandler(this.btFuente_Click);
             // 
             // btSalir
             // 
@@ -63,6 +64,7 @@
             // 
             // btAplicar
             // 
+            this.btAplicar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btAplicar.Location = new System.Drawing.Point(331, 40);
             this.btAplicar.Name = "btAplicar";
             this.btAplicar.Size = new System.Drawing.Size(30, 23);

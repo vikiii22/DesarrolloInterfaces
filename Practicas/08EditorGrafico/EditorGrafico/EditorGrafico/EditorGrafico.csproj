@@ -52,6 +52,12 @@
     <Compile Include="EditorGrafico.Designer.cs">
       <DependentUpon>EditorGrafico.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmTamanyo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmTamanyo.Designer.cs">
+      <DependentUpon>fmTamanyo.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmTexto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EditorGrafico.resx">
       <DependentUpon>EditorGrafico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmTamanyo.resx">
+      <DependentUpon>fmTamanyo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmTexto.resx">
       <DependentUpon>fmTexto.cs</DependentUpon>

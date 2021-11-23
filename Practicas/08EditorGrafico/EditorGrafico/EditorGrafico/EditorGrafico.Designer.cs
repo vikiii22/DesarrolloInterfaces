@@ -67,11 +67,9 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.tsbTexto = new System.Windows.Forms.ToolStripButton();
             this.tsbBorrarSeleccion = new System.Windows.Forms.ToolStripButton();
             this.stEstado = new System.Windows.Forms.StatusStrip();
-            this.pnEditor = new System.Windows.Forms.Panel();
-            this.pbEditorGrafico = new System.Windows.Forms.PictureBox();
             this.tsl1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsl2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -79,6 +77,12 @@
             this.tsl3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsl4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pnEditor = new System.Windows.Forms.Panel();
+            this.pbEditorGrafico = new System.Windows.Forms.PictureBox();
+            this.dlgAbrirDibujo = new System.Windows.Forms.OpenFileDialog();
+            this.itAbrir = new System.Windows.Forms.ToolStripMenuItem();
+            this.dlgGuardar = new System.Windows.Forms.SaveFileDialog();
+            this.itGuardar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tsLateral.SuspendLayout();
@@ -105,6 +109,9 @@
             // 
             // archivoToolStripMenuItem
             // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itAbrir,
+            this.itGuardar});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -359,11 +366,11 @@
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripButton6,
-            this.toolStripButton7,
+            this.tsbTexto,
             this.tsbBorrarSeleccion});
             this.tsLateral.Location = new System.Drawing.Point(0, 55);
             this.tsLateral.Name = "tsLateral";
-            this.tsLateral.Size = new System.Drawing.Size(40, 514);
+            this.tsLateral.Size = new System.Drawing.Size(25, 514);
             this.tsLateral.TabIndex = 3;
             this.tsLateral.Text = "toolStrip2";
             this.tsLateral.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
@@ -405,14 +412,15 @@
             this.toolStripButton6.Size = new System.Drawing.Size(22, 24);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
-            // toolStripButton7
+            // tsbTexto
             // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(22, 24);
-            this.toolStripButton7.Text = "toolStripButton7";
+            this.tsbTexto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbTexto.Image = ((System.Drawing.Image)(resources.GetObject("tsbTexto.Image")));
+            this.tsbTexto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbTexto.Name = "tsbTexto";
+            this.tsbTexto.Size = new System.Drawing.Size(22, 24);
+            this.tsbTexto.Text = "toolStripButton7";
+            this.tsbTexto.Click += new System.EventHandler(this.tsbTexto_Click);
             // 
             // tsbBorrarSeleccion
             // 
@@ -435,35 +443,11 @@
             this.tsl3,
             this.toolStripStatusLabel6,
             this.tsl4});
-            this.stEstado.Location = new System.Drawing.Point(40, 544);
+            this.stEstado.Location = new System.Drawing.Point(25, 544);
             this.stEstado.Name = "stEstado";
-            this.stEstado.Size = new System.Drawing.Size(870, 25);
+            this.stEstado.Size = new System.Drawing.Size(885, 25);
             this.stEstado.TabIndex = 2;
             this.stEstado.Text = "statusStrip1";
-            // 
-            // pnEditor
-            // 
-            this.pnEditor.AutoScroll = true;
-            this.pnEditor.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pnEditor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnEditor.Controls.Add(this.pbEditorGrafico);
-            this.pnEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnEditor.Location = new System.Drawing.Point(40, 55);
-            this.pnEditor.Name = "pnEditor";
-            this.pnEditor.Size = new System.Drawing.Size(870, 489);
-            this.pnEditor.TabIndex = 5;
-            // 
-            // pbEditorGrafico
-            // 
-            this.pbEditorGrafico.BackColor = System.Drawing.Color.White;
-            this.pbEditorGrafico.Location = new System.Drawing.Point(34, 24);
-            this.pbEditorGrafico.Name = "pbEditorGrafico";
-            this.pbEditorGrafico.Size = new System.Drawing.Size(400, 400);
-            this.pbEditorGrafico.TabIndex = 0;
-            this.pbEditorGrafico.TabStop = false;
-            this.pbEditorGrafico.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EditorGrafico_MouseDown);
-            this.pbEditorGrafico.MouseMove += new System.Windows.Forms.MouseEventHandler(this.EditorGrafico_MouseMove);
-            this.pbEditorGrafico.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbEditorGrafico_MouseUp);
             // 
             // tsl1
             // 
@@ -503,6 +487,48 @@
             this.tsl4.Name = "tsl4";
             this.tsl4.Size = new System.Drawing.Size(40, 20);
             this.tsl4.Text = "X: Y: ";
+            // 
+            // pnEditor
+            // 
+            this.pnEditor.AutoScroll = true;
+            this.pnEditor.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pnEditor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnEditor.Controls.Add(this.pbEditorGrafico);
+            this.pnEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnEditor.Location = new System.Drawing.Point(25, 55);
+            this.pnEditor.Name = "pnEditor";
+            this.pnEditor.Size = new System.Drawing.Size(885, 489);
+            this.pnEditor.TabIndex = 5;
+            // 
+            // pbEditorGrafico
+            // 
+            this.pbEditorGrafico.BackColor = System.Drawing.Color.White;
+            this.pbEditorGrafico.Location = new System.Drawing.Point(34, 24);
+            this.pbEditorGrafico.Name = "pbEditorGrafico";
+            this.pbEditorGrafico.Size = new System.Drawing.Size(400, 400);
+            this.pbEditorGrafico.TabIndex = 0;
+            this.pbEditorGrafico.TabStop = false;
+            this.pbEditorGrafico.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EditorGrafico_MouseDown);
+            this.pbEditorGrafico.MouseMove += new System.Windows.Forms.MouseEventHandler(this.EditorGrafico_MouseMove);
+            this.pbEditorGrafico.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbEditorGrafico_MouseUp);
+            // 
+            // dlgAbrirDibujo
+            // 
+            this.dlgAbrirDibujo.FileName = "openFileDialog1";
+            // 
+            // itAbrir
+            // 
+            this.itAbrir.Name = "itAbrir";
+            this.itAbrir.Size = new System.Drawing.Size(216, 26);
+            this.itAbrir.Text = "Abrir";
+            this.itAbrir.Click += new System.EventHandler(this.itAbrir_Click);
+            // 
+            // itGuardar
+            // 
+            this.itGuardar.Name = "itGuardar";
+            this.itGuardar.Size = new System.Drawing.Size(216, 26);
+            this.itGuardar.Text = "Guardar";
+            this.itGuardar.Click += new System.EventHandler(this.itGuardar_Click);
             // 
             // EditorGrafico
             // 
@@ -567,7 +593,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton tsbTexto;
         private System.Windows.Forms.ToolStripButton tsbBorrarSeleccion;
         private System.Windows.Forms.ToolStripMenuItem tipoLíneaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem discontinuaToolStripMenuItem;
@@ -590,6 +616,10 @@
         private System.Windows.Forms.ToolStripStatusLabel tsl3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
         private System.Windows.Forms.ToolStripStatusLabel tsl4;
+        private System.Windows.Forms.OpenFileDialog dlgAbrirDibujo;
+        private System.Windows.Forms.ToolStripMenuItem itAbrir;
+        private System.Windows.Forms.ToolStripMenuItem itGuardar;
+        private System.Windows.Forms.SaveFileDialog dlgGuardar;
     }
 }
 

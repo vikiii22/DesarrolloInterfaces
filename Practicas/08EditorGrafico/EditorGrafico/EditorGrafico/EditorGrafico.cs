@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace EditorGrafico
 {
     public partial class EditorGrafico : Form
     {
+        fmTexto ventanaTexto=new fmTexto();
         public EditorGrafico()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace EditorGrafico
 
         private void EditorGrafico_MouseDown(object sender, MouseEventArgs e)
         {
+            fmTexto ventanaTexto;
             if (e.Button == MouseButtons.Left)
             {
                 pulsado = true;
@@ -200,6 +203,69 @@ namespace EditorGrafico
             }
             tsl2.Text = "Grosor Línea: " + lapiz.Width.ToString();
             tsl3.Text = "Grosor Goma: " + goma.Width.ToString();
+        }
+
+        private void tsbTexto_Click(object sender, EventArgs e)
+        {
+            accion = "Texto";
+            desmarca();
+            tsbTexto.Checked = true;
+            //itTexto.Checked = true;
+            ventanaTexto.Location = new Point(Left + 30, Top + 170);
+            if (ventanaTexto.ShowDialog() == DialogResult.OK)
+            {
+                mifuente = ventanaTexto.miFuente;
+                colorTexto.Color = ventanaTexto.colortexto.Color;
+                mitexto = ventanaTexto.tbTexto.Text;
+            }
+        }
+
+        private void itAbrir_Click(object sender, EventArgs e)
+        {
+            dlgAbrirDibujo.FileName = Text;
+            if(dlgAbrirDibujo.ShowDialog()==DialogResult.OK && dlgAbrirDibujo.FileName.Length > 0)
+            {
+                Inicializar();
+                Graphics g2 = Graphics.FromImage(mibmp);
+                pbEditorGrafico.Image = Image.FromFile(dlgAbrirDibujo.FileName);
+
+                g2.DrawImage(pbEditorGrafico.Image, new Point(0, 0));
+                Text = dlgAbrirDibujo.FileName;
+                g2.Dispose();
+            }
+        }
+
+        private void Unir(Bitmap fondo)
+        {
+            Graphics g = Graphics.FromImage(fondo);
+            g.DrawImage(mibmp, 0, 0);
+            mibmp = new Bitmap(fondo);
+            g.Dispose();
+            fondo.Dispose();
+        }
+
+        private void itGuardar_Click(object sender, EventArgs e)
+        {
+            dlgGuardar.FileName = Text;
+            if(dlgGuardar.ShowDialog()==DialogResult.OK && dlgGuardar.FileName.Length > 0)
+            {
+                Bitmap fondo = new Bitmap(mibmp.Width, mibmp.Height);
+                Graphics g = Graphics.FromImage(fondo);
+                g.FillRectangle(new SolidBrush(pbEditorGrafico.BackColor), 0, 0, mibmp.Width, mibmp.Height);
+                g.Dispose();
+                Unir(fondo);
+                fondo.Dispose();
+
+                if (dlgAbrirDibujo.FilterIndex == 1)
+                {
+                    mibmp.Save(dlgGuardar.FileName, ImageFormat.Bmp);
+                }
+                else
+                {
+                    mibmp.Save(dlgGuardar.FileName, ImageFormat.Bmp);
+                }
+                Text = dlgGuardar.FileName;
+            }
         }
 
         private void Dibujar()
