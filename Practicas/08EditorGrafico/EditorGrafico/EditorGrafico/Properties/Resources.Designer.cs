@@ -63,9 +63,29 @@ namespace EditorGrafico.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brocha {
+            get {
+                object obj = ResourceManager.GetObject("brocha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap goma {
             get {
                 object obj = ResourceManager.GetObject("goma", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Grosor6 {
+            get {
+                object obj = ResourceManager.GetObject("Grosor6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

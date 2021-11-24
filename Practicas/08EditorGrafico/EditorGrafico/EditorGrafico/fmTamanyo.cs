@@ -16,5 +16,10 @@ namespace EditorGrafico
         {
             InitializeComponent();
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //No aceptar letras
+        }
     }
 }

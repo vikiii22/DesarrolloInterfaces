@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbIz = new System.Windows.Forms.Label();
+            this.lbDer = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbIzq = new System.Windows.Forms.TextBox();
+            this.tbDer = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lbIz
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ancho";
+            this.lbIz.AutoSize = true;
+            this.lbIz.Location = new System.Drawing.Point(66, 60);
+            this.lbIz.Name = "lbIz";
+            this.lbIz.Size = new System.Drawing.Size(48, 17);
+            this.lbIz.TabIndex = 0;
+            this.lbIz.Text = "Ancho";
             // 
-            // label2
+            // lbDer
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(331, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Alto";
+            this.lbDer.AutoSize = true;
+            this.lbDer.Location = new System.Drawing.Point(331, 60);
+            this.lbDer.Name = "lbDer";
+            this.lbDer.Size = new System.Drawing.Size(32, 17);
+            this.lbDer.TabIndex = 1;
+            this.lbDer.Text = "Alto";
             // 
             // label3
             // 
@@ -74,23 +74,25 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "px";
             // 
-            // textBox1
+            // tbIzq
             // 
-            this.textBox1.Location = new System.Drawing.Point(58, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 4;
+            this.tbIzq.Location = new System.Drawing.Point(58, 90);
+            this.tbIzq.Name = "tbIzq";
+            this.tbIzq.Size = new System.Drawing.Size(100, 22);
+            this.tbIzq.TabIndex = 4;
+            this.tbIzq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // textBox2
+            // tbDer
             // 
-            this.textBox2.Location = new System.Drawing.Point(319, 90);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 5;
+            this.tbDer.Location = new System.Drawing.Point(319, 90);
+            this.tbDer.Name = "tbDer";
+            this.tbDer.Size = new System.Drawing.Size(100, 22);
+            this.tbDer.TabIndex = 5;
             // 
             // button1
             // 
             this.button1.AutoSize = true;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Location = new System.Drawing.Point(71, 163);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 27);
@@ -101,6 +103,7 @@
             // button2
             // 
             this.button2.AutoSize = true;
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Location = new System.Drawing.Point(332, 163);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 27);
@@ -115,12 +118,12 @@
             this.ClientSize = new System.Drawing.Size(495, 245);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbDer);
+            this.Controls.Add(this.tbIzq);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbDer);
+            this.Controls.Add(this.lbIz);
             this.Name = "fmTamanyo";
             this.Text = "Tamaño de Dibujo";
             this.ResumeLayout(false);
@@ -129,14 +132,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.TextBox tbIzq;
+        public System.Windows.Forms.TextBox tbDer;
+        public System.Windows.Forms.Label lbIz;
+        public System.Windows.Forms.Label lbDer;
     }
 }

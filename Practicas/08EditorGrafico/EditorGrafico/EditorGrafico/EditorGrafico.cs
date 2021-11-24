@@ -15,6 +15,7 @@ namespace EditorGrafico
     public partial class EditorGrafico : Form
     {
         fmTexto ventanaTexto=new fmTexto();
+        fmTamanyo ventanaTamanyo = new fmTamanyo();
         public EditorGrafico()
         {
             InitializeComponent();
@@ -154,6 +155,25 @@ namespace EditorGrafico
             //itGoma.Checked = true;
         }
 
+        private void itTamanyoDibujo_Click(object sender, EventArgs e)
+        {
+            ventanaTamanyo = new fmTamanyo();
+            ventanaTamanyo.Text = "Tamaño de Dibujo en Pixeles";
+            ventanaTamanyo.lbIz.Text = "Ancho";
+            ventanaTamanyo.lbDer.Text = "Alto";
+            ventanaTamanyo.tbIzq.Text = Convert.ToString(pbEditorGrafico.Width);
+            ventanaTamanyo.tbDer.Text = Convert.ToString(pbEditorGrafico.Height);
+            if (ventanaTamanyo.ShowDialog() == DialogResult.OK)
+            {
+                pbEditorGrafico.Width = int.Parse(ventanaTamanyo.tbIzq.Text);
+                pbEditorGrafico.Height = int.Parse(ventanaTamanyo.tbDer.Text);
+                Bitmap fondo = new Bitmap(pbEditorGrafico.Width, pbEditorGrafico.Height);
+                Unir(fondo);
+            }
+            tsl1.Text = "Tamaño del dibujo: " + Convert.ToString(pbEditorGrafico.Width + " X " + Convert.ToString(pbEditorGrafico.Height));
+            ventanaTamanyo.Dispose();
+        }
+
         private void tsbBorrarSeleccion_Click(object sender, EventArgs e)
         {
             accion = "BorrarSeleccion";
@@ -247,7 +267,7 @@ namespace EditorGrafico
         private void itGuardar_Click(object sender, EventArgs e)
         {
             dlgGuardar.FileName = Text;
-            if(dlgGuardar.ShowDialog()==DialogResult.OK && dlgGuardar.FileName.Length > 0)
+            if (dlgGuardar.ShowDialog() == DialogResult.OK && dlgGuardar.FileName.Length > 0)
             {
                 Bitmap fondo = new Bitmap(mibmp.Width, mibmp.Height);
                 Graphics g = Graphics.FromImage(fondo);
@@ -264,7 +284,171 @@ namespace EditorGrafico
                 {
                     mibmp.Save(dlgGuardar.FileName, ImageFormat.Bmp);
                 }
-                Text = dlgGuardar.FileName;
+            }
+        }
+
+        private void itLinea1_Click(object sender, EventArgs e)
+        {
+            desmarcaMenu(itTipoLinea.DropDownItems);
+            ToolStripMenuItem elemento = sender as ToolStripMenuItem;
+            int miTag = Convert.ToInt32(elemento.Tag);
+            elemento.Checked = true;
+            switch (miTag)
+            {
+                case 1:
+                    lapiz.DashStyle = DashStyle.Dash;
+                    break;
+                case 2:
+                    lapiz.DashStyle = DashStyle.DashDot;
+                    break;
+                case 3:
+                    lapiz.DashStyle = DashStyle.Dot;
+                    break;
+                case 4:
+                    lapiz.DashStyle = DashStyle.DashDotDot;
+                    break;
+                case 5:
+                    lapiz.DashStyle = DashStyle.Solid;
+                    break;
+            }
+        }
+
+        private void itRelleno1_Click(object sender, EventArgs e)
+        {
+            desmarcaMenu(itTipoRelleno.DropDownItems);
+            rellenando = true;
+            ToolStripMenuItem elemento = sender as ToolStripMenuItem;
+            int miTag = Convert.ToInt32(elemento.Tag);
+            elemento.Checked = true;
+            switch (miTag)
+            {
+                case 1:
+                    estilorelleno = new HatchBrush(HatchStyle.Vertical, lapiz.Color, relleno.Color);
+                    break;
+                case 2:
+                    estilorelleno = new HatchBrush(HatchStyle.Cross, lapiz.Color, relleno.Color);
+                    break;
+                case 3:
+                    estilorelleno = new HatchBrush(HatchStyle.Horizontal, lapiz.Color, relleno.Color);
+                    break;
+                case 4:
+                    estilorelleno = new HatchBrush(HatchStyle.ForwardDiagonal, lapiz.Color, relleno.Color);
+                    break;
+                case 5:
+                    estilorelleno = new HatchBrush(HatchStyle.ZigZag, lapiz.Color, relleno.Color);
+                    break;
+                case 6:
+                    estilorelleno = new HatchBrush(HatchStyle.Plaid, lapiz.Color, relleno.Color);
+                    break;
+                case 7:
+                    estilorelleno = new HatchBrush(HatchStyle.Percent20, lapiz.Color, relleno.Color);
+                    break;
+                case 8:
+                    rellenando = false;
+                    relleno = new SolidBrush(Color.FromArgb(255, 255, 255));
+                    tsbColorRelleno.Image = Properties.Resources.brocha;
+                    break;
+            }
+        }
+
+        private void itGrosorLineaGoma_Click(object sender, EventArgs e)
+        {
+            ventanaTamanyo = new fmTamanyo();
+            ventanaTamanyo.Text = "Grosor de Línea y Goma en puntos";
+            ventanaTamanyo.lbIz.Text = "Grosor Línea";
+            ventanaTamanyo.lbDer.Text = "Grosor Goma";
+
+            ventanaTamanyo.tbIzq.Text = Convert.ToString(lapiz.Width);
+            ventanaTamanyo.tbDer.Text = Convert.ToString(goma.Width);
+            Single copia = goma.Width;
+            if (ventanaTamanyo.ShowDialog() == DialogResult.OK)
+            {
+                lapiz.Width = int.Parse(ventanaTamanyo.tbIzq.Text);
+                goma.Width = int.Parse(ventanaTamanyo.tbDer.Text);
+                if (!tsbGoma.Checked && copia != goma.Width)
+                {
+                    MessageBox.Show("Los cambios de grosor no se aplicarán hasta que elijas goma");
+                }
+            }
+            tsl2.Text = "Grosor Línea: " + lapiz.Width.ToString();
+            tsl3.Text = "Grosor goma: " + goma.Width.ToString();
+        }
+
+        private void itColorRelleno_Click(object sender, EventArgs e)
+        {
+            if (!rellenando)
+            {
+                MessageBox.Show("Elige tipo relleno en Estilo");
+            }
+            dlgColores.Color = relleno.Color;
+            if (dlgColores.ShowDialog() == DialogResult.OK)
+            {
+                CreaCuadroBoton();
+                tsbColorRelleno.Image = CuadradoBoton;
+                relleno.Color = dlgColores.Color;
+                if(rellenando && !itSolido.Checked)
+                {
+                    itVerticales.PerformClick();
+                }
+            }
+        }
+
+        public void CreaCuadroBoton()
+        {
+            Bitmap btemp = new Bitmap(15, 15);
+            Graphics gtemp = Graphics.FromImage(btemp);
+            gtemp.FillRectangle(new SolidBrush(dlgColores.Color), 0, 0, 16, 16);
+            CuadradoBoton = new Bitmap(btemp);
+            gtemp.Dispose();
+            btemp.Dispose();
+        }
+
+        private void tsbColorLapiz_Click(object sender, EventArgs e)
+        {
+            dlgColores.Color = lapiz.Color;
+            if (dlgColores.ShowDialog() == DialogResult.OK)
+            {
+                CreaCuadroBoton();
+                tsbColorLapiz.Image = CuadradoBoton;
+                lapiz.Color = dlgColores.Color;
+            }
+        }
+
+        private void tsbColorDeFondo_Click(object sender, EventArgs e)
+        {
+            dlgColores.Color = lapiz.Color;
+            if (dlgColores.ShowDialog() == DialogResult.OK)
+            {
+                CreaCuadroBoton();
+                tsbColorDeFondo.Image = CuadradoBoton;
+                pbEditorGrafico.BackColor = dlgColores.Color;
+                goma = new Pen(pbEditorGrafico.BackColor, 10);
+            }
+        }
+
+        private void itG1_Click(object sender, EventArgs e)
+        {
+            if(lapiz.Width>0 && lapiz.Width <7 && sender is ToolStripMenuItem)
+            {
+                ToolStripMenuItem elemento = sender as ToolStripMenuItem;
+                //elemento.Checked = true;
+                lapiz.Width = Convert.ToSingle(elemento.Tag);
+                tsl2.Text = "Grosor Línea: " + lapiz.Width.ToString();
+            }
+        }
+
+        private void tsbGrosor_Click(object sender, EventArgs e)
+        {
+            foreach (ToolStripMenuItem miGrosor in tsbGrosor.DropDownItems)
+            {
+                if (Convert.ToSingle(miGrosor.Tag) == lapiz.Width)
+                {
+                    miGrosor.Checked = true;
+                }
+                else
+                {
+                    miGrosor.Checked = false;
+                }
             }
         }
 
