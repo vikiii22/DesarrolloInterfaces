@@ -655,6 +655,7 @@
             this.itG2.Size = new System.Drawing.Size(216, 26);
             this.itG2.Tag = "2";
             this.itG2.Text = "2";
+            this.itG2.Click += new System.EventHandler(this.itG1_Click);
             // 
             // itG3
             // 
@@ -662,6 +663,7 @@
             this.itG3.Size = new System.Drawing.Size(216, 26);
             this.itG3.Tag = "3";
             this.itG3.Text = "3";
+            this.itG3.Click += new System.EventHandler(this.itG1_Click);
             // 
             // itG4
             // 
@@ -669,18 +671,21 @@
             this.itG4.Size = new System.Drawing.Size(216, 26);
             this.itG4.Tag = "4";
             this.itG4.Text = "4";
+            this.itG4.Click += new System.EventHandler(this.itG1_Click);
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(216, 26);
             this.toolStripMenuItem7.Text = "5";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.itG1_Click);
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.Size = new System.Drawing.Size(216, 26);
             this.toolStripMenuItem8.Text = "6";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.itG1_Click);
             // 
             // EditorGrafico
             // 
