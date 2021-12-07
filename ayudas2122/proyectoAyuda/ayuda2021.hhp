@@ -1,0 +1,23 @@
+[OPTIONS]
+Auto Index=Yes
+Compatibility=1.1 or later
+Compiled file=..\ayudaFinal\ayuda2021.chm
+Contents file=..\FuentesHTML\contenido\Table of Contents.hhc
+Default topic=..\FuentesHTML\EditorDeTextos.html
+Display compile progress=No
+Index file=..\FuentesHTML\EditorDeTextos.html
+Language=0xc0a Español (España, internacional)
+
+
+[FILES]
+..\FuentesHTML\Archivo.html
+..\FuentesHTML\Ayuda.html
+..\FuentesHTML\Edicion.html
+..\FuentesHTML\Formato.html
+..\FuentesHTML\Menu.html
+..\FuentesHTML\Principal.html
+..\FuentesHTML\Ver.html
+..\FuentesHTML\EditorDeTextos.html
+
+[INFOTYPES]
+

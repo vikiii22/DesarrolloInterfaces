@@ -452,6 +452,21 @@ namespace EditorGrafico
             }
         }
 
+        private void tsbRectangulo_Click(object sender, EventArgs e)
+        {
+            //Repetir en cada acción
+            accion = "Rectangulo";
+            CrearCursorLapiz();
+            desmarca();
+            tsbRectangulo.Checked = true;
+            //itSolidoLinea.Checked = true;
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void Dibujar()
         {
             Graphics g1 = pbEditorGrafico.CreateGraphics();
