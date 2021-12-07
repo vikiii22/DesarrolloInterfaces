@@ -467,6 +467,26 @@ namespace EditorGrafico
             Close();
         }
 
+        private void tsbCirculo_Click(object sender, EventArgs e)
+        {
+            //Repetir en cada acción
+            accion = "Circulo";
+            CrearCursorLapiz();
+            desmarca();
+            tsbCirculo.Checked = true;
+            //itSolidoLinea.Checked = true;
+        }
+
+        private void tsbElipse_Click(object sender, EventArgs e)
+        {
+            //Repetir en cada acción
+            accion = "Elipse";
+            CrearCursorLapiz();
+            desmarca();
+            tsbElipse.Checked = true;
+            //itSolidoLinea.Checked = true;
+        }
+
         private void Dibujar()
         {
             Graphics g1 = pbEditorGrafico.CreateGraphics();

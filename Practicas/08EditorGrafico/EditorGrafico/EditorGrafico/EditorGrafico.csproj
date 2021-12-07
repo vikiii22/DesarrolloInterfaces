@@ -116,5 +116,32 @@
   <ItemGroup>
     <None Include="Resources\Grosor6.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NUEVO.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ABRIR.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangulo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circulo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elipse.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FUENTES.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seleccion.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linea.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
