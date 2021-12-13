@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B3CA2AB-CA3C-4A8B-B1A1-4D92806E349B}</ProjectGuid>
+    <ProjectGuid>{32963573-2916-427A-9A86-ECC9C23A0501}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EditorGrafico</RootNamespace>
-    <AssemblyName>EditorGrafico</AssemblyName>
+    <RootNamespace>_01Datos</RootNamespace>
+    <AssemblyName>01Datos</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,43 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditorGrafico.cs">
+    <Compile Include="bd_telefonosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bd_telefonosDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="fmComandos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditorGrafico.Designer.cs">
-      <DependentUpon>EditorGrafico.cs</DependentUpon>
+    <Compile Include="fmComandos.Designer.cs">
+      <DependentUpon>fmComandos.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmAcercaDe.cs">
+    <Compile Include="fmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmAcercaDe.Designer.cs">
-      <DependentUpon>fmAcercaDe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fmTamanyo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fmTamanyo.Designer.cs">
-      <DependentUpon>fmTamanyo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fmTexto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fmTexto.Designer.cs">
-      <DependentUpon>fmTexto.cs</DependentUpon>
+    <Compile Include="fmPrincipal.Designer.cs">
+      <DependentUpon>fmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="EditorGrafico.resx">
-      <DependentUpon>EditorGrafico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fmAcercaDe.resx">
-      <DependentUpon>fmAcercaDe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fmTamanyo.resx">
-      <DependentUpon>fmTamanyo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fmTexto.resx">
-      <DependentUpon>fmTexto.cs</DependentUpon>
+    <EmbeddedResource Include="fmPrincipal.resx">
+      <DependentUpon>fmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,8 +76,18 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bd_telefonosDataSet.xsc">
+      <DependentUpon>bd_telefonosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bd_telefonosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bd_telefonosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bd_telefonosDataSet.xss">
+      <DependentUpon>bd_telefonosDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,52 +102,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lapizcortoNuevo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\punteada.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lapiz.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\goma.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\brocha.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Grosor6.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NUEVO.BMP" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ABRIR.BMP" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\guardar.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rectangulo.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\circulo.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\elipse.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FUENTES.BMP" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\seleccion.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\linea.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\brocha1.png" />
+    <Content Include="bd_telefonos.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

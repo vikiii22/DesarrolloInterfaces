@@ -31,9 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorGrafico));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.itAbrir = new System.Windows.Forms.ToolStripMenuItem();
             this.itGuardar = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ediciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarConGomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarSelecciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,10 +65,10 @@
             this.colorDeLapizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDeFondoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbColorRelleno = new System.Windows.Forms.ToolStripButton();
             this.tsLateral = new System.Windows.Forms.ToolStrip();
             this.stEstado = new System.Windows.Forms.StatusStrip();
             this.tsl1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -79,10 +82,6 @@
             this.dlgAbrirDibujo = new System.Windows.Forms.OpenFileDialog();
             this.dlgGuardar = new System.Windows.Forms.SaveFileDialog();
             this.dlgColores = new System.Windows.Forms.ColorDialog();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbEditorGrafico = new System.Windows.Forms.PictureBox();
             this.tsbLinea = new System.Windows.Forms.ToolStripButton();
             this.tsbRectangulo = new System.Windows.Forms.ToolStripButton();
@@ -97,6 +96,7 @@
             this.tsbGoma = new System.Windows.Forms.ToolStripButton();
             this.tsbColorDeFondo = new System.Windows.Forms.ToolStripButton();
             this.tsbColorLapiz = new System.Windows.Forms.ToolStripButton();
+            this.tsbColorRelleno = new System.Windows.Forms.ToolStripButton();
             this.tsbGrosor = new System.Windows.Forms.ToolStripDropDownButton();
             this.itG1 = new System.Windows.Forms.ToolStripMenuItem();
             this.itG2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,6 +141,17 @@
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
+            // nuevaToolStripMenuItem
+            // 
+            this.nuevaToolStripMenuItem.Name = "nuevaToolStripMenuItem";
+            this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.nuevaToolStripMenuItem.Text = "Nuevo";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(134, 6);
+            // 
             // itAbrir
             // 
             this.itAbrir.Name = "itAbrir";
@@ -155,11 +166,17 @@
             this.itGuardar.Text = "Guardar";
             this.itGuardar.Click += new System.EventHandler(this.itGuardar_Click);
             // 
-            // nuevaToolStripMenuItem
+            // toolStripMenuItem4
             // 
-            this.nuevaToolStripMenuItem.Name = "nuevaToolStripMenuItem";
-            this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
-            this.nuevaToolStripMenuItem.Text = "Nuevo";
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(134, 6);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // ediciónToolStripMenuItem
             // 
@@ -230,7 +247,7 @@
             this.discontinuaYDoblePuntoToolStripMenuItem,
             this.itSolidoLinea});
             this.itTipoLinea.Name = "itTipoLinea";
-            this.itTipoLinea.Size = new System.Drawing.Size(216, 26);
+            this.itTipoLinea.Size = new System.Drawing.Size(211, 26);
             this.itTipoLinea.Text = "Tipo Línea";
             this.itTipoLinea.Click += new System.EventHandler(this.itLinea1_Click);
             // 
@@ -286,7 +303,7 @@
             this.itSolido,
             this.sinRellenoToolStripMenuItem});
             this.itTipoRelleno.Name = "itTipoRelleno";
-            this.itTipoRelleno.Size = new System.Drawing.Size(216, 26);
+            this.itTipoRelleno.Size = new System.Drawing.Size(211, 26);
             this.itTipoRelleno.Text = "Tipo Relleno";
             // 
             // itVerticales
@@ -355,37 +372,44 @@
             // itGrosorLineaGoma
             // 
             this.itGrosorLineaGoma.Name = "itGrosorLineaGoma";
-            this.itGrosorLineaGoma.Size = new System.Drawing.Size(216, 26);
+            this.itGrosorLineaGoma.Size = new System.Drawing.Size(211, 26);
             this.itGrosorLineaGoma.Text = "Grosor Línea Goma";
             this.itGrosorLineaGoma.Click += new System.EventHandler(this.itGrosorLineaGoma_Click);
             // 
             // itColorRelleno
             // 
             this.itColorRelleno.Name = "itColorRelleno";
-            this.itColorRelleno.Size = new System.Drawing.Size(216, 26);
+            this.itColorRelleno.Size = new System.Drawing.Size(211, 26);
             this.itColorRelleno.Text = "Color de Relleno";
             this.itColorRelleno.Click += new System.EventHandler(this.itColorRelleno_Click);
             // 
             // colorDeLapizToolStripMenuItem
             // 
             this.colorDeLapizToolStripMenuItem.Name = "colorDeLapizToolStripMenuItem";
-            this.colorDeLapizToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.colorDeLapizToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.colorDeLapizToolStripMenuItem.Text = "Color de Lapiz";
             this.colorDeLapizToolStripMenuItem.Click += new System.EventHandler(this.tsbColorLapiz_Click);
             // 
             // colorDeFondoToolStripMenuItem
             // 
             this.colorDeFondoToolStripMenuItem.Name = "colorDeFondoToolStripMenuItem";
-            this.colorDeFondoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.colorDeFondoToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.colorDeFondoToolStripMenuItem.Text = "Color de Fondo";
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.acercaDeToolStripMenuItem});
+            this.tsAcercaDe});
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // tsAcercaDe
+            // 
+            this.tsAcercaDe.Name = "tsAcercaDe";
+            this.tsAcercaDe.Size = new System.Drawing.Size(216, 26);
+            this.tsAcercaDe.Text = "Acerca De";
+            this.tsAcercaDe.Click += new System.EventHandler(this.tsAcercaDe_Click);
             // 
             // toolStrip1
             // 
@@ -417,15 +441,6 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // tsbColorRelleno
-            // 
-            this.tsbColorRelleno.Image = global::EditorGrafico.Properties.Resources.brocha1;
-            this.tsbColorRelleno.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbColorRelleno.Name = "tsbColorRelleno";
-            this.tsbColorRelleno.Size = new System.Drawing.Size(123, 24);
-            this.tsbColorRelleno.Text = "Color Relleno";
-            this.tsbColorRelleno.Click += new System.EventHandler(this.itColorRelleno_Click);
             // 
             // tsLateral
             // 
@@ -516,29 +531,6 @@
             // dlgAbrirDibujo
             // 
             this.dlgAbrirDibujo.FileName = "openFileDialog1";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(134, 6);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(134, 6);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // acercaDeToolStripMenuItem
-            // 
-            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.acercaDeToolStripMenuItem.Text = "Acerca De";
             // 
             // pbEditorGrafico
             // 
@@ -676,6 +668,15 @@
             this.tsbColorLapiz.Size = new System.Drawing.Size(108, 24);
             this.tsbColorLapiz.Text = "Color Lapiz";
             this.tsbColorLapiz.Click += new System.EventHandler(this.tsbColorLapiz_Click);
+            // 
+            // tsbColorRelleno
+            // 
+            this.tsbColorRelleno.Image = global::EditorGrafico.Properties.Resources.brocha1;
+            this.tsbColorRelleno.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbColorRelleno.Name = "tsbColorRelleno";
+            this.tsbColorRelleno.Size = new System.Drawing.Size(123, 24);
+            this.tsbColorRelleno.Text = "Color Relleno";
+            this.tsbColorRelleno.Click += new System.EventHandler(this.itColorRelleno_Click);
             // 
             // tsbGrosor
             // 
@@ -850,7 +851,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsAcercaDe;
     }
 }
 

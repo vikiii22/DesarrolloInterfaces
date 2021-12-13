@@ -13,11 +13,11 @@ Language=0xc0a Español (España, internacional)
 ..\FuentesHTML\Archivo.html
 ..\FuentesHTML\Ayuda.html
 ..\FuentesHTML\Edicion.html
+..\FuentesHTML\EditorDeTextos.html
 ..\FuentesHTML\Formato.html
 ..\FuentesHTML\Menu.html
 ..\FuentesHTML\Principal.html
 ..\FuentesHTML\Ver.html
-..\FuentesHTML\EditorDeTextos.html
 
 [INFOTYPES]
 

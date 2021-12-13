@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B3CA2AB-CA3C-4A8B-B1A1-4D92806E349B}</ProjectGuid>
+    <ProjectGuid>{35DAC113-FC7F-4C89-BF7F-05788C94CAA0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EditorGrafico</RootNamespace>
-    <AssemblyName>EditorGrafico</AssemblyName>
+    <RootNamespace>_06Editor</RootNamespace>
+    <AssemblyName>06Editor</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,43 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditorGrafico.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditorGrafico.Designer.cs">
-      <DependentUpon>EditorGrafico.cs</DependentUpon>
-    </Compile>
     <Compile Include="fmAcercaDe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fmAcercaDe.Designer.cs">
       <DependentUpon>fmAcercaDe.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmTamanyo.cs">
+    <Compile Include="fmEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmTamanyo.Designer.cs">
-      <DependentUpon>fmTamanyo.cs</DependentUpon>
+    <Compile Include="fmEditor.Designer.cs">
+      <DependentUpon>fmEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmTexto.cs">
+    <Compile Include="fmDatos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmTexto.Designer.cs">
-      <DependentUpon>fmTexto.cs</DependentUpon>
+    <Compile Include="fmDatos.Designer.cs">
+      <DependentUpon>fmDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmMargenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmMargenes.Designer.cs">
+      <DependentUpon>fmMargenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmPresentacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmPresentacion.Designer.cs">
+      <DependentUpon>fmPresentacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="EditorGrafico.resx">
-      <DependentUpon>EditorGrafico.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="fmAcercaDe.resx">
       <DependentUpon>fmAcercaDe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fmTamanyo.resx">
-      <DependentUpon>fmTamanyo.cs</DependentUpon>
+    <EmbeddedResource Include="fmDatos.resx">
+      <DependentUpon>fmDatos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fmTexto.resx">
-      <DependentUpon>fmTexto.cs</DependentUpon>
+    <EmbeddedResource Include="fmEditor.resx">
+      <DependentUpon>fmEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmMargenes.resx">
+      <DependentUpon>fmMargenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmPresentacion.resx">
+      <DependentUpon>fmPresentacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -108,24 +117,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lapizcortoNuevo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\punteada.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lapiz.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\goma.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\brocha.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Grosor6.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\NUEVO.BMP" />
   </ItemGroup>
   <ItemGroup>
@@ -135,25 +126,55 @@
     <None Include="Resources\guardar.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\rectangulo.bmp" />
+    <None Include="Resources\PrintDocumentControl_697_24.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\circulo.bmp" />
+    <None Include="Resources\CORTAR.BMP" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\elipse.bmp" />
+    <None Include="Resources\COPIA.BMP" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FUENTES.BMP" />
+    <None Include="Resources\CORTA.BMP" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\seleccion.bmp" />
+    <None Include="Resources\PEGA.BMP" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\linea.bmp" />
+    <None Include="Resources\DESHAZ.BMP" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\brocha1.png" />
+    <None Include="Resources\CopiarFormatos.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ESTILO.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\negrita.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cursiva.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subrayado.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tachado.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IZQDA.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CENTRO.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DCHA.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PALETA.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rehacer.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

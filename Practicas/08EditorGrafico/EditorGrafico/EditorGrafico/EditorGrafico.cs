@@ -487,6 +487,12 @@ namespace EditorGrafico
             //itSolidoLinea.Checked = true;
         }
 
+        private void tsAcercaDe_Click(object sender, EventArgs e)
+        {
+            fmAcercaDe ventanaAcercaDe = new fmAcercaDe();
+            ventanaAcercaDe.ShowDialog();
+        }
+
         private void Dibujar()
         {
             Graphics g1 = pbEditorGrafico.CreateGraphics();
