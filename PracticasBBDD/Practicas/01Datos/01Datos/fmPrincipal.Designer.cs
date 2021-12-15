@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btComandos = new System.Windows.Forms.Button();
+            this.btAutomatico = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btComandos
@@ -42,11 +43,23 @@
             this.btComandos.UseVisualStyleBackColor = true;
             this.btComandos.Click += new System.EventHandler(this.btComandos_Click);
             // 
+            // btAutomatico
+            // 
+            this.btAutomatico.AutoSize = true;
+            this.btAutomatico.Location = new System.Drawing.Point(170, 168);
+            this.btAutomatico.Name = "btAutomatico";
+            this.btAutomatico.Size = new System.Drawing.Size(111, 27);
+            this.btAutomatico.TabIndex = 1;
+            this.btAutomatico.Text = "Automatico";
+            this.btAutomatico.UseVisualStyleBackColor = true;
+            this.btAutomatico.Click += new System.EventHandler(this.btAutomatico_Click);
+            // 
             // fmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btAutomatico);
             this.Controls.Add(this.btComandos);
             this.Name = "fmPrincipal";
             this.Text = "Pantalla Principal";
@@ -58,6 +71,7 @@
         #endregion
 
         private System.Windows.Forms.Button btComandos;
+        private System.Windows.Forms.Button btAutomatico;
     }
 }
 

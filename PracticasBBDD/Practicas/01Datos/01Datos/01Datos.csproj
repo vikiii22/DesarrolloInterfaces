@@ -51,6 +51,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bd_telefonosDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="fmAutomatico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmAutomatico.Designer.cs">
+      <DependentUpon>fmAutomatico.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmComandos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fmAutomatico.resx">
+      <DependentUpon>fmAutomatico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmComandos.resx">
       <DependentUpon>fmComandos.cs</DependentUpon>
     </EmbeddedResource>

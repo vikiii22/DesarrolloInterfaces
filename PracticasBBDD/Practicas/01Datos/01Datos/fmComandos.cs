@@ -12,6 +12,8 @@ namespace _01Datos
 {
     public partial class fmComandos : Form
     {
+        DataRowCollection cfilas;
+
         public fmComandos()
         {
             InitializeComponent();
@@ -69,6 +71,64 @@ namespace _01Datos
         private void dgvTelefonos_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             mostrarPosicion();
+            tslNombre.Text = Convert.ToString(dvgTelefonos.Rows[e.RowIndex].Cells[1].Value);
+        }
+
+        private void btNuevo_Click(object sender, EventArgs e)
+        {
+            DataTable table = bd_telefonosDataSet.telefonos;
+            cfilas = table.Rows;
+            DataRow Fila;
+            Fila = table.Rows[table.Rows.Count - 1];
+            int nuevoID = Convert.ToInt32(Fila[0]);
+            nuevoID++;
+            try {
+                Fila = table.NewRow();
+                Fila[0] = nuevoID;
+                cfilas.Add(Fila);
+                btUltimo.PerformClick();
+                mostrarPosicion();
+            }catch (ConstraintException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                telefonosTableAdapter.Update(bd_telefonosDataSet.telefonos);
+                MessageBox.Show("Origen de datos actualizado");
+            }
+            catch (Exception errorEncontrado)
+            {
+                MessageBox.Show("Ha habido un error ", errorEncontrado.Message);
+            }
+        }
+
+        private void btBorrar_Click(object sender, EventArgs e)
+        {
+            DataRowView vistaFilaActual;
+
+            if(MessageBox.Show("¿Desea borrar este registro?", "Buscar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                vistaFilaActual = (DataRowView)telefonosBindingSource.Current;
+                vistaFilaActual.Row.Delete();
+                mostrarPosicion();
+            }
+        }
+
+        private void fmComandos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (bd_telefonosDataSet.HasChanges())
+            {
+                if (MessageBox.Show("¿Desea grabar los cambios pendientes?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    telefonosTableAdapter.Update(bd_telefonosDataSet.telefonos);
+                    MessageBox.Show("Origen de datos actualizado");
+                }
+            }
         }
     }
 }

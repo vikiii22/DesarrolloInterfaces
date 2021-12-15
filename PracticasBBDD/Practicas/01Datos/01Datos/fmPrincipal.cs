@@ -24,5 +24,12 @@ namespace _01Datos
             ventanaComandos.ShowDialog();
             ventanaComandos.Dispose();
         }
+
+        private void btAutomatico_Click(object sender, EventArgs e)
+        {
+            fmAutomatico ventanaAuto = new fmAutomatico();
+            ventanaAuto.ShowDialog();
+            ventanaAuto.Dispose();
+        }
     }
 }
