@@ -20,10 +20,26 @@ namespace _01Datos
 
         private void telefonosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.telefonosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bd_telefonosDataSet);
-
+            if (nombreTextBox.Text == "")
+            {
+                MessageBox.Show("Falta nombre");
+                nombreTextBox.Focus();
+            }
+            else
+            {
+                try
+                {
+                    this.Validate();
+                    this.telefonosBindingSource.EndEdit();
+                    this.tableAdapterManager.UpdateAll(this.bd_telefonosDataSet);
+                    bindingNavigatorAddNewItem.Enabled = true;
+                    
+                }catch (ConstraintException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                edicion = false;
+            }
         }
 
         private void fmAutomatico_Load(object sender, EventArgs e)
@@ -68,6 +84,29 @@ namespace _01Datos
             {
                 bindingNavigatorDeleteItem.PerformClick();
             }
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            bindingNavigatorAddNewItem.Enabled = true;
+            edicion = false;
+        }
+
+        private void fmAutomatico_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (edicion)
+            {
+                if (MessageBox.Show("¿Desea grabar los cambios pendientes?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                    this.Validate();
+                    this.telefonosBindingSource.EndEdit();
+                    this.tableAdapterManager.UpdateAll(bd_telefonosDataSet);
+                }
+            }
+        }
+
+        private void nombreTextBox_Click(object sender, EventArgs e)
+        {
+            edicion = true;
         }
     }
 }

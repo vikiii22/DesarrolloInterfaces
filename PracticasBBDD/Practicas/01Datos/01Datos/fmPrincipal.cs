@@ -31,5 +31,12 @@ namespace _01Datos
             ventanaAuto.ShowDialog();
             ventanaAuto.Dispose();
         }
+
+        private void btFiltrar_Click(object sender, EventArgs e)
+        {
+            fmConsultasFiltros ventanaFiltros = new fmConsultasFiltros();
+            ventanaFiltros.ShowDialog();
+            ventanaFiltros.Dispose();
+        }
     }
 }

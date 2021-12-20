@@ -195,6 +195,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 17;
+            this.textBox1.Click += new System.EventHandler(this.nombreTextBox_Click);
             // 
             // telefonosBindingSource
             // 
@@ -213,6 +214,7 @@
             this.paisTextBox.Name = "paisTextBox";
             this.paisTextBox.Size = new System.Drawing.Size(100, 22);
             this.paisTextBox.TabIndex = 16;
+            this.paisTextBox.Click += new System.EventHandler(this.nombreTextBox_Click);
             // 
             // provinciaTextBox
             // 
@@ -221,6 +223,7 @@
             this.provinciaTextBox.Name = "provinciaTextBox";
             this.provinciaTextBox.Size = new System.Drawing.Size(100, 22);
             this.provinciaTextBox.TabIndex = 14;
+            this.provinciaTextBox.Click += new System.EventHandler(this.nombreTextBox_Click);
             // 
             // ciudadTextBox
             // 
@@ -229,6 +232,7 @@
             this.ciudadTextBox.Name = "ciudadTextBox";
             this.ciudadTextBox.Size = new System.Drawing.Size(100, 22);
             this.ciudadTextBox.TabIndex = 12;
+            this.ciudadTextBox.Click += new System.EventHandler(this.nombreTextBox_Click);
             // 
             // observacionesTextBox
             // 
@@ -238,6 +242,7 @@
             this.observacionesTextBox.Name = "observacionesTextBox";
             this.observacionesTextBox.Size = new System.Drawing.Size(277, 104);
             this.observacionesTextBox.TabIndex = 10;
+            this.observacionesTextBox.Click += new System.EventHandler(this.nombreTextBox_Click);
             // 
             // telefonoTextBox
             // 
@@ -246,6 +251,7 @@
             this.telefonoTextBox.Name = "telefonoTextBox";
             this.telefonoTextBox.Size = new System.Drawing.Size(100, 22);
             this.telefonoTextBox.TabIndex = 8;
+            this.telefonoTextBox.Click += new System.EventHandler(this.nombreTextBox_Click);
             // 
             // direccionTextBox
             // 
@@ -254,6 +260,7 @@
             this.direccionTextBox.Name = "direccionTextBox";
             this.direccionTextBox.Size = new System.Drawing.Size(100, 22);
             this.direccionTextBox.TabIndex = 6;
+            this.direccionTextBox.Click += new System.EventHandler(this.nombreTextBox_Click);
             // 
             // nombreTextBox
             // 
@@ -262,6 +269,7 @@
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(169, 22);
             this.nombreTextBox.TabIndex = 4;
+            this.nombreTextBox.Click += new System.EventHandler(this.nombreTextBox_Click);
             // 
             // idTextBox
             // 
@@ -328,6 +336,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorDeleteItem.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             this.bindingNavigatorDeleteItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bindingNavigatorDeleteItem_MouseDown);
             // 
             // bindingNavigatorMoveFirstItem
@@ -423,6 +432,7 @@
             this.telefonosDataGridView.DataSource = this.telefonosBindingSource;
             this.telefonosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.telefonosDataGridView.Location = new System.Drawing.Point(0, 314);
+            this.telefonosDataGridView.MultiSelect = false;
             this.telefonosDataGridView.Name = "telefonosDataGridView";
             this.telefonosDataGridView.ReadOnly = true;
             this.telefonosDataGridView.RowTemplate.Height = 24;
@@ -487,6 +497,7 @@
             this.Controls.Add(this.pnAutomatico);
             this.Name = "fmAutomatico";
             this.Text = "fmAutomatico";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fmAutomatico_FormClosing);
             this.Load += new System.EventHandler(this.fmAutomatico_Load);
             this.pnAutomatico.ResumeLayout(false);
             this.pnAutomatico.PerformLayout();

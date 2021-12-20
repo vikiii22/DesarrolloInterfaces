@@ -30,6 +30,7 @@
         {
             this.btComandos = new System.Windows.Forms.Button();
             this.btAutomatico = new System.Windows.Forms.Button();
+            this.btFiltrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btComandos
@@ -54,11 +55,23 @@
             this.btAutomatico.UseVisualStyleBackColor = true;
             this.btAutomatico.Click += new System.EventHandler(this.btAutomatico_Click);
             // 
+            // btFiltrar
+            // 
+            this.btFiltrar.AutoSize = true;
+            this.btFiltrar.Location = new System.Drawing.Point(170, 219);
+            this.btFiltrar.Name = "btFiltrar";
+            this.btFiltrar.Size = new System.Drawing.Size(111, 27);
+            this.btFiltrar.TabIndex = 2;
+            this.btFiltrar.Text = "Filtrar";
+            this.btFiltrar.UseVisualStyleBackColor = true;
+            this.btFiltrar.Click += new System.EventHandler(this.btFiltrar_Click);
+            // 
             // fmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btFiltrar);
             this.Controls.Add(this.btAutomatico);
             this.Controls.Add(this.btComandos);
             this.Name = "fmPrincipal";
@@ -72,6 +85,7 @@
 
         private System.Windows.Forms.Button btComandos;
         private System.Windows.Forms.Button btAutomatico;
+        private System.Windows.Forms.Button btFiltrar;
     }
 }
 
