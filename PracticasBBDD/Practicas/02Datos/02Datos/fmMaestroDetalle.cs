@@ -42,6 +42,110 @@ namespace _02Datos
         {
             stlTotal.Text = "Total de libros del Autor: " + tbNombreAutor.Text + " " + Convert.ToString(dvgLibros.RowCount - 1);
         }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            DataTable miTabla = librosDataSet.Libros;
+            DataRow Fila = miTabla.Rows[miTabla.Rows.Count - 1];
+            int codigoMayor = Convert.ToInt32(Fila[0]);
+            foreach(DataRow unaFila in miTabla.Rows)
+            {
+                if (Convert.ToInt32(unaFila[0]) > codigoMayor)
+                {
+                    codigoMayor = Convert.ToInt32(unaFila[0]);
+                }
+            }
+            codigoMayor++;
+            try {
+                Fila = miTabla.NewRow();
+                dvgLibros.CurrentRow.Cells[0].Value = codigoMayor;
+            }
+            catch (ConstraintException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            bindingNavigatorAddNewItem.Enabled = false;
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            bindingNavigatorDeleteItem.Enabled = false;
+        }
+
+        private void bindingNavigatorDeleteItem_MouseDown(object sender, MouseEventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("Seguro que deseas borrar el libro? " + "", "Borrar datos", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                bindingNavigatorDeleteItem.PerformClick();
+            }
+        }
+
+        private void tsbGuardar_Click(object sender, EventArgs e)
+        {
+            this.librosBindingSource1.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.librosDataSet);
+            bindingNavigatorAddNewItem.Enabled = true;
+            bindingNavigatorDeleteItem.Enabled = true;
+        }
+
+        private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
+        {
+            if (librosDataSet.HasChanges())
+            {
+                autorTableAdapter.Update(librosDataSet.Autor);
+            }
+
+            DataTable miTabla = librosDataSet.Autor;
+            DataRow fila;
+            fila = miTabla.Rows[miTabla.Rows.Count - 1];
+            int nuevoId = Convert.ToInt32(fila[0]);
+            nuevoId++;
+            try
+            {
+                codigoAutorTextBox.Text = Convert.ToString(nuevoId);
+            }catch(ConstraintException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            bindingNavigatorAddNewItem1.Enabled = true;
+            tbNombreAutor.Focus();
+        }
+
+        private void bindingNavigatorDeleteItem1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (dvgLibros.Rows.Count > 1)
+            {
+                MessageBox.Show("Este autor tiene " + Convert.ToString(dvgLibros.Rows.Count) + " Libros. No se puede borrar");
+                return;
+            }
+            DialogResult resultado = MessageBox.Show("Seguro que deseas borrar el autor?" + tbNombreAutor, "Borrar datos", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                bindingNavigatorDeleteItem1.PerformClick();
+            }
+        }
+
+        private void bindingNavigatorDeleteItem1_Click(object sender, EventArgs e)
+        {
+            bindingNavigatorDeleteItem1.Enabled = true;
+        }
+
+        private void tsbGuardarAutor_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.autorBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.librosDataSet);
+            bindingNavigatorAddNewItem1.Enabled = true;
+        }
     }
 }
 

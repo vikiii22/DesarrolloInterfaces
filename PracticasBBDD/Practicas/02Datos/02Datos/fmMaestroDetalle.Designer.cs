@@ -30,15 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label nombreLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmMaestroDetalle));
             System.Windows.Forms.Label codigoAutorLabel;
             System.Windows.Forms.Label ciudadLabel;
             System.Windows.Forms.Label nacionalidadLabel;
             System.Windows.Forms.Label comentarioLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmMaestroDetalle));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tbNombreAutor = new System.Windows.Forms.TextBox();
+            this.comentarioTextBox = new System.Windows.Forms.TextBox();
             this.autorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.librosDataSet = new _02Datos.librosDataSet();
+            this.nacionalidadTextBox = new System.Windows.Forms.TextBox();
+            this.ciudadTextBox = new System.Windows.Forms.TextBox();
+            this.codigoAutorTextBox = new System.Windows.Forms.TextBox();
+            this.tbNombreAutor = new System.Windows.Forms.TextBox();
             this.autorBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
@@ -70,21 +74,16 @@
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.dvgLibros = new System.Windows.Forms.DataGridView();
-            this.codigoAutorTextBox = new System.Windows.Forms.TextBox();
-            this.ciudadTextBox = new System.Windows.Forms.TextBox();
-            this.nacionalidadTextBox = new System.Windows.Forms.TextBox();
-            this.comentarioTextBox = new System.Windows.Forms.TextBox();
-            this.editorialBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.editorialTableAdapter = new _02Datos.librosDataSetTableAdapters.EditorialTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombreEdi = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.editorialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +91,10 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editorialTableAdapter = new _02Datos.librosDataSetTableAdapters.EditorialTableAdapter();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
+            this.tsbGuardarAutor = new System.Windows.Forms.ToolStripButton();
             nombreLabel = new System.Windows.Forms.Label();
             codigoAutorLabel = new System.Windows.Forms.Label();
             ciudadLabel = new System.Windows.Forms.Label();
@@ -121,6 +124,42 @@
             nombreLabel.TabIndex = 2;
             nombreLabel.Text = "Nombre:";
             // 
+            // codigoAutorLabel
+            // 
+            codigoAutorLabel.AutoSize = true;
+            codigoAutorLabel.Location = new System.Drawing.Point(12, 58);
+            codigoAutorLabel.Name = "codigoAutorLabel";
+            codigoAutorLabel.Size = new System.Drawing.Size(94, 17);
+            codigoAutorLabel.TabIndex = 4;
+            codigoAutorLabel.Text = "Codigo Autor:";
+            // 
+            // ciudadLabel
+            // 
+            ciudadLabel.AutoSize = true;
+            ciudadLabel.Location = new System.Drawing.Point(35, 113);
+            ciudadLabel.Name = "ciudadLabel";
+            ciudadLabel.Size = new System.Drawing.Size(56, 17);
+            ciudadLabel.TabIndex = 6;
+            ciudadLabel.Text = "Ciudad:";
+            // 
+            // nacionalidadLabel
+            // 
+            nacionalidadLabel.AutoSize = true;
+            nacionalidadLabel.Location = new System.Drawing.Point(264, 110);
+            nacionalidadLabel.Name = "nacionalidadLabel";
+            nacionalidadLabel.Size = new System.Drawing.Size(94, 17);
+            nacionalidadLabel.TabIndex = 8;
+            nacionalidadLabel.Text = "Nacionalidad:";
+            // 
+            // comentarioLabel
+            // 
+            comentarioLabel.AutoSize = true;
+            comentarioLabel.Location = new System.Drawing.Point(305, 164);
+            comentarioLabel.Name = "comentarioLabel";
+            comentarioLabel.Size = new System.Drawing.Size(84, 17);
+            comentarioLabel.TabIndex = 10;
+            comentarioLabel.Text = "Comentario:";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(comentarioLabel);
@@ -141,13 +180,14 @@
             this.panel1.Size = new System.Drawing.Size(955, 286);
             this.panel1.TabIndex = 0;
             // 
-            // tbNombreAutor
+            // comentarioTextBox
             // 
-            this.tbNombreAutor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "Nombre", true));
-            this.tbNombreAutor.Location = new System.Drawing.Point(314, 55);
-            this.tbNombreAutor.Name = "tbNombreAutor";
-            this.tbNombreAutor.Size = new System.Drawing.Size(166, 22);
-            this.tbNombreAutor.TabIndex = 3;
+            this.comentarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "Comentario", true));
+            this.comentarioTextBox.Location = new System.Drawing.Point(395, 161);
+            this.comentarioTextBox.Multiline = true;
+            this.comentarioTextBox.Name = "comentarioTextBox";
+            this.comentarioTextBox.Size = new System.Drawing.Size(170, 91);
+            this.comentarioTextBox.TabIndex = 11;
             // 
             // autorBindingSource
             // 
@@ -158,6 +198,38 @@
             // 
             this.librosDataSet.DataSetName = "librosDataSet";
             this.librosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nacionalidadTextBox
+            // 
+            this.nacionalidadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "Nacionalidad", true));
+            this.nacionalidadTextBox.Location = new System.Drawing.Point(364, 107);
+            this.nacionalidadTextBox.Name = "nacionalidadTextBox";
+            this.nacionalidadTextBox.Size = new System.Drawing.Size(133, 22);
+            this.nacionalidadTextBox.TabIndex = 9;
+            // 
+            // ciudadTextBox
+            // 
+            this.ciudadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "Ciudad", true));
+            this.ciudadTextBox.Location = new System.Drawing.Point(97, 110);
+            this.ciudadTextBox.Name = "ciudadTextBox";
+            this.ciudadTextBox.Size = new System.Drawing.Size(133, 22);
+            this.ciudadTextBox.TabIndex = 7;
+            // 
+            // codigoAutorTextBox
+            // 
+            this.codigoAutorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "CodigoAutor", true));
+            this.codigoAutorTextBox.Location = new System.Drawing.Point(112, 55);
+            this.codigoAutorTextBox.Name = "codigoAutorTextBox";
+            this.codigoAutorTextBox.Size = new System.Drawing.Size(54, 22);
+            this.codigoAutorTextBox.TabIndex = 5;
+            // 
+            // tbNombreAutor
+            // 
+            this.tbNombreAutor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "Nombre", true));
+            this.tbNombreAutor.Location = new System.Drawing.Point(314, 55);
+            this.tbNombreAutor.Name = "tbNombreAutor";
+            this.tbNombreAutor.Size = new System.Drawing.Size(166, 22);
+            this.tbNombreAutor.TabIndex = 3;
             // 
             // autorBindingNavigator
             // 
@@ -177,7 +249,8 @@
             this.bindingNavigatorMoveLastItem1,
             this.bindingNavigatorSeparator5,
             this.bindingNavigatorAddNewItem1,
-            this.bindingNavigatorDeleteItem1});
+            this.bindingNavigatorDeleteItem1,
+            this.tsbGuardarAutor});
             this.autorBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.autorBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
             this.autorBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem1;
@@ -197,6 +270,7 @@
             this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorAddNewItem1.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem1.Click += new System.EventHandler(this.bindingNavigatorAddNewItem1_Click);
             // 
             // bindingNavigatorCountItem1
             // 
@@ -213,6 +287,8 @@
             this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorDeleteItem1.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem1.Click += new System.EventHandler(this.bindingNavigatorDeleteItem1_Click);
+            this.bindingNavigatorDeleteItem1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bindingNavigatorDeleteItem1_MouseDown);
             // 
             // bindingNavigatorMoveFirstItem1
             // 
@@ -377,7 +453,6 @@
             this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
             this.bindingNavigatorPositionItem,
             this.bindingNavigatorCountItem,
             this.bindingNavigatorSeparator1,
@@ -385,7 +460,9 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
+            this.bindingNavigatorDeleteItem,
+            this.tsbGuardar,
+            this.toolStripLabel1});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 286);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -405,6 +482,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -421,6 +499,8 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorDeleteItem.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            this.bindingNavigatorDeleteItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bindingNavigatorDeleteItem_MouseDown);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -439,11 +519,6 @@
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -482,6 +557,13 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Margin = new System.Windows.Forms.Padding(100, 1, 70, 2);
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(120, 24);
+            this.toolStripLabel1.Text = "Fecha Impresión:";
+            // 
             // dvgLibros
             // 
             this.dvgLibros.AutoGenerateColumns = false;
@@ -505,84 +587,6 @@
             this.dvgLibros.TabIndex = 3;
             this.dvgLibros.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dvgLibros_DataBindingComplete);
             // 
-            // codigoAutorLabel
-            // 
-            codigoAutorLabel.AutoSize = true;
-            codigoAutorLabel.Location = new System.Drawing.Point(12, 58);
-            codigoAutorLabel.Name = "codigoAutorLabel";
-            codigoAutorLabel.Size = new System.Drawing.Size(94, 17);
-            codigoAutorLabel.TabIndex = 4;
-            codigoAutorLabel.Text = "Codigo Autor:";
-            // 
-            // codigoAutorTextBox
-            // 
-            this.codigoAutorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "CodigoAutor", true));
-            this.codigoAutorTextBox.Location = new System.Drawing.Point(112, 55);
-            this.codigoAutorTextBox.Name = "codigoAutorTextBox";
-            this.codigoAutorTextBox.Size = new System.Drawing.Size(54, 22);
-            this.codigoAutorTextBox.TabIndex = 5;
-            // 
-            // ciudadLabel
-            // 
-            ciudadLabel.AutoSize = true;
-            ciudadLabel.Location = new System.Drawing.Point(35, 113);
-            ciudadLabel.Name = "ciudadLabel";
-            ciudadLabel.Size = new System.Drawing.Size(56, 17);
-            ciudadLabel.TabIndex = 6;
-            ciudadLabel.Text = "Ciudad:";
-            // 
-            // ciudadTextBox
-            // 
-            this.ciudadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "Ciudad", true));
-            this.ciudadTextBox.Location = new System.Drawing.Point(97, 110);
-            this.ciudadTextBox.Name = "ciudadTextBox";
-            this.ciudadTextBox.Size = new System.Drawing.Size(133, 22);
-            this.ciudadTextBox.TabIndex = 7;
-            // 
-            // nacionalidadLabel
-            // 
-            nacionalidadLabel.AutoSize = true;
-            nacionalidadLabel.Location = new System.Drawing.Point(264, 110);
-            nacionalidadLabel.Name = "nacionalidadLabel";
-            nacionalidadLabel.Size = new System.Drawing.Size(94, 17);
-            nacionalidadLabel.TabIndex = 8;
-            nacionalidadLabel.Text = "Nacionalidad:";
-            // 
-            // nacionalidadTextBox
-            // 
-            this.nacionalidadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "Nacionalidad", true));
-            this.nacionalidadTextBox.Location = new System.Drawing.Point(364, 107);
-            this.nacionalidadTextBox.Name = "nacionalidadTextBox";
-            this.nacionalidadTextBox.Size = new System.Drawing.Size(133, 22);
-            this.nacionalidadTextBox.TabIndex = 9;
-            // 
-            // comentarioLabel
-            // 
-            comentarioLabel.AutoSize = true;
-            comentarioLabel.Location = new System.Drawing.Point(305, 164);
-            comentarioLabel.Name = "comentarioLabel";
-            comentarioLabel.Size = new System.Drawing.Size(84, 17);
-            comentarioLabel.TabIndex = 10;
-            comentarioLabel.Text = "Comentario:";
-            // 
-            // comentarioTextBox
-            // 
-            this.comentarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autorBindingSource, "Comentario", true));
-            this.comentarioTextBox.Location = new System.Drawing.Point(395, 161);
-            this.comentarioTextBox.Multiline = true;
-            this.comentarioTextBox.Name = "comentarioTextBox";
-            this.comentarioTextBox.Size = new System.Drawing.Size(170, 91);
-            this.comentarioTextBox.TabIndex = 11;
-            // 
-            // editorialBindingSource
-            // 
-            this.editorialBindingSource.DataMember = "Editorial";
-            this.editorialBindingSource.DataSource = this.librosDataSet;
-            // 
-            // editorialTableAdapter
-            // 
-            this.editorialTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "CodigoLibro";
@@ -597,6 +601,11 @@
             this.colNombreEdi.HeaderText = "Nombre Editorial";
             this.colNombreEdi.Name = "colNombreEdi";
             this.colNombreEdi.ValueMember = "CodigoEditorial";
+            // 
+            // editorialBindingSource
+            // 
+            this.editorialBindingSource.DataMember = "Editorial";
+            this.editorialBindingSource.DataSource = this.librosDataSet;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -614,6 +623,7 @@
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "ISBN";
             this.dataGridViewTextBoxColumn4.HeaderText = "ISBN";
+            this.dataGridViewTextBoxColumn4.MaxInputLength = 12;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
@@ -621,12 +631,14 @@
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Codigoeditorial";
             this.dataGridViewTextBoxColumn5.HeaderText = "Codigoeditorial";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "FechaImpresion";
             this.dataGridViewTextBoxColumn6.HeaderText = "FechaImpresion";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -639,12 +651,47 @@
             this.dataGridViewTextBoxColumn8.DataPropertyName = "CodigoAutor";
             this.dataGridViewTextBoxColumn8.HeaderText = "CodigoAutor";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // editorialTableAdapter
+            // 
+            this.editorialTableAdapter.ClearBeforeFill = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.librosBindingSource1, "FechaImpresion", true));
+            this.dateTimePicker1.Location = new System.Drawing.Point(629, 291);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(269, 22);
+            this.dateTimePicker1.TabIndex = 4;
+            // 
+            // tsbGuardar
+            // 
+            this.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbGuardar.Image = ((System.Drawing.Image)(resources.GetObject("tsbGuardar.Image")));
+            this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGuardar.Name = "tsbGuardar";
+            this.tsbGuardar.Size = new System.Drawing.Size(24, 24);
+            this.tsbGuardar.Text = "toolStripButton1";
+            this.tsbGuardar.Click += new System.EventHandler(this.tsbGuardar_Click);
+            // 
+            // tsbGuardarAutor
+            // 
+            this.tsbGuardarAutor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbGuardarAutor.Image = ((System.Drawing.Image)(resources.GetObject("tsbGuardarAutor.Image")));
+            this.tsbGuardarAutor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGuardarAutor.Name = "tsbGuardarAutor";
+            this.tsbGuardarAutor.Size = new System.Drawing.Size(24, 24);
+            this.tsbGuardarAutor.Text = "toolStripButton1";
+            this.tsbGuardarAutor.Click += new System.EventHandler(this.tsbGuardarAutor_Click);
             // 
             // fmMaestroDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 681);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dvgLibros);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.stTotal);
@@ -709,7 +756,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
         private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
@@ -733,6 +779,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ToolStripButton tsbGuardar;
+        private System.Windows.Forms.ToolStripButton tsbGuardarAutor;
     }
 }
 
