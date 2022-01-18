@@ -52,6 +52,12 @@
     <Compile Include="fmActualizar.Designer.cs">
       <DependentUpon>fmActualizar.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmConsultar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmConsultar.Designer.cs">
+      <DependentUpon>fmConsultar.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fmActualizar.resx">
       <DependentUpon>fmActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmConsultar.resx">
+      <DependentUpon>fmConsultar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmPrincipal.resx">
       <DependentUpon>fmPrincipal.cs</DependentUpon>

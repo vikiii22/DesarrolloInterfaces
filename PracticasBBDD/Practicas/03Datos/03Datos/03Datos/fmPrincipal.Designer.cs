@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btAcercaDe = new System.Windows.Forms.Button();
+            this.btClasifica = new System.Windows.Forms.Button();
+            this.btCalculaRC = new System.Windows.Forms.Button();
+            this.btBorrar = new System.Windows.Forms.Button();
+            this.btConsultar = new System.Windows.Forms.Button();
+            this.btModificar = new System.Windows.Forms.Button();
             this.btAnyadir = new System.Windows.Forms.Button();
             this.btMostrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -52,20 +54,18 @@
             this.colPoblacion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPIB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colRentaCapita = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btAcercaDe);
+            this.panel1.Controls.Add(this.btClasifica);
+            this.panel1.Controls.Add(this.btCalculaRC);
+            this.panel1.Controls.Add(this.btBorrar);
+            this.panel1.Controls.Add(this.btConsultar);
+            this.panel1.Controls.Add(this.btModificar);
             this.panel1.Controls.Add(this.btAnyadir);
             this.panel1.Controls.Add(this.btMostrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -74,46 +74,67 @@
             this.panel1.Size = new System.Drawing.Size(996, 97);
             this.panel1.TabIndex = 1;
             // 
-            // button6
+            // btAcercaDe
             // 
-            this.button6.AutoSize = true;
-            this.button6.Location = new System.Drawing.Point(417, 35);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(150, 27);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Cálcula Renta/Capita";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btAcercaDe.AutoSize = true;
+            this.btAcercaDe.Location = new System.Drawing.Point(900, 35);
+            this.btAcercaDe.Name = "btAcercaDe";
+            this.btAcercaDe.Size = new System.Drawing.Size(84, 27);
+            this.btAcercaDe.TabIndex = 7;
+            this.btAcercaDe.Text = "Acerca De";
+            this.btAcercaDe.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btClasifica
             // 
-            this.button5.AutoSize = true;
-            this.button5.Location = new System.Drawing.Point(336, 35);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 27);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Borrar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btClasifica.AutoSize = true;
+            this.btClasifica.Location = new System.Drawing.Point(583, 35);
+            this.btClasifica.Name = "btClasifica";
+            this.btClasifica.Size = new System.Drawing.Size(137, 27);
+            this.btClasifica.TabIndex = 6;
+            this.btClasifica.Text = "Clasifica por Renta";
+            this.btClasifica.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btCalculaRC
             // 
-            this.button4.AutoSize = true;
-            this.button4.Location = new System.Drawing.Point(255, 35);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(78, 27);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Consultar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btCalculaRC.AutoSize = true;
+            this.btCalculaRC.Location = new System.Drawing.Point(417, 35);
+            this.btCalculaRC.Name = "btCalculaRC";
+            this.btCalculaRC.Size = new System.Drawing.Size(150, 27);
+            this.btCalculaRC.TabIndex = 5;
+            this.btCalculaRC.Text = "Cálcula Renta/Capita";
+            this.btCalculaRC.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btBorrar
             // 
-            this.button3.AutoSize = true;
-            this.button3.Location = new System.Drawing.Point(174, 35);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 27);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btBorrar.AutoSize = true;
+            this.btBorrar.Location = new System.Drawing.Point(336, 35);
+            this.btBorrar.Name = "btBorrar";
+            this.btBorrar.Size = new System.Drawing.Size(75, 27);
+            this.btBorrar.TabIndex = 4;
+            this.btBorrar.Text = "Borrar";
+            this.btBorrar.UseVisualStyleBackColor = true;
+            // 
+            // btConsultar
+            // 
+            this.btConsultar.AutoSize = true;
+            this.btConsultar.Location = new System.Drawing.Point(255, 35);
+            this.btConsultar.Name = "btConsultar";
+            this.btConsultar.Size = new System.Drawing.Size(78, 27);
+            this.btConsultar.TabIndex = 3;
+            this.btConsultar.Text = "Consultar";
+            this.btConsultar.UseVisualStyleBackColor = true;
+            this.btConsultar.Click += new System.EventHandler(this.btConsultar_Click);
+            // 
+            // btModificar
+            // 
+            this.btModificar.AutoSize = true;
+            this.btModificar.Location = new System.Drawing.Point(174, 35);
+            this.btModificar.Name = "btModificar";
+            this.btModificar.Size = new System.Drawing.Size(75, 27);
+            this.btModificar.TabIndex = 2;
+            this.btModificar.Text = "Modificar";
+            this.btModificar.UseVisualStyleBackColor = true;
+            this.btModificar.Click += new System.EventHandler(this.button3_Click);
             // 
             // btAnyadir
             // 
@@ -294,26 +315,6 @@
             this.colRentaCapita.Text = "Renta/Capita";
             this.colRentaCapita.Width = 96;
             // 
-            // button7
-            // 
-            this.button7.AutoSize = true;
-            this.button7.Location = new System.Drawing.Point(583, 35);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(137, 27);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Clasifica por Renta";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.AutoSize = true;
-            this.button8.Location = new System.Drawing.Point(900, 35);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(84, 27);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Acerca De";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // fmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -344,10 +345,10 @@
         private System.Windows.Forms.ColumnHeader colPoblacion;
         private System.Windows.Forms.ColumnHeader colPIB;
         private System.Windows.Forms.ColumnHeader colRentaCapita;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btCalculaRC;
+        private System.Windows.Forms.Button btBorrar;
+        private System.Windows.Forms.Button btConsultar;
+        private System.Windows.Forms.Button btModificar;
         private System.Windows.Forms.Button btAnyadir;
         private System.Windows.Forms.Button btMostrar;
         private System.Windows.Forms.Label label1;
@@ -358,8 +359,8 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btAcercaDe;
+        private System.Windows.Forms.Button btClasifica;
     }
 }
 

@@ -146,5 +146,11 @@ namespace _03Datos
             }
 
         }
+
+        private void btConsultar_Click(object sender, EventArgs e)
+        {
+            fmConsultar ventanaConsultar = new fmConsultar();
+            ventanaConsultar.ShowDialog();
+        }
     }
 }
