@@ -38,13 +38,13 @@
             this.btAnyadir = new System.Windows.Forms.Button();
             this.btMostrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.cbDescendente = new System.Windows.Forms.CheckBox();
+            this.rbID = new System.Windows.Forms.RadioButton();
+            this.rbCapital = new System.Windows.Forms.RadioButton();
+            this.rbPIB = new System.Windows.Forms.RadioButton();
+            this.rbPoblacion = new System.Windows.Forms.RadioButton();
+            this.rbContinente = new System.Windows.Forms.RadioButton();
+            this.rbPais = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.lvDatos = new System.Windows.Forms.ListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -103,6 +103,7 @@
             this.btCalculaRC.TabIndex = 5;
             this.btCalculaRC.Text = "Cálcula Renta/Capita";
             this.btCalculaRC.UseVisualStyleBackColor = true;
+            this.btCalculaRC.Click += new System.EventHandler(this.btCalculaRC_Click);
             // 
             // btBorrar
             // 
@@ -113,6 +114,7 @@
             this.btBorrar.TabIndex = 4;
             this.btBorrar.Text = "Borrar";
             this.btBorrar.UseVisualStyleBackColor = true;
+            this.btBorrar.Click += new System.EventHandler(this.btBorrar_Click);
             // 
             // btConsultar
             // 
@@ -160,13 +162,13 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.checkBox1);
-            this.panel2.Controls.Add(this.radioButton5);
-            this.panel2.Controls.Add(this.radioButton6);
-            this.panel2.Controls.Add(this.radioButton3);
-            this.panel2.Controls.Add(this.radioButton4);
-            this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Controls.Add(this.radioButton1);
+            this.panel2.Controls.Add(this.cbDescendente);
+            this.panel2.Controls.Add(this.rbID);
+            this.panel2.Controls.Add(this.rbCapital);
+            this.panel2.Controls.Add(this.rbPIB);
+            this.panel2.Controls.Add(this.rbPoblacion);
+            this.panel2.Controls.Add(this.rbContinente);
+            this.panel2.Controls.Add(this.rbPais);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 350);
@@ -174,82 +176,89 @@
             this.panel2.Size = new System.Drawing.Size(996, 100);
             this.panel2.TabIndex = 2;
             // 
-            // checkBox1
+            // cbDescendente
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(633, 53);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(114, 21);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Descendente";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbDescendente.AutoSize = true;
+            this.cbDescendente.Location = new System.Drawing.Point(633, 53);
+            this.cbDescendente.Name = "cbDescendente";
+            this.cbDescendente.Size = new System.Drawing.Size(114, 21);
+            this.cbDescendente.TabIndex = 7;
+            this.cbDescendente.Text = "Descendente";
+            this.cbDescendente.UseVisualStyleBackColor = true;
+            this.cbDescendente.CheckedChanged += new System.EventHandler(this.rbPais_CheckedChanged);
             // 
-            // radioButton5
+            // rbID
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Checked = true;
-            this.radioButton5.Location = new System.Drawing.Point(486, 54);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(106, 21);
-            this.radioButton5.TabIndex = 6;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Identificador";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rbID.AutoSize = true;
+            this.rbID.Checked = true;
+            this.rbID.Location = new System.Drawing.Point(486, 54);
+            this.rbID.Name = "rbID";
+            this.rbID.Size = new System.Drawing.Size(106, 21);
+            this.rbID.TabIndex = 6;
+            this.rbID.TabStop = true;
+            this.rbID.Text = "Identificador";
+            this.rbID.UseVisualStyleBackColor = true;
+            this.rbID.CheckedChanged += new System.EventHandler(this.rbPais_CheckedChanged);
             // 
-            // radioButton6
+            // rbCapital
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(486, 27);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(72, 21);
-            this.radioButton6.TabIndex = 5;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Capital";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.rbCapital.AutoSize = true;
+            this.rbCapital.Location = new System.Drawing.Point(486, 27);
+            this.rbCapital.Name = "rbCapital";
+            this.rbCapital.Size = new System.Drawing.Size(72, 21);
+            this.rbCapital.TabIndex = 5;
+            this.rbCapital.TabStop = true;
+            this.rbCapital.Text = "Capital";
+            this.rbCapital.UseVisualStyleBackColor = true;
+            this.rbCapital.CheckedChanged += new System.EventHandler(this.rbPais_CheckedChanged);
             // 
-            // radioButton3
+            // rbPIB
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(361, 53);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(50, 21);
-            this.radioButton3.TabIndex = 4;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "PIB";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbPIB.AutoSize = true;
+            this.rbPIB.Location = new System.Drawing.Point(361, 53);
+            this.rbPIB.Name = "rbPIB";
+            this.rbPIB.Size = new System.Drawing.Size(50, 21);
+            this.rbPIB.TabIndex = 4;
+            this.rbPIB.TabStop = true;
+            this.rbPIB.Text = "PIB";
+            this.rbPIB.UseVisualStyleBackColor = true;
+            this.rbPIB.CheckedChanged += new System.EventHandler(this.rbPais_CheckedChanged);
             // 
-            // radioButton4
+            // rbPoblacion
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(361, 26);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(91, 21);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Población";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbPoblacion.AutoSize = true;
+            this.rbPoblacion.Location = new System.Drawing.Point(361, 26);
+            this.rbPoblacion.Name = "rbPoblacion";
+            this.rbPoblacion.Size = new System.Drawing.Size(91, 21);
+            this.rbPoblacion.TabIndex = 3;
+            this.rbPoblacion.TabStop = true;
+            this.rbPoblacion.Text = "Población";
+            this.rbPoblacion.UseVisualStyleBackColor = true;
+            this.rbPoblacion.CheckedChanged += new System.EventHandler(this.rbPais_CheckedChanged);
             // 
-            // radioButton2
+            // rbContinente
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(249, 54);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(97, 21);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Continente";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbContinente.AutoSize = true;
+            this.rbContinente.Location = new System.Drawing.Point(249, 54);
+            this.rbContinente.Name = "rbContinente";
+            this.rbContinente.Size = new System.Drawing.Size(97, 21);
+            this.rbContinente.TabIndex = 2;
+            this.rbContinente.TabStop = true;
+            this.rbContinente.Text = "Continente";
+            this.rbContinente.UseVisualStyleBackColor = true;
+            this.rbContinente.CheckedChanged += new System.EventHandler(this.rbPais_CheckedChanged);
             // 
-            // radioButton1
+            // rbPais
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(249, 27);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(56, 21);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "País";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbPais.AutoSize = true;
+            this.rbPais.Location = new System.Drawing.Point(249, 27);
+            this.rbPais.Name = "rbPais";
+            this.rbPais.Size = new System.Drawing.Size(56, 21);
+            this.rbPais.TabIndex = 1;
+            this.rbPais.TabStop = true;
+            this.rbPais.Text = "País";
+            this.rbPais.UseVisualStyleBackColor = true;
+            this.rbPais.CheckedChanged += new System.EventHandler(this.rbPais_CheckedChanged);
             // 
             // label1
             // 
@@ -352,13 +361,13 @@
         private System.Windows.Forms.Button btAnyadir;
         private System.Windows.Forms.Button btMostrar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.CheckBox cbDescendente;
+        private System.Windows.Forms.RadioButton rbID;
+        private System.Windows.Forms.RadioButton rbCapital;
+        private System.Windows.Forms.RadioButton rbPIB;
+        private System.Windows.Forms.RadioButton rbPoblacion;
+        private System.Windows.Forms.RadioButton rbContinente;
+        private System.Windows.Forms.RadioButton rbPais;
         private System.Windows.Forms.Button btAcercaDe;
         private System.Windows.Forms.Button btClasifica;
     }

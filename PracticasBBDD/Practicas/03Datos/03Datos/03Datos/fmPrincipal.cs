@@ -152,5 +152,109 @@ namespace _03Datos
             fmConsultar ventanaConsultar = new fmConsultar();
             ventanaConsultar.ShowDialog();
         }
+
+        private void btBorrar_Click(object sender, EventArgs e)
+        {
+            if (lvDatos.SelectedIndices.Count > 0)
+            {
+                ListView.SelectedListViewItemCollection seleccionado = lvDatos.SelectedItems;
+                foreach (ListViewItem elemento in seleccionado)
+                {
+                    int mid = Convert.ToInt32(elemento.SubItems[0].Text);
+                    string consulta = "select * from paises where Id = @mid; ";
+                    OleDbCommand comando = new OleDbCommand(consulta, conexion);
+                    comando.Parameters.AddWithValue("@mid", mid);
+                    OleDbDataReader lector = comando.ExecuteReader();
+                    while (lector.Read())
+                    {
+                        DialogResult resulta = MessageBox.Show("Seguro que desea eliminar el pais "
+                        + lector.GetString(1) + " con ID: " + Convert.ToString(lector.GetInt32(0)),
+                        "Atención, Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                        if (resulta == DialogResult.No)
+                            break;
+                        string idborra = Convert.ToString(lector.GetInt32(0));
+                        string borra = "delete from paises where Id = @idborra";
+                        OleDbCommand comandoborra = new OleDbCommand(borra, conexion);
+                        comandoborra.Parameters.AddWithValue("@idborra", idborra);
+                        try
+                        {
+                            comandoborra.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        MessageBox.Show("Datos Borrados correctamente");
+                    }
+                }
+                btMostrar.PerformClick();
+            }
+            else
+            {
+                MessageBox.Show("Elige un Pais");
+            }
+
+        }
+
+        private void btCalculaRC_Click(object sender, EventArgs e)
+        {
+            if (lvDatos.Items.Count > 0)
+            {
+                ListView.ListViewItemCollection filas = lvDatos.Items;
+                foreach (ListViewItem elemento in filas)
+                {
+                    int mid = Convert.ToInt32(elemento.SubItems[0].Text);
+                    string multiplica = "select pib * 1000000 / poblacion from paises where Id = @mid;";
+                    OleDbCommand comando = new OleDbCommand(multiplica, conexion);
+                    comando.Parameters.AddWithValue("@mid", mid);
+                    double rentacap = (double)comando.ExecuteScalar();
+                    elemento.SubItems[6].Text = rentacap.ToString("######");
+                }
+            }
+            else
+            {
+                MessageBox.Show("no hay filas");
+            }
+        }
+
+        private void rbPais_CheckedChanged(object sender, EventArgs e)
+        {
+            string sentenciasql = "SELECT * FROM paises ";
+            if (rbPais.Checked) //los nombres de los objetos siguientes son los radiobutons y checkbox del panel inferior
+                sentenciasql = sentenciasql + "ORDER BY nombre";
+            if (rbContinente.Checked)
+                sentenciasql = sentenciasql + "ORDER BY continente";
+            if (rbPoblacion.Checked)
+                sentenciasql = sentenciasql + "ORDER BY poblacion";
+            if (rbPIB.Checked)
+                sentenciasql = sentenciasql + "ORDER BY pib";
+            if (rbID.Checked)
+                sentenciasql = sentenciasql + "ORDER BY id";
+            if (rbCapital.Checked)
+                sentenciasql = sentenciasql + "ORDER BY capital";
+            if (cbDescendente.Checked)
+                sentenciasql = sentenciasql + " DESC";
+            OleDbDataAdapter adaptador = new OleDbDataAdapter(sentenciasql, conexion);
+            DataSet ds = new DataSet();
+            DataTable tabla = new DataTable();
+            adaptador.Fill(ds);
+            tabla = ds.Tables[0];
+            lvDatos.Items.Clear();
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                DataRow filas = tabla.Rows[i];
+                ListViewItem elementos = new ListViewItem(filas["id"].ToString());
+                elementos.SubItems.Add(filas["nombre"].ToString());
+                elementos.SubItems.Add(filas["capital"].ToString());
+                elementos.SubItems.Add(filas["continente"].ToString());
+                elementos.SubItems.Add(filas["poblacion"].ToString());
+                elementos.SubItems.Add(filas["pib"].ToString());
+                decimal pib = Convert.ToDecimal(filas["pib"].ToString()) * 1000000;
+                decimal renta = pib / Convert.ToInt64(filas["poblacion"].ToString());
+                elementos.SubItems.Add(renta.ToString("######"));
+                lvDatos.Items.Add(elementos);
+            }
+
+        }
     }
 }
