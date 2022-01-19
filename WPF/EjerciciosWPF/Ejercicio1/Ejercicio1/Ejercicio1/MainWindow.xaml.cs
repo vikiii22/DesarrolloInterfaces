@@ -24,5 +24,62 @@ namespace Ejercicio1
         {
             InitializeComponent();
         }
+
+        private void BtTres_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Botón tres púlsado");
+        }
+
+        private void BtDos_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("Keydown botón dos");
+        }
+
+        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("Keydown grid");
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("Keydown Window");
+        }
+
+        private void BtDos_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("PreviewKeyDown bt2");
+        }
+
+        private void Grid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("PreviewKeyDown grid");
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("PreviewKeyDown Window");
+        }
+
+        private void BtTotal_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(Control controlGrid in gridEj1.Children)
+            {
+                MessageBox.Show(controlGrid.Name);
+            }
+
+            MessageBox.Show("Total de elementos en grid " + Convert.ToString(gridEj1.Children.Count));
+        }
+
+        private void BtSender1_Click(object sender, RoutedEventArgs e)
+        {
+            if (((Button)sender).Name == "btSender1")
+            {
+                MessageBox.Show("Hola mundo click boton1");
+            }
+            else
+            {
+                MessageBox.Show("Hola mundo click boton2");
+            }
+        }
     }
 }

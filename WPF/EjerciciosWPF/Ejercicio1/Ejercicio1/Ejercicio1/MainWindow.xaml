@@ -5,6 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ejercicio1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+        Title="MainWindow" Height="450" Width="800" KeyDown="Window_KeyDown" PreviewKeyDown="Window_PreviewKeyDown">
+    <Grid x:Name="gridEj1" KeyDown="Grid_KeyDown" PreviewKeyDown="Grid_PreviewKeyDown">
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF00214A" Offset="1"/>
+                <GradientStop Color="#FF0071FF" Offset="0.262"/>
+                <GradientStop Color="Black" Offset="0.732"/>
+                <GradientStop Color="#FF550059" Offset="0.646"/>
+                <GradientStop Color="#FF3A238D" Offset="0.176"/>
+                <GradientStop Color="#FF7124B7" Offset="0.412"/>
+                <GradientStop Color="#FF3B218A" Offset="0.187"/>
+                <GradientStop Color="#FF1E8675" Offset="0.896"/>
+                <GradientStop Color="#FF8E2470" Offset="0.513"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Button x:Name="btDos" Content="Evento" HorizontalAlignment="Left" Width="100" Height="35" Margin="10,10,0,375" Click="BtTres_Click" KeyDown="BtDos_KeyDown" PreviewKeyDown="BtDos_PreviewKeyDown"></Button>
+        <Button x:Name="btUno" Content="Botón" Margin="701,184,15.6,199"  Width="77" Height="37" Background="#FF0B3AFF" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="37.284"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="btTres" Content="Botón tres" Margin="10,336,683.6,34" Width="100" Height="50" Click="BtTres_Click"></Button>
+        <Button Content="" HorizontalAlignment="Left" Margin="603,10,0,0" VerticalAlignment="Top" Width="181" Height="108">
+            <Button.Background>
+                <ImageBrush ImageSource="Captura de pantalla (5).png" Stretch="Fill" TileMode="FlipX"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btCinco" Width="250" Margin="534,256,9.6,72" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Captura de pantalla (8).png"></Image>
+                <Label x:Name="label" Content="Botón" VerticalAlignment="Center"></Label>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btTotal" Content="Total grid" HorizontalAlignment="Left" Margin="10,256,0,0" VerticalAlignment="Top" Width="75" Height="50" Click="BtTotal_Click"></Button>
+        <Button x:Name="btSender1" Content="Sender" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Width="75" Click="BtSender1_Click"/>
+        <Button x:Name="btSender2" Content="Sender" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" Width="75" Click="BtSender1_Click"/>
+        <!-- Esto es un comentario, Primer ejercicio WPF -->
+    </Grid>
 </Window>
