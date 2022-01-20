@@ -25,9 +25,21 @@ namespace Ejercicio1
             InitializeComponent();
         }
 
+        bool azul=false;
+
         private void BtTres_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Botón tres púlsado");
+            //MessageBox.Show("Botón tres púlsado");
+
+            if (azul)
+            {
+                btTres.Background = Brushes.Blue;
+            }
+            else
+            {
+                btTres.Background = Brushes.Red;
+            }
+            azul = !azul;
         }
 
         private void BtDos_KeyDown(object sender, KeyEventArgs e)
