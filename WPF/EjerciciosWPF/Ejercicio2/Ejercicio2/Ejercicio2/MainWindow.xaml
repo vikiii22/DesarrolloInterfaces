@@ -31,10 +31,15 @@
             <Button Content="Button" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75"/>
             <Button Content="Button" HorizontalAlignment="Left" Margin="87,66,0,0" VerticalAlignment="Top" Width="75"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="100" Margin="126,310,0,0" VerticalAlignment="Top" Width="193" Background="#FF15A971">
-            <Label Content="Grid Con columnas" HorizontalAlignment="Left" Margin="32,35,0,0" VerticalAlignment="Top"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="87,66,0,0" VerticalAlignment="Top" Width="75"/>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="102,310,0,0" VerticalAlignment="Top" Width="341" Background="#FF15A971">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Grid Con columnas" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="9.8,10,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="0.2,66,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Grid.Column="1"/>
         </Grid>
 
     </Grid>
