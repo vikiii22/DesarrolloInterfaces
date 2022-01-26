@@ -1,0 +1,25 @@
+﻿<Window x:Class="Ejercicio4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ejercicio4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <DockPanel HorizontalAlignment="Left" Height="328" LastChildFill="True" Margin="141,45,0,0" VerticalAlignment="Top" Width="510">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDFA1A1" Offset="0"/>
+                    <GradientStop Color="#FF79D3C8" Offset="1"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <Button x:Name="btAnterior" DockPanel.Dock="Left" Width="50" Height="50" Background="CornflowerBlue" FontFamily="Webdings" FontSize="20"
+                    FontWeight="Bold" Foreground="White" Margin="10,0,0,0" Click="BtAnterior_Click">9</Button>
+            <Button x:Name="btPosterior" DockPanel.Dock="Right" Width="50" Height="50" Background="CornflowerBlue" FontFamily="Webdings" FontSize="20"
+                    FontWeight="Bold" Foreground="White" Margin="0,0,10,0" RenderTransformOrigin="0.504,0.504" Click="BtPosterior_Click">:</Button>
+            <Label x:Name="lbNombre" Content="Nombre" HorizontalAlignment="Center" DockPanel.Dock="Top" FontFamily="Arial" FontSize="18"></Label>
+            <Image x:Name="imgMostrar" Source="visor.jpg" Margin="10"></Image>
+        </DockPanel>
+    </Grid>
+</Window>
