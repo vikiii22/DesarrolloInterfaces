@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ejercicio5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="596.285" Width="996.44">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -17,4 +17,31 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
+    <Grid Background="#FFAEF0DE">
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="#FF2D306B"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Forte"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+            </Style>
+        </Grid.Resources>
+        <GroupBox x:Name="gb1" Header="Botones" HorizontalAlignment="Left" Height="262" Margin="77,43,0,0" VerticalAlignment="Top" Width="319">
+            <StackPanel HorizontalAlignment="Left" Height="252" Margin="-10,0,-2.6,-12.8" VerticalAlignment="Top" Width="319">
+                <Button x:Name="btNuevoLabel" Content="Nuevo label" Height="62" Margin="20,10,20,10"/>
+                <Button x:Name="btNuevoBoton" Content="Nuevo botón" Height="62" Margin="20,10,20,10"/>
+                <Button x:Name="btBorrarElemento" Content="Borrar elemento" Height="62" Margin="20,10,20,10"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="gbMostrar" Style="{StaticResource gb}" Header="Mostrar" HorizontalAlignment="Left" Height="198" Margin="77,330,0,0" VerticalAlignment="Top" Width="319">
+            <StackPanel HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top">
+                <Label Content="Label" Style="{StaticResource lbRojo}"/>
+                <Label Content="Label" Style="{StaticResource lbAzul}"/>
+                <Label Content="Label" Style="{StaticResource lbVerde}"/>
+                <Label Content="Label" Style="{StaticResource lbRosa}"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="gb3" Header="GroupBox" HorizontalAlignment="Left" Height="455" Margin="445,43,0,0" VerticalAlignment="Top" Width="481"/>
+
+    </Grid>
 </Window>
