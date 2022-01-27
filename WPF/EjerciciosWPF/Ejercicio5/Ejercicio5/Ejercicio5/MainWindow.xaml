@@ -28,9 +28,9 @@
         </Grid.Resources>
         <GroupBox x:Name="gb1" Header="Botones" HorizontalAlignment="Left" Height="262" Margin="77,43,0,0" VerticalAlignment="Top" Width="319">
             <StackPanel HorizontalAlignment="Left" Height="252" Margin="-10,0,-2.6,-12.8" VerticalAlignment="Top" Width="319">
-                <Button x:Name="btNuevoLabel" Content="Nuevo label" Height="62" Margin="20,10,20,10"/>
-                <Button x:Name="btNuevoBoton" Content="Nuevo botón" Height="62" Margin="20,10,20,10"/>
-                <Button x:Name="btBorrarElemento" Content="Borrar elemento" Height="62" Margin="20,10,20,10"/>
+                <Button x:Name="btNuevoLabel" Content="Nuevo label" Height="62" Margin="20,10,20,10" Click="BtNuevoLabel_Click"/>
+                <Button x:Name="btNuevoBoton" Content="Nuevo botón" Height="62" Margin="20,10,20,10" Click="BtNuevoBoton_Click"/>
+                <Button x:Name="btBorrarElemento" Content="Borrar elemento" Height="62" Margin="20,10,20,10" Click="BtBorrarElemento_Click"/>
             </StackPanel>
         </GroupBox>
         <GroupBox x:Name="gbMostrar" Style="{StaticResource gb}" Header="Mostrar" HorizontalAlignment="Left" Height="198" Margin="77,330,0,0" VerticalAlignment="Top" Width="319">
@@ -41,7 +41,11 @@
                 <Label Content="Label" Style="{StaticResource lbRosa}"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox x:Name="gb3" Header="GroupBox" HorizontalAlignment="Left" Height="455" Margin="445,43,0,0" VerticalAlignment="Top" Width="481"/>
+        <GroupBox x:Name="gb3" Header="Añadudis" HorizontalAlignment="Left" Height="455" Margin="445,43,0,0" VerticalAlignment="Top" Width="481">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="lista"/>
+            </ScrollViewer>
+        </GroupBox>
 
     </Grid>
 </Window>

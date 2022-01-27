@@ -1,0 +1,18 @@
+﻿<Window x:Class="Ejercicio6.secundaria"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ejercicio6"
+        mc:Ignorable="d"
+        Title="secundaria" Height="450" Width="800">
+    <Grid Background="#FFBF4E4E">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Elija una opción de regreso" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"></Label>
+        <Button Content="Primaria antigua" HorizontalAlignment="Left" Margin="100,185,0,185" Grid.Column="1" FontSize="25" Background="#FF9F3939" Foreground="White"></Button>
+        <Button Content="Primaria Moderna" HorizontalAlignment="Left" Margin="100,185,0,185" FontSize="25" Background="#FF9F3939" Foreground="White"></Button>
+    </Grid>
+</Window>

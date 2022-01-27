@@ -1,0 +1,18 @@
+﻿<Window x:Class="Ejercicio6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ejercicio6"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="Aquamarine">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="221" Width="400">
+            <Label Content="Navegación entre ventanas" Height="50" VerticalContentAlignment="Center" Background="#FF4545C0"/>
+            <TextBox Height="50" TextWrapping="Wrap" Text="Escribe algo personalizado"/>
+            <Button x:Name="btSecundariaOcultar" Content="Secundaria y ocultar" Height="50" FontWeight="Bold" FontSize="18" Click="BtSecundariaOcultar_Click"/>
+            <Button Content="Sevundaria y bloquear" Height="50" FontWeight="Bold" FontSize="18"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
