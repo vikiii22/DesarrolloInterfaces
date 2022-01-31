@@ -55,8 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="secundaria.xaml.cs">
-      <DependentUpon>secundaria.xaml</DependentUpon>
+    <Compile Include="vtAcercaDe.xaml.cs">
+      <DependentUpon>vtAcercaDe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vtSecundaria.xaml.cs">
+      <DependentUpon>vtSecundaria.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -70,9 +73,13 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="secundaria.xaml">
+    <Page Include="vtAcercaDe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vtSecundaria.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

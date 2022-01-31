@@ -17,10 +17,10 @@ namespace Ejercicio6
     /// <summary>
     /// Lógica de interacción para secundaria.xaml
     /// </summary>
-    public partial class secundaria : Window
+    public partial class vtSecundaria : Window
     {
-        
-        public secundaria()
+
+        public vtSecundaria()
         {
             InitializeComponent();
         }

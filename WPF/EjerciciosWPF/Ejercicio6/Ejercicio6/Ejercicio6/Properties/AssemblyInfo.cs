@@ -44,7 +44,7 @@ using System.Windows;
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
 //      Versión principal
-//      Versión secundaria
+//      Versión vtSecundaria
 //      Número de compilación
 //      Revisión
 //
