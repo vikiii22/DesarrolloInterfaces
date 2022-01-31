@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Elija una opción de regreso" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"></Label>
-        <Button Content="Primaria antigua" HorizontalAlignment="Left" Margin="100,185,0,185" Grid.Column="1" FontSize="25" Background="#FF9F3939" Foreground="White"></Button>
-        <Button Content="Primaria Moderna" HorizontalAlignment="Left" Margin="100,185,0,185" FontSize="25" Background="#FF9F3939" Foreground="White"></Button>
+        <Button x:Name="btAntigua" Content="Primaria antigua" HorizontalAlignment="Left" Margin="100,185,0,185" Grid.Column="1" FontSize="25" Background="#FF9F3939" Foreground="White" Click="BtAntigua_Click"></Button>
+        <Button x:Name="btNueva" Content="Primaria Nueva" HorizontalAlignment="Left" Margin="100,185,0,185" FontSize="25" Background="#FF9F3939" Foreground="White" Click="BtNueva_Click"></Button>
     </Grid>
 </Window>

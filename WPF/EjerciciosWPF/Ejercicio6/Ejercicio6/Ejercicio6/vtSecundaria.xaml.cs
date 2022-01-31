@@ -20,9 +20,27 @@ namespace Ejercicio6
     public partial class vtSecundaria : Window
     {
 
-        public vtSecundaria()
+        private MainWindow wPadre;
+
+        public vtSecundaria(MainWindow pPadre)
         {
             InitializeComponent();
+            wPadre = pPadre;
+        }
+
+        private void BtAntigua_Click(object sender, RoutedEventArgs e)
+        {
+            wPadre.IsEnabled = true;
+            wPadre.Show();
+            Close();
+        }
+
+        private void BtNueva_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow miVentanaPrimaria = new MainWindow();
+            wPadre.IsEnabled = true;
+            miVentanaPrimaria.Show();
+            Close();
         }
     }
 }

@@ -27,9 +27,16 @@ namespace Ejercicio6
 
         private void BtSecundariaOcultar_Click(object sender, RoutedEventArgs e)
         {
-            vtSecundaria miventana = new vtSecundaria();
+            vtSecundaria miventana = new vtSecundaria(this);
             miventana.Show();
-            //Hide();
+            Hide();
+        }
+
+        private void BtSecundariaBloqueas_Click(object sender, RoutedEventArgs e)
+        {
+            vtSecundaria miventana = new vtSecundaria(this);
+            IsEnabled = false;
+            miventana.Show();
         }
     }
 }

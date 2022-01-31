@@ -11,7 +11,7 @@
             <Label Content="Navegación entre ventanas" Height="50" VerticalContentAlignment="Center" Background="#FF4545C0"/>
             <TextBox Height="50" TextWrapping="Wrap" Text="Escribe algo personalizado"/>
             <Button x:Name="btSecundariaOcultar" Content="Secundaria y ocultar" Height="50" FontWeight="Bold" FontSize="18" Click="BtSecundariaOcultar_Click"/>
-            <Button Content="Sevundaria y bloquear" Height="50" FontWeight="Bold" FontSize="18"/>
+            <Button x:Name="btSecundariaBloqueas" Content="Sevundaria y bloquear" Height="50" FontWeight="Bold" FontSize="18" Click="BtSecundariaBloqueas_Click"/>
 
         </StackPanel>
     </Grid>
