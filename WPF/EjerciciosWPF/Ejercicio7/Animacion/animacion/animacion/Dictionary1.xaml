@@ -1,0 +1,136 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:animacion">
+    <!-- Estilo de boton animado 1 -->
+    <Style TargetType="Button" x:Key="b_animado1">
+        <Style.Triggers>
+            <!-- Animo el boton, por medio de triggers de EVENTO Pag 244-->
+            <EventTrigger RoutedEvent="Button.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <!-- Animación sobre la opacidad del boton -->
+                        <!--DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                             From="0.2" To="1" Duration="0:0:5" 
+                                             AutoReverse="True" RepeatBehavior="Forever" -->
+
+                        <!-- Animación sobre el tamaño de la fuente del boton -->
+                        <DoubleAnimation Storyboard.TargetProperty="FontSize"
+                                             From="6.0" To="12.0" Duration="0:0:5" 
+                                             AutoReverse="True" RepeatBehavior="Forever" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+            <!-- Animaciones sobre el evento click del boton -->
+            <EventTrigger RoutedEvent="Button.Click">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <!-- Animación sobre el color del boton -->
+                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" 
+                                             From="SkyBlue" To="DarkBlue" Duration="0:0:1" 
+                                             AutoReverse="True"/>
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+            <!-- Aparte puedo poner otros tiggers, por ejemplo de PROPIEDAD -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!-- Estilo de boton animado 2 (con transicion de imagenes) -->
+    <Style TargetType="Button" x:Key="b_animado2">
+        <Setter Property="Template">
+            <Setter.Value>
+                <!-- Indico otra vez al element al que se aplica y del que hereda -->
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!-- Defino la apariencia gráfica del control. Para esto usare el elemento border -->
+
+                    <!-- Defino el Borde exterior del control -->
+                    <Border Name="b1" CornerRadius="10" 
+                                Background="Gold" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="2"
+                                Height="100" Width="200">
+                        <!--Los campos con valor {TemplateBinding} permiten al usuario cambiarlo
+                                dentro del axml de la pantalla. Las propiedades que no se definan así no 
+                                seran modificables por el usuario-->
+
+                        <Image Name="img1" Stretch="Fill" Margin="1" Source="panic_r.jpg"/>
+                    </Border>
+
+                    <!-- Defino un Trigger para su funcionamineto -->
+                    <ControlTemplate.Triggers>
+
+                        <!-- Trigger para la animacion de pulsación de boton -->
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="img1"
+                                                       Storyboard.TargetProperty="Source"
+                                                       Duration="0:0:0.5">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="paninc_r_p.jpg"/>
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="panic_r.jpg"/>
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <!-- Trigger común de propiedad -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="b1" Property="Background" Value="Beige"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- Estilo para la ventana con modificacion del color de fondo -->
+    <Style TargetType="Window" x:Key="s_window">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Window.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="(Window.Background).(SolidColorBrush.Color)" 
+                                             From="SkyBlue" To="DarkBlue" Duration="0:0:2"
+                                             AutoReverse="True" RepeatBehavior="Forever"/>
+
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Estilo para un grid con modificacion del color de fondo -->
+    <Style TargetType="Grid" x:Key="s_grid">
+        <Setter Property="Background" Value="Red"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Grid.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)" 
+                                             From="Yellow" To="Violet" Duration="0:0:2"
+                                             AutoReverse="True" RepeatBehavior="Forever"/>
+
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

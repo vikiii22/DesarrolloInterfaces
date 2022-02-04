@@ -1,0 +1,52 @@
+﻿<Window x:Class="animacion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:animacion"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="84*"/>
+            <ColumnDefinition Width="313*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="gbBotones" Header="Botones Animados" HorizontalAlignment="Left" Height="234" Margin="45,25,0,0" VerticalAlignment="Top" Width="285" Grid.ColumnSpan="2">
+            <StackPanel VerticalAlignment="Top">
+                <Button x:Name="btAnimado1" Style="{StaticResource b_animado1}" Content="Botón Animado"
+                        Height="40" FontWeight="Bold" Background="#FF00C0FF"/>
+                <Button x:Name="btAnimado2" Style="{StaticResource b_animado2}" Height="140"/>
+            </StackPanel>
+        </GroupBox>
+            <Grid x:Name="gridColores" HorizontalAlignment="Left" Height="221" Margin="287.4,38,0,0" VerticalAlignment="Top" Width="312" Style="{StaticResource s_grid}" Grid.Column="1"/>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="45,283,0,0" VerticalAlignment="Top" Width="722" Background="#FF5FFF6C" Grid.ColumnSpan="2">
+            <Ellipse Fill="Blue" HorizontalAlignment="Left" Height="50" Margin="0,38,0,0" Stroke="Black" VerticalAlignment="Top" Width="50">
+                <Ellipse.RenderTransform>
+                    <TranslateTransform x:Name="Posicion_Animada" X="0" Y="0"/>
+                </Ellipse.RenderTransform>
+                <Ellipse.Triggers>
+                    <EventTrigger RoutedEvent="MouseLeftButtonDown">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Posicion_Animada" Storyboard.TargetProperty="X" Duration="0:0:10">
+                                    <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
+                                    <LinearDoubleKeyFrame Value="350" KeyTime="0:0:2"/>
+                                    <LinearDoubleKeyFrame Value="50" KeyTime="0:0:7"/>
+                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:8"/>
+                                    <LinearDoubleKeyFrame Value="0" KeyTime="0:0:10"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Ellipse.Triggers>
+            </Ellipse>
+        </Grid>
+    </Grid>
+</Window>
