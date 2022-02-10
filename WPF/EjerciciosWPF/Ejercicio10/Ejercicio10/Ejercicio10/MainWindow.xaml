@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Ejercicio10"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFA0D0F9">
         <GroupBox x:Name="gbUsuarios" Header="Registro de Usuario" Margin="20, 50, 400, 40" Background="#FFF0CECE">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -39,11 +39,17 @@
                 <TextBox x:Name="tb3" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Margin="2" Background="#FFF792F4"/>
                 <PasswordBox x:Name="pass" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Margin="2" Background="#FFF792F4"/>
                 <PasswordBox x:Name="pass2" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Margin="2" Background="#FFF792F4"/>
-                <Button x:Name="btAceptar" Grid.Column="1" Grid.Row="10" Content="Aceptar" Grid.ColumnSpan="2" Background="#FFB97AB7"/>
+                <Button x:Name="btAceptar" Grid.Column="1" Grid.Row="10" Content="Aceptar" Grid.ColumnSpan="2" Background="#FFB97AB7" Click="BtAceptar_Click"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="gbRegistrados" Header="Usuarios Registrados" Margin="400, 50, 20, 40" Background="#FFB5EDB8">
-
+            <DataGrid x:Name="dgUsuarios" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=nombre}" Header="Nombre" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=dni}" Header="DNI" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=usuario}" Header="Usuario" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </GroupBox>
     </Grid>
 </Window>

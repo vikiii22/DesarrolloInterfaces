@@ -20,9 +20,19 @@ namespace Ejercicio10
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Usuario> listaUsuarios = new List<Usuario>();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtAceptar_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario nuevoUsuario = new Usuario(tbNombre.Text, tbDNI.Text, tbUsuario.Text, "");
+            listaUsuarios.Add(nuevoUsuario);
+            dgUsuarios.ItemsSource = null;
+            dgUsuarios.ItemsSource = listaUsuarios;
         }
     }
 }
