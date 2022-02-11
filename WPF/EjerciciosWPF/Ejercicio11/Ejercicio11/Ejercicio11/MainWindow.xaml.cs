@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,22 @@ namespace Ejercicio11
     /// </summary>
     public partial class MainWindow : Window
     {
+        public OleDbConnection miConexion;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            string conectar = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =.\datos\libros.mdb";
+            miConexion = new OleDbConnection(conectar);
+            miConexion.Open();
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT * FROM editorial", miConexion);
+            DataSet ds = new DataSet();
+            adaptador.Fill(ds);
+            dgEditorial.ItemsSource = ds.Tables[0].DefaultView;
         }
     }
 }

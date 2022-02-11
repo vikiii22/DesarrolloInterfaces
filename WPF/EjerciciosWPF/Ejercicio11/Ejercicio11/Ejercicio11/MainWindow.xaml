@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ejercicio11"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
+        <Label x:Name="lbConsulta" Content="Consulta Libros por Editoriales" HorizontalAlignment="Center"/>
+        <DataGrid x:Name="dgEditorial" Margin="100, 25, 100, 300" SelectionMode="Single" ScrollViewer.CanContentScroll="True">
+            
+        </DataGrid>
         
+
+        <DataGrid x:Name="dgDatos" Margin="40, 170, 40, 50">
+            
+        </DataGrid>
+        <Button Content="Mostrar Libros" HorizontalAlignment="Left" Margin="343,143,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="654,391,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Content="Salir" HorizontalAlignment="Left" Margin="525,391,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
