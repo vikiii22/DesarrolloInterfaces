@@ -39,5 +39,25 @@ namespace Ejercicio11
             adaptador.Fill(ds);
             dgEditorial.ItemsSource = ds.Tables[0].DefaultView;
         }
+
+        private void BtMostrarLibros_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgEditorial.SelectedIndex > -1)
+            {
+                DataView datos = (DataView)dgEditorial.ItemsSource;
+                string ced = datos.Table.Rows[dgEditorial.SelectedIndex]["codigoEditorial"].ToString();
+                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT * FROM libros where codigoeditorial=@micod", miConexion);
+                adaptador.SelectCommand.Parameters.AddWithValue("@micod", ced);
+                DataSet ds = new DataSet();
+                adaptador.Fill(ds);
+                dgDatos.ItemsSource = ds.Tables[0].DefaultView;
+                string ced2 = datos.Table.Rows[dgEditorial.SelectedIndex]["nombre"].ToString();
+                laTotal.Content = "Total de Libros en Editorial " + ced2 + ": " + dgDatos.Items.Count;
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una editorial");
+            }
+        }
     }
 }
