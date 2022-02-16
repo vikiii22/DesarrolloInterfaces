@@ -406,6 +406,7 @@
             this.telefonosBindingNavigatorSaveItem.Name = "telefonosBindingNavigatorSaveItem";
             this.telefonosBindingNavigatorSaveItem.Size = new System.Drawing.Size(24, 24);
             this.telefonosBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.telefonosBindingNavigatorSaveItem.Click += new System.EventHandler(this.telefonosBindingNavigatorSaveItem_Click_1);
             // 
             // telefonosTableAdapter
             // 

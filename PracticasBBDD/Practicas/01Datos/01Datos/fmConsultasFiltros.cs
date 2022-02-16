@@ -52,5 +52,28 @@ namespace _01Datos
                 telefonosBindingSource.Sort = filtro + " DESC";
             }
         }
+
+        private void btBuscar_Click(object sender, EventArgs e)
+        {
+            if(tbNombre.Text != "")
+            {
+                telefonosBindingSource.Position = telefonosBindingSource.Find("nombre", tbNombre.Text);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
