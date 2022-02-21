@@ -44,11 +44,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(90, 295);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(581, 75);
+            this.label1.Size = new System.Drawing.Size(351, 25);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Proyecto para hacer un editor de texto tipo NotePad\r\nPracticamos varias cosas com" +
-    "o asignación de atributos a un texto\r\nmodificaciones de fuentes, búsquedas por l" +
-    "íneas, etc.";
+            this.label1.Text = "Examen final de la segunda evaluación";
             // 
             // btAceptar
             // 
@@ -89,9 +87,9 @@
             this.lbProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbProyecto.Location = new System.Drawing.Point(344, 131);
             this.lbProyecto.Name = "lbProyecto";
-            this.lbProyecto.Size = new System.Drawing.Size(177, 25);
+            this.lbProyecto.Size = new System.Drawing.Size(172, 25);
             this.lbProyecto.TabIndex = 13;
-            this.lbProyecto.Text = "Proyecto: 06 Editor";
+            this.lbProyecto.Text = "Proyecto: Examen";
             // 
             // lbAutor
             // 
