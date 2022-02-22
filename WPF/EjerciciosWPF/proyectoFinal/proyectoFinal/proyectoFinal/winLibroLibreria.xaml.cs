@@ -210,5 +210,51 @@ namespace proyectoFinal
                 MessageBox.Show("Actualmente no hay nignun libro en la base de datos.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
+        private void CbAutor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbAutor.SelectedIndex > -1)
+            {
+                //tbLibreria.Text=poncodigo("librerias", "código", cbEditorial.Items[cbEditorial.SelectedIndex])
+            }
+        }
+
+        private void BtEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                if (lbLibros.Items.Count > 0)
+                {
+                    if (lbLibros.SelectedItem != null)
+                    {
+                        if (MessageBox.Show("¿Realmente desea eliminar el libro " + tbTitulo.Text + " de la base de datos?",
+                             "Confirmar Eliminación de Registro", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                        {
+                            string borra = "DELETE FROM libros WHERE codigolibro = @idborra";
+                            OleDbCommand comandoborra = new OleDbCommand(borra, MainWindow.conexion);
+                            comandoborra.Parameters.AddWithValue("@idborra", tbCodigo.Text);
+                            try
+                            {
+                                comandoborra.ExecuteNonQuery();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                            MessageBox.Show("Datos borrados correctamente.");
+                            lbLibros.Items.RemoveAt(lbLibros.SelectedIndex);
+                            lbLibros.SelectedIndex = lbLibros.Items.Count - 1;
+                            limpiartextbox();
+                            tbCodigo.Clear();
+                            cargardatoslisbox();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecciona un libro a borrar.");
+                        lbLibros.Focus();
+                    }
+                }
+            }
+        }
     }
 }
