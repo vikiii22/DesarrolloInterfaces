@@ -70,5 +70,23 @@ namespace ProyectoFinalDIN
             winLibrerias ventanaLibrerias = new winLibrerias();
             ventanaLibrerias.ShowDialog();
         }
+
+        private void Btn_Generos_Click(object sender, RoutedEventArgs e)
+        {
+            winGenero ventanaGeneros = new winGenero();
+            ventanaGeneros.ShowDialog();
+        }
+
+        private void Btn_Editoriales_Click(object sender, RoutedEventArgs e)
+        {
+            winEditorial ventanaEditorial = new winEditorial();
+            ventanaEditorial.ShowDialog();
+        }
+
+        private void Btn_Autores_Click(object sender, RoutedEventArgs e)
+        {
+            winAutor ventanaAutor = new winAutor();
+            ventanaAutor.ShowDialog();
+        }
     }
 }
