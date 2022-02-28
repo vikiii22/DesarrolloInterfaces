@@ -95,7 +95,7 @@ namespace ProyectoFinalDIN
 
         private void cargardatoslisbox()
         { //Llenamos listbox con el título desde tabla libros 
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT * FROM libros", MainWindow.conexion);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT * FROM librerias", MainWindow.conexion);
             DataSet ds = new DataSet();
             adaptador.Fill(ds);
             tabla = new DataTable();
@@ -104,7 +104,7 @@ namespace ProyectoFinalDIN
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 filas = tabla.Rows[i];
-                lbLibros.Items.Add(filas["titulo"].ToString());
+                lbLibros.Items.Add(filas["nombre"].ToString());
             }
         }
 
@@ -147,7 +147,7 @@ namespace ProyectoFinalDIN
             lbLibros.SelectedItem = null;
             cambiaventana(false);
             btActualizar.IsEnabled = false;
-            string numFilas = "SELECT TOP 1 codigolibro FROM libros ORDER BY codigolibro DESC";
+            string numFilas = "SELECT TOP 1 codigo FROM librerias ORDER BY codigo DESC";
             OleDbCommand comando1 = new OleDbCommand(numFilas, MainWindow.conexion);
             int numFil = (int)comando1.ExecuteScalar();
             tbCodigo.Text = Convert.ToString(numFil + 1);
@@ -190,7 +190,7 @@ namespace ProyectoFinalDIN
                         if (MessageBox.Show("¿Realmente desea eliminar el libro " + tbTitulo.Text + " de la base de datos?",
                              "Confirmar Eliminación de Registro", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                         {
-                            string borra = "DELETE FROM libros WHERE codigolibro = @idborra";
+                            string borra = "DELETE FROM librerias WHERE codigo = @idborra";
                             OleDbCommand comandoborra = new OleDbCommand(borra, MainWindow.conexion);
                             comandoborra.Parameters.AddWithValue("@idborra", tbCodigo.Text);
                             try
@@ -230,8 +230,8 @@ namespace ProyectoFinalDIN
                 return;
             }
             Int32 mid = Convert.ToInt32(tbCodigo.Text);
-            string modificar = "UPDATE libros " + "SET titulo = '" + tbTitulo.Text + "', poblacion = '"
-                + tbPoblación.Text + "' WHERE codigolibro = @mid; ";
+            string modificar = "UPDATE librerias " + "SET nombre = '" + tbTitulo.Text + "', poblacion = '"
+                + tbPoblación.Text + "' WHERE codigo = @mid; ";
             //  MessageBox.Show(modificar);
             OleDbCommand comando2 = new OleDbCommand(modificar, MainWindow.conexion);
             comando2.Parameters.AddWithValue("@mid", mid);
@@ -267,7 +267,7 @@ namespace ProyectoFinalDIN
                 return;
             }
 
-            String insertar = "INSERT INTO librerias(codigo, titulo, poblacion)"
+            String insertar = "INSERT INTO librerias(codigo, nombre, poblacion)"
                  + "VALUES('" + tbCodigo.Text + "', '" + tbTitulo.Text + "', '" + tbPoblación.Text + "')";
             //     MessageBox.Show(insertar);
             OleDbCommand comando = new OleDbCommand(insertar, MainWindow.conexion);
@@ -303,7 +303,7 @@ namespace ProyectoFinalDIN
                 filas = tabla.Rows[lbLibros.SelectedIndex];
 
                 tbCodigo.Text = filas["codigo"].ToString();
-                tbTitulo.Text = filas["titulo"].ToString();
+                tbTitulo.Text = filas["nombre"].ToString();
                 tbPoblación.Text = filas["poblacion"].ToString();
             }
         }

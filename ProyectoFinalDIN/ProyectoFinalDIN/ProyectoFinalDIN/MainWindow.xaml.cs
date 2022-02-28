@@ -64,5 +64,11 @@ namespace ProyectoFinalDIN
             winLibroEditorial ventanaLibroEditorial = new winLibroEditorial();
             ventanaLibroEditorial.ShowDialog();
         }
+
+        private void Btn_Librerias_Click(object sender, RoutedEventArgs e)
+        {
+            winLibrerias ventanaLibrerias = new winLibrerias();
+            ventanaLibrerias.ShowDialog();
+        }
     }
 }

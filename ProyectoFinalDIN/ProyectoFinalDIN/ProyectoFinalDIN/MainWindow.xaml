@@ -42,7 +42,7 @@
         <Button x:Name="btn_LibrosEditorial" Content="Libros/Editorial" Grid.Row="7" Grid.Column="1" Click="Btn_LibrosEditorial_Click"/>
         <Button x:Name="btn_LibrosGenero" Content="Libros/Genero" Grid.Row="9" Grid.Column="1" Click="Btn_LibrosGenero_Click"/>
 
-        <Button x:Name="btn_Librerias" Content="Librerias" Grid.Row="5" Grid.Column="3"/>
+        <Button x:Name="btn_Librerias" Content="Librerias" Grid.Row="5" Grid.Column="3" Click="Btn_Librerias_Click"/>
         <Button x:Name="btn_Generos" Content="Generos" Grid.Row="7" Grid.Column="3"/>
         <Button x:Name="btn_LibrosLibreria" Content="Libros/Libreria" Grid.Row="9" Grid.Column="3" Click="Btn_LibrosLibreria_Click"/>
 
