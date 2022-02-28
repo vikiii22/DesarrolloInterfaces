@@ -40,5 +40,23 @@ namespace ProyectoFinalDIN
             winLibroLibreria ventanaLibroLibreria = new winLibroLibreria();
             ventanaLibroLibreria.ShowDialog();
         }
+
+        private void Btn_Libros_Click(object sender, RoutedEventArgs e)
+        {
+            winLibros ventanLibros = new winLibros();
+            ventanLibros.ShowDialog();
+        }
+
+        private void Btn_LibrosGenero_Click(object sender, RoutedEventArgs e)
+        {
+            winLibroGenero ventanaLibrosGenero = new winLibroGenero();
+            ventanaLibrosGenero.ShowDialog();
+        }
+
+        private void Btn_LibrosAutor_Click(object sender, RoutedEventArgs e)
+        {
+            winLibroAutor ventanaLibroAutor = new winLibroAutor();
+            ventanaLibroAutor.ShowDialog();
+        }
     }
 }

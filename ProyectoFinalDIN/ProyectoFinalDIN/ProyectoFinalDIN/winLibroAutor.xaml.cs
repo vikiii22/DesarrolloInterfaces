@@ -17,16 +17,16 @@ using System.Windows.Shapes;
 namespace ProyectoFinalDIN
 {
     /// <summary>
-    /// Lógica de interacción para winLibroLibreria.xaml
+    /// Lógica de interacción para winLibroAutor.xaml
     /// </summary>
-    public partial class winLibroLibreria : Window
+    public partial class winLibroAutor : Window
     {
-        public winLibroLibreria()
+        public winLibroAutor()
         {
             InitializeComponent();
         }
 
-        public static OleDbConnection conexion=MainWindow.conexion;
+        public static OleDbConnection conexion = MainWindow.conexion;
 
         private void BtSalir_Click(object sender, RoutedEventArgs e)
         {
@@ -35,25 +35,25 @@ namespace ProyectoFinalDIN
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT * FROM librerias", conexion);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT * FROM autor", conexion);
             DataSet ds = new DataSet();
             adaptador.Fill(ds);
-            dgLibreria.ItemsSource = ds.Tables[0].DefaultView;
+            dgAutor.ItemsSource = ds.Tables[0].DefaultView;
         }
 
         private void BtMostrarLibros_Click(object sender, RoutedEventArgs e)
         {
-            if (dgLibreria.SelectedIndex > -1)
+            if (dgAutor.SelectedIndex > -1)
             {
-                DataView datos = (DataView)dgLibreria.ItemsSource;
-                string ced = datos.Table.Rows[dgLibreria.SelectedIndex]["Codigo"].ToString();
-                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT * FROM libros where CodigoLibreria=@micod", conexion);
+                DataView datos = (DataView)dgAutor.ItemsSource;
+                string ced = datos.Table.Rows[dgAutor.SelectedIndex]["CodigoAutor"].ToString();
+                OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT * FROM libros where CodigoAutor=@micod", conexion);
                 adaptador.SelectCommand.Parameters.AddWithValue("@micod", ced);
                 DataSet ds = new DataSet();
                 adaptador.Fill(ds);
                 dgLibros.ItemsSource = ds.Tables[0].DefaultView;
-                string ced2 = datos.Table.Rows[dgLibreria.SelectedIndex]["nombre"].ToString();
-                lbNaranja.Content = "Total de Libros en Libreria " + ced2 + ": " + dgLibros.Items.Count;
+                string ced2 = datos.Table.Rows[dgAutor.SelectedIndex]["nombre"].ToString();
+                lbNaranja.Content = "Total de Libros en Genero " + ced2 + ": " + dgLibros.Items.Count;
             }
             else
             {

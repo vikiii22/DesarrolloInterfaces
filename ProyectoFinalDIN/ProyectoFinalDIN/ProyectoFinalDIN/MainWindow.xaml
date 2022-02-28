@@ -38,15 +38,15 @@
         <Label Content="Consulta" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" FontSize="18" Background="#FF8987EB" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label Content="Modifica" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1" FontSize="18" Background="#FF8987EB" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-        <Button x:Name="btn_LibrosAutor" Content="Libros/Autor" Grid.Row="5" Grid.Column="1"/>
+        <Button x:Name="btn_LibrosAutor" Content="Libros/Autor" Grid.Row="5" Grid.Column="1" Click="Btn_LibrosAutor_Click"/>
         <Button x:Name="btn_LibrosEditorial" Content="Libros/Editorial" Grid.Row="7" Grid.Column="1"/>
-        <Button x:Name="btn_LibrosGenero" Content="Libros/Genero" Grid.Row="9" Grid.Column="1"/>
+        <Button x:Name="btn_LibrosGenero" Content="Libros/Genero" Grid.Row="9" Grid.Column="1" Click="Btn_LibrosGenero_Click"/>
 
         <Button x:Name="btn_Librerias" Content="Librerias" Grid.Row="5" Grid.Column="3"/>
         <Button x:Name="btn_Generos" Content="Generos" Grid.Row="7" Grid.Column="3"/>
         <Button x:Name="btn_LibrosLibreria" Content="Libros/Libreria" Grid.Row="9" Grid.Column="3" Click="Btn_LibrosLibreria_Click"/>
 
-        <Button x:Name="btn_Libros" Content="Libros" Grid.Row="5" Grid.Column="5"/>
+        <Button x:Name="btn_Libros" Content="Libros" Grid.Row="5" Grid.Column="5" Click="Btn_Libros_Click"/>
         <Button x:Name="btn_Autores" Content="Autores" Grid.Row="7" Grid.Column="5"/>
         <Button x:Name="btn_Editoriales" Content="Editoriales" Grid.Row="9" Grid.Column="5"/>
 
