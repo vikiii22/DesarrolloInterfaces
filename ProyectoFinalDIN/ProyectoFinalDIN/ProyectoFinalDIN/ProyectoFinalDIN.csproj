@@ -55,8 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="winLibrerias.xaml.cs">
+      <DependentUpon>winLibrerias.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winLibroAutor.xaml.cs">
       <DependentUpon>winLibroAutor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="winLibroEditorial.xaml.cs">
+      <DependentUpon>winLibroEditorial.xaml</DependentUpon>
     </Compile>
     <Compile Include="winLibroGenero.xaml.cs">
       <DependentUpon>winLibroGenero.xaml</DependentUpon>
@@ -79,7 +85,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="winLibrerias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="winLibroAutor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="winLibroEditorial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -58,5 +58,11 @@ namespace ProyectoFinalDIN
             winLibroAutor ventanaLibroAutor = new winLibroAutor();
             ventanaLibroAutor.ShowDialog();
         }
+
+        private void Btn_LibrosEditorial_Click(object sender, RoutedEventArgs e)
+        {
+            winLibroEditorial ventanaLibroEditorial = new winLibroEditorial();
+            ventanaLibroEditorial.ShowDialog();
+        }
     }
 }
