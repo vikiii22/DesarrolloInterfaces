@@ -14,36 +14,31 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace proyectoFinal
+namespace ProyectoFinalDIN
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static OleDbConnection conexion;
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        public static OleDbConnection conexion;
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string conecta = (@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=.\datos\libros.mdb;");
+            string conecta = (@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=.\datos\libros.mdb");
             conexion = new OleDbConnection(conecta);
             conexion.Open();
         }
 
-        private void btn_LibrosLibreria_Click(object sender, RoutedEventArgs e)
+        private void Btn_LibrosLibreria_Click(object sender, RoutedEventArgs e)
         {
             winLibroLibreria ventanaLibroLibreria = new winLibroLibreria();
             ventanaLibroLibreria.ShowDialog();
-        }
-
-        private void Btn_Salir_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

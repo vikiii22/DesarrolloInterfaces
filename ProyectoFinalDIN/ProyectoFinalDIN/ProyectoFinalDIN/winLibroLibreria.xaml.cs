@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace proyectoFinal
+namespace ProyectoFinalDIN
 {
     /// <summary>
     /// Lógica de interacción para winLibroLibreria.xaml
@@ -301,6 +301,70 @@ namespace proyectoFinal
             limpiartextbox();
             tbCodigo.Clear();
             cambiaventana(true);
+        }
+
+        private void BtGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            if (!camposrequeridos())
+            {
+                return;
+            }
+
+            String insertar = "INSERT INTO libros(codigolibro, titulo, observacion, isbn, codigoeditorial, fechaimpresion,codigoautor, codigogenero, codigolibreria)"
+                 + "VALUES('" + tbCodigo.Text + "', '" + tbTitulo.Text + "', '" + tbObservacion.Text + "', '" + tbISBN.Text + "', '" + tbEditorial.Text + "', '"
+                 + dpFechaImpresion.Text + "', '" + tbAutor.Text + "', '" + tbGenero.Text + "', '" + tbLibreria.Text + "')";
+            //     MessageBox.Show(insertar);
+            OleDbCommand comando = new OleDbCommand(insertar, MainWindow.conexion);
+            try
+            {
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            MessageBox.Show("Datos guardados correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+            cargardatoslisbox();
+            lbLibros.SelectedItem = lbLibros.Items.Count - 1;
+            lbLibros.Focus();
+            cambiaventana(true);
+            limpiartextbox();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            limpiartextbox();
+            llenaCombo("generos");
+            llenaCombo("autor");
+            llenaCombo("editorial");
+            llenaCombo("librerias");
+            cargardatoslisbox();
+            cambiaventana(true);
+        }
+
+        private void LbLibros_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbLibros.SelectedIndex > -1)
+            {
+                filas = tabla.Rows[lbLibros.SelectedIndex];
+
+                tbCodigo.Text = filas["codigolibro"].ToString();
+                tbTitulo.Text = filas["titulo"].ToString();
+                dpFechaImpresion.Text = filas["fechaimpresion"].ToString();
+                tbObservacion.Text = filas["observacion"].ToString();
+                tbISBN.Text = filas["isbn"].ToString();
+                tbEditorial.Text = filas["codigoeditorial"].ToString();
+                tbGenero.Text = filas["codigogenero"].ToString();
+                tbLibreria.Text = filas["codigoLibreria"].ToString();
+                tbAutor.Text = filas["codigoautor"].ToString();
+                dpFechaImpresion.Text = filas["fechaimpresion"].ToString();
+
+                cbAutor.Text = ponernombre("Autor", "codigoautor", tbAutor.Text);
+                cbEditorial.Text = ponernombre("Editorial", "codigoeditorial", tbEditorial.Text);
+                cbGenero.Text = ponernombre("Generos", "codigo", tbGenero.Text);
+                cbLibreria.Text = ponernombre("Librerias", "codigo", tbLibreria.Text);
+            }
         }
     }
 }
