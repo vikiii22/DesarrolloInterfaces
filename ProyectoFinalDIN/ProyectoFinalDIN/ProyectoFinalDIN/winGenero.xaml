@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinalDIN"
         mc:Ignorable="d"
-        Title="winGenero" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Mantenimiento de Generos de los Libros" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -41,12 +41,12 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <UniformGrid x:Name="uGridNuevoModificarEliminar" Grid.Row="0" Columns="3" Background="#FF8B7DE8" Margin="7">
+                <UniformGrid x:Name="uGridNuevoModificarEliminar" Grid.Row="0" Columns="3" Background="#FFE89C7D" Margin="7">
                     <Button x:Name="btNuevo" Margin="10" Content="Nuevo" Click="BtNuevo_Click"/>
                     <Button x:Name="btModificar" Margin="10" Content="Modificar" Click="BtModificar_Click"/>
                     <Button x:Name="btEliminar" Margin="10" Content="Eliminar" Click="BtEliminar_Click"/>
                 </UniformGrid>
-                <UniformGrid Columns="3" Grid.Row="1" Background="#FFE87D7D" Margin="7">
+                <UniformGrid Columns="3" Grid.Row="1" Background="#FF7D92E8" Margin="7">
                     <Button x:Name="btGuardar" Margin="1" Content="Guardar" Click="BtGuardar_Click"/>
                     <Button x:Name="btActualizar" Margin="1" Content="Actualizar" Click="BtActualizar_Click"/>
                     <Button x:Name="btCancelar" Margin="1" Content="Cancelar" Click="btCancelar_Click"/>

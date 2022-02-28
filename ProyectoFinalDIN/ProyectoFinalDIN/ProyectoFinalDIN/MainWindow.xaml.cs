@@ -88,5 +88,16 @@ namespace ProyectoFinalDIN
             winAutor ventanaAutor = new winAutor();
             ventanaAutor.ShowDialog();
         }
+
+        private void Btn_AcercaDe_Click(object sender, RoutedEventArgs e)
+        {
+            acercaDe ventanaAcercaDe = new acercaDe();
+            ventanaAcercaDe.ShowDialog();
+        }
+
+        private void Btn_Salir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

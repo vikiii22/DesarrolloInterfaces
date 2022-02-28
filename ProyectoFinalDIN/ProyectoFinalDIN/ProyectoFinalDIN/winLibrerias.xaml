@@ -48,12 +48,12 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <UniformGrid x:Name="uGridNuevoModificarEliminar" Grid.Row="0" Columns="3" Background="#FF8B7DE8" Margin="7">
+                <UniformGrid x:Name="uGridNuevoModificarEliminar" Grid.Row="0" Columns="3" Background="#FFE8A07D" Margin="7">
                     <Button x:Name="btNuevo" Margin="10" Content="Nuevo" Click="BtNuevo_Click"/>
                     <Button x:Name="btModificar" Margin="10" Content="Modificar" Click="BtModificar_Click"/>
                     <Button x:Name="btEliminar" Margin="10" Content="Eliminar" Click="BtEliminar_Click"/>
                 </UniformGrid>
-                <UniformGrid Columns="3" Grid.Row="1" Background="#FFE87D7D" Margin="7">
+                <UniformGrid Columns="3" Grid.Row="1" Background="#FF7DA5E8" Margin="7">
                     <Button x:Name="btGuardar" Margin="1" Content="Guardar" Click="BtGuardar_Click"/>
                     <Button x:Name="btActualizar" Margin="1" Content="Actualizar" Click="BtActualizar_Click"/>
                     <Button x:Name="btCancelar" Margin="1" Content="Cancelar" Click="btCancelar_Click"/>

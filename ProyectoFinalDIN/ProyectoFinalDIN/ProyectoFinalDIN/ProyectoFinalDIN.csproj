@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="acercaDe.xaml.cs">
+      <DependentUpon>acercaDe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winAutor.xaml.cs">
       <DependentUpon>winAutor.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,10 @@
     <Compile Include="winLibros.xaml.cs">
       <DependentUpon>winLibros.xaml</DependentUpon>
     </Compile>
+    <Page Include="acercaDe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -159,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="libros.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo-starbucks.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
