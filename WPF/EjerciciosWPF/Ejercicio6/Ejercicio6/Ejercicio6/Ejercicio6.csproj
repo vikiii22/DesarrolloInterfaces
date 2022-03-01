@@ -61,6 +61,9 @@
     <Compile Include="vtSecundaria.xaml.cs">
       <DependentUpon>vtSecundaria.xaml</DependentUpon>
     </Compile>
+    <Compile Include="winAcercaDe.xaml.cs">
+      <DependentUpon>winAcercaDe.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,6 +83,10 @@
     <Page Include="vtSecundaria.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="winAcercaDe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo-starbucks.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

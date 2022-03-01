@@ -38,5 +38,11 @@ namespace Ejercicio6
             IsEnabled = false;
             miventana.Show();
         }
+
+        private void BtAcercaDe_Click(object sender, RoutedEventArgs e)
+        {
+            winAcercaDe ventanaAcercaDe = new winAcercaDe();
+            ventanaAcercaDe.ShowDialog();
+        }
     }
 }

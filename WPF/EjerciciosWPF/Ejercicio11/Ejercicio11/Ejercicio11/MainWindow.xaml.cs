@@ -59,5 +59,16 @@ namespace Ejercicio11
                 MessageBox.Show("Selecciona una editorial");
             }
         }
+
+        private void BtSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void BtAcercaDe_Click(object sender, RoutedEventArgs e)
+        {
+            winAcercaDe ventanaAcercaDe = new winAcercaDe();
+            ventanaAcercaDe.ShowDialog();
+        }
     }
 }

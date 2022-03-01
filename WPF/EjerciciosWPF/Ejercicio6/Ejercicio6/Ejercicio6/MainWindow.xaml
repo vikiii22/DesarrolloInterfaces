@@ -14,5 +14,6 @@
             <Button x:Name="btSecundariaBloqueas" Content="Sevundaria y bloquear" Height="50" FontWeight="Bold" FontSize="18" Click="BtSecundariaBloqueas_Click"/>
 
         </StackPanel>
+        <Button x:Name="btAcercaDe" Content="Acerca De" HorizontalAlignment="Left" Margin="646,338,0,0" VerticalAlignment="Top" Width="103" Height="50" Click="BtAcercaDe_Click"/>
     </Grid>
 </Window>

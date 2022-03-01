@@ -17,8 +17,8 @@
 
         </DataGrid>
         <Button x:Name="btMostrarLibros" Content="Mostrar Libros" HorizontalAlignment="Left" Margin="343,143,0,0" VerticalAlignment="Top" Width="100" Click="BtMostrarLibros_Click"/>
-        <Button Content="Acerca de" HorizontalAlignment="Left" Margin="654,391,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Content="Salir" HorizontalAlignment="Left" Margin="525,391,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btAcercaDe" Content="Acerca de" HorizontalAlignment="Left" Margin="654,391,0,0" VerticalAlignment="Top" Width="100" Click="BtAcercaDe_Click"/>
+        <Button x:Name="btSalir" Content="Salir" HorizontalAlignment="Left" Margin="525,391,0,0" VerticalAlignment="Top" Width="100" Click="BtSalir_Click"/>
         <Label x:Name="laTotal" Content="" HorizontalAlignment="Left" Margin="23,384,0,0" VerticalAlignment="Top" Width="359"/>
     </Grid>
 </Window>
