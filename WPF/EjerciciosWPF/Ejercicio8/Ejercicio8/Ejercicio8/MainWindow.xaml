@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:Ejercicio8"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FF491E49">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -19,6 +22,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lbNombre" Content="Nombre" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" FontFamily="Arial" FontSize="16"/>
+        <Label Grid.Column="0" Content="Nombre" HorizontalAlignment="Left" Margin="142,21,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+        <Label Grid.Column="0" Content="Apellidos" HorizontalAlignment="Left" Margin="137,21,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <Label Grid.Column="0" Content="Nombre de usuario" HorizontalAlignment="Left" Margin="82,21,0,0" Grid.Row="3" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="tbNombre" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="30" Margin="10,24,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="500"/>
+        <TextBox x:Name="tbApellido" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="30" Margin="10,21,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="500"/>
+        <TextBox x:Name="tbNombreUsuario" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="30" Margin="10,21,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="500"/>
+        <Button Content="Aceptar" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="200" Height="40"/>
+        <Label Content="Registro de usuario" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" Foreground="White" />
+        <Label Content="{Binding Text, ElementName=tbNombre, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
     </Grid>
 </Window>
